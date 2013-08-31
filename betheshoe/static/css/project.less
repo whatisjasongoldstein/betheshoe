@@ -12,10 +12,21 @@ body {
     position: relative;
 }
 
+.island {
+    width:98%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
 .nameplate {
     text-align: center;
     margin: 50% auto 10% auto;
     font-family: @condensed;
+    a {
+        color:inherit;
+        text-decoration: none;
+    }
     h1 {
         font-size: 3em;
         margin: 0;
@@ -61,6 +72,24 @@ img {max-width: 100%; display: block;}
         text-align: center;
         max-width: 80%;
     }
+    .button-set {
+        font-family: @condensed;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: 100;
+        margin: 2em 0;
+        a {
+            color:white;
+            display: inline-block;
+            padding: 0.05em 0;
+            margin: 0 0.5em;
+            text-decoration: none;
+            border-bottom: 0.1em solid rgba(255,255,255,.5);
+            &:hover {
+                border-bottom-color:white;
+            }
+        }
+    }
 }
 
 .shade {
@@ -80,5 +109,37 @@ img {max-width: 100%; display: block;}
         bottom: 0;
         width: 100%;
         padding-bottom: 1em;
+    }
+}
+
+.tagline-banner {
+    background: black;
+    color:white;
+    margin: 0 0 1em 0;
+    text-align: center;
+    font-weight: 600;
+    padding: 1em;
+}
+
+.footer {
+    color: #666;
+    text-align: center;
+    border-top: 1px solid darken(@bgColor, 10%);
+    margin: 1em 0;
+    p {
+        margin: 0.5em;
+    }
+    .copyright {
+        font-size: 0.8em;
+        margin: 1em 0;
+    }
+    .social {
+        font-size: 1.5em;
+        a {
+            display: inline-block;
+            margin: 0 0.5em;
+        }
+        a, a:visited {color:black;}
+
     }
 }

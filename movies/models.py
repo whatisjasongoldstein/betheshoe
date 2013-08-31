@@ -19,15 +19,15 @@ class Movie(models.Model):
 
     def get_bragging_rights(self):
         rights = []
-        festivals = self.show_set.filter(event_type="festival")
+        festivals = self.show_set.filter(event_type="festival").prefetch_related("awards")
         for festival in festivals:
-            if festival.award_set.count():
-                nominations = festival.award_set.filter(status=0).values_list("title", flat=True)
+            if festival.awards.count():
+                nominations = festival.awards.filter(status=0).values_list("title", flat=True)
                 if nominations:
                     right = "Nominated for {} at the {}".format(", ".join(nominations), festival.title)
                     rights.append(right)
 
-                wins = festival.award_set.filter(status=1).values_list("title", flat=True)
+                wins = festival.awards.filter(status=1).values_list("title", flat=True)
                 if wins:
                     right = "Winner {} at the {}".format(", ".join(nominations), festival.title)
                     rights.append(right)
@@ -73,7 +73,7 @@ class Award(models.Model):
     title = models.CharField(max_length=255)
     status = models.IntegerField(choices=LEVELS)
     movie = models.ForeignKey(Movie)
-    event = models.ForeignKey(Show, blank=True, null=True)
+    event = models.ForeignKey(Show, blank=True, null=True, related_name='awards')
 
     def __unicode__(self):
         return self.title
