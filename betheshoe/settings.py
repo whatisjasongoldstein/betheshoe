@@ -193,6 +193,8 @@ INSTALLED_APPS = (
     'avatar',
 
     'betheshoe',
+    'movies',
+    'staff',
 
 )
 
