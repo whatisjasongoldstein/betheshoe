@@ -1,0 +1,35 @@
+{% extends "bts/base.html" %}
+{% load socialaccount staticfiles %}
+
+{% block content %}
+<div class="splash-intro">
+
+    <hgroup class="logo">
+        <h1>Be The Shoe Productions</h1>
+    </hgroup>
+
+    <h1>Loss For Words</h1>
+    <p>And yes, we're making another movie.</p>
+</div>
+
+<div class="splash-presenting">
+    <hgroup>
+        <h2>Now Presenting</h2>
+        <h1>Loss For Words</h1>
+    </hgroup>
+
+    <button>See The Trailer</button>
+    <button>Watch The Movie</button>
+
+</div>
+
+    {% comment %}
+    <a href="{% provider_login_url "facebook" method="js_sdk" %}">Facebook Connect</a>
+
+        
+    {{ user.first_name }} {{ user.last_name }}
+
+    {% providers_media_js %}
+    {% endcomment %}
+    
+{% endblock content %}

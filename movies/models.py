@@ -26,6 +26,9 @@ class Show(models.Model):
     )
 
     title = models.CharField(max_length=255, default="")
+    date = models.DateField(blank=True, null=True)
+    time = models.TimeField(blank=True, null=True)
+    slug = models.SlugField()
     summary = models.TextField(verbose_name="Description", blank=True, null=True)
     event_type = models.CharField(max_length=255, verbose_name="Type", choices=TYPES)
     city = models.CharField(max_length=255, default="")
@@ -36,8 +39,11 @@ class Show(models.Model):
 
     movie = models.ForeignKey(Movie)
 
+    def __unicode__(self):
+        return "{} ({})".format(self.title, self.movie.title)
 
-class Awards(models.Model):
+
+class Award(models.Model):
     LEVELS = (
         (0, "Nominated"),
         (1, "Winner"),
