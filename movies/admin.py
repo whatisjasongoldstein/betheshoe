@@ -19,6 +19,7 @@ class MovieAdmin(admin.ModelAdmin):
 
 class AwardAdmin(admin.ModelAdmin):
     model = Award
+    list_display = ["title", "event", "get_status_display"]
 
 class ShowAdmin(admin.ModelAdmin):
     model = Show

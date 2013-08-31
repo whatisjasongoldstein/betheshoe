@@ -8,6 +8,7 @@ class Movie(models.Model):
     length = models.IntegerField(default=0, blank=True, help_text="In minutes")
     synopsis = models.TextField(blank=True, default="")
     image = models.ImageField(upload_to="movies/", blank=True, default="")
+    poster = models.ImageField(upload_to="poster/", blank=True, default="")
     trailer_url = models.URLField(blank=True, default="")
     full_url = models.URLField(blank=True, default="")
     publish = models.BooleanField(default=True)
@@ -15,6 +16,27 @@ class Movie(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def get_bragging_rights(self):
+        rights = []
+        festivals = self.show_set.filter(event_type="festival")
+        for festival in festivals:
+            if festival.award_set.count():
+                nominations = festival.award_set.filter(status=0).values_list("title", flat=True)
+                if nominations:
+                    right = "Nominated for {} at the {}".format(", ".join(nominations), festival.title)
+                    rights.append(right)
+
+                wins = festival.award_set.filter(status=1).values_list("title", flat=True)
+                if wins:
+                    right = "Winner {} at the {}".format(", ".join(nominations), festival.title)
+                    rights.append(right)
+
+            else:
+                right = "Official selection {}".format(festival.title)
+                rights.append(right)
+        return rights
+
 
 
 class Show(models.Model):
@@ -52,3 +74,13 @@ class Award(models.Model):
     status = models.IntegerField(choices=LEVELS)
     movie = models.ForeignKey(Movie)
     event = models.ForeignKey(Show, blank=True, null=True)
+
+    def __unicode__(self):
+        return self.title
+
+    def get_bragging_rights(self):
+        txt = "{} {}".format(self.get_status_display(), self.title)
+        if self.event:
+            txt += " at {}".format(self.event.title)
+        return txt
+

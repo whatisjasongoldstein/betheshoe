@@ -1,27 +1,50 @@
 {% extends "bts/base.html" %}
-{% load socialaccount staticfiles %}
+{% load socialaccount staticfiles thumbnail %}
 
 {% block content %}
-<div class="splash-intro">
 
-    <hgroup class="logo">
-        <h1>Be The Shoe Productions</h1>
-    </hgroup>
+{% with promoted_movie as movie %}
+    
+<div class="splash-presenting" id="presenting">
+    <div class="shade">
+        <div class="wrap-inner">
+            <hgroup class="nameplate">
+                <h1>Be The Shoe Productions</h1>
+                <h3>Presents</h3>
+                <h2>{{ movie.title }}</h2>
+            </hgroup>
 
-    <h1>Loss For Words</h1>
-    <p>And yes, we're making another movie.</p>
+            <button>See The Trailer</button>
+            <button>Watch The Movie</button>
+    
+            <ul class="bragging-rights">
+                {% for right in movie.get_bragging_rights %}
+                    <li>{{ right }}</li>
+                {% endfor %}
+            </ul>
+    
+        </div>
+
+
+    </div>
 </div>
 
-<div class="splash-presenting">
-    <hgroup>
-        <h2>Now Presenting</h2>
-        <h1>Loss For Words</h1>
-    </hgroup>
+<style type="text/css">
+    #presenting {background-image: url("{% thumbnail movie.image 600x300 crop=",1" %}");}
+    @media (min-width: 1000px){
+        #presenting {background-image: url("{% thumbnail movie.image 1000x500 crop=",1" %}");}
+    }
+    @media (min-width: 1200px){
+        #presenting {background-image: url("{% thumbnail movie.image 1200x600 crop=",1" %}");}
+    }
+    @media (min-width: 1600px){
+        #presenting {background-image: url("{% thumbnail movie.image 1600x800 crop=",1" %}");}
+    }
 
-    <button>See The Trailer</button>
-    <button>Watch The Movie</button>
+</style>
 
-</div>
+
+{% endwith %}
 
     {% comment %}
     <a href="{% provider_login_url "facebook" method="js_sdk" %}">Facebook Connect</a>

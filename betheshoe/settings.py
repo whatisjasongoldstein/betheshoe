@@ -9,7 +9,7 @@ if 'runserver' in sys.argv:
 
 TEMPLATE_DEBUG = DEBUG
 
-PROJECT_DIR = Path(__file__).ancestor(3)
+PROJECT_DIR = Path(__file__).ancestor(2)
 
 ADMINS = (
     ('Jason Goldstein', 'jason@betheshoe.com'),
@@ -194,6 +194,7 @@ INSTALLED_APPS = (
     # 'allauth.socialaccount.providers.vimeo',
 
     'avatar',
+    'easy_thumbnails',
 
     'betheshoe',
     'movies',
