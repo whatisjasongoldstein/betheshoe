@@ -39,7 +39,10 @@ h1, h2, h3, h4, h5, h6, ul, ol, p {
     margin: 0 auto;
     position: relative;
     &.is-player {
-        max-width: 1440px;
+        max-width: 1200px;
+        @media (min-height: 960px){
+            max-width: 1440px;
+        }
     }
 }
 
