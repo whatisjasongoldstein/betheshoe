@@ -19,10 +19,10 @@
 
             <div class="button-set">
                 {% if movie.trailer_url %}
-                    <a href="#">See The Trailer</a>                
+                    <a href="{{ movie.get_absolute_url }}#trailer">See The Trailer</a>                
                 {% endif %}
                 {% if movie.full_url %} 
-                    <a href="#">Watch The Movie</a>
+                    <a href="{{ movie.get_absolute_url }}#watch">Watch The Movie</a>
                 {% endif %}
             </div>
 

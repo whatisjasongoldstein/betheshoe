@@ -51,20 +51,36 @@ class Movie(models.Model):
         festivals = self.show_set.filter(event_type="festival").prefetch_related("awards")
         for festival in festivals:
             if festival.awards.count():
-                nominations = festival.awards.filter(status=0).values_list("title", flat=True)
-                if nominations:
-                    right = "Nominated for {} at the {}".format(", ".join(nominations), festival.title)
-                    rights.append(right)
 
                 wins = festival.awards.filter(status=1).values_list("title", flat=True)
                 if wins:
-                    right = "Winner {} at the {}".format(", ".join(nominations), festival.title)
+                    right = "Won {} at the {}".format(", ".join(wins), festival.title)
+                    rights.append(right)
+
+                nominations = festival.awards.filter(status=0).values_list("title", flat=True)
+                if nominations:
+                    right = "Nominated for {} at the {}".format(", ".join(nominations), festival.title)
                     rights.append(right)
 
             else:
                 right = "Official selection {}".format(festival.title)
                 rights.append(right)
         return rights
+
+
+    def get_nonfestival_events(self):
+        shows = self.show_set.exclude(event_type="festival").order_by('-date')
+        notes = []
+        for show in shows:
+            txt = "{type} at {venue} in {city}, {state}".format(**{
+                    "type": show.get_event_type_display(),
+                    "venue": show.venue,
+                    "city": show.city,
+                    "state": show.state,
+                })
+            notes.append(txt)
+        return notes
+
 
     @property
     def trailer_embed(self):
@@ -89,7 +105,7 @@ class Show(models.Model):
     TYPES = (
         ('premiere', 'Premiere'),
         ('festival', 'Film Festival'),
-        ('show', 'Show'),
+        ('show', 'Screening'),
     )
 
     title = models.CharField(max_length=255, default="")

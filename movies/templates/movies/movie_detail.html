@@ -6,15 +6,28 @@
 <div class="splash movie" id="presenting"></div>
 <div class="movie-overview">
 
+    <h1 class="title">
+        <div class="island">{{ movie.title }}</div>
+    </h1>
     <div class="island summary">
         <img class="poster" src="{% thumbnail movie.poster 300x675 %}">
-        <h1 class="title">{{ movie.title }}</h1>
         <p class="meta">
             <span class="data">{{ movie.year }} </span>
             <span class="data">{{ movie.length }} minutes</span>
             <span class="data">{{ movie.get_genre_display }}</span>
         </p>
         {{ movie.synopsis|markdown }}
+
+        <ul class="events">
+            {% for right in movie.get_bragging_rights %}
+                <li>{{ right }}</li>
+            {% endfor %}
+            {% for event in movie.get_nonfestival_events %}
+                <li>{{ event }}</li>
+            {% endfor %}
+        </ul>
+
+        <hr class="clear">
     </div>
 
 </div>
