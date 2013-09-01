@@ -1,0 +1,13 @@
+{% extends "bts/base.html" %}
+
+{% block bodyclass %}has-nav{% endblock bodyclass %}
+
+{% block navitems %}
+    <li><a href="#">Summary</a></li>
+    {% if movie.trailer_url %} 
+        <li><a href="#trailer">Trailer</a></li>
+    {% endif %}
+    {% if movie.full_url %} 
+        <li><a href="#watch">Watch</a></li>
+    {% endif %}
+{% endblock navitems %}

@@ -1,4 +1,29 @@
 from django.db import models
+from django.core.urlresolvers import reverse
+from scruffy_video.helpers import get_embed_src
+
+GENRES = (
+    ("action", "Action"),
+    ("adventure", "Adventure"),
+    ("comedy", "Comedy"),
+    ("crime", "Crime"),
+    ("documentary", "Documentary"),
+    ("drama", "Drama"),
+    ("family", "Family"),
+    ("fantasy", "Fantasy"),
+    ("film-noir", "Film-Noir"),
+    ("history", "History"),
+    ("horror", "Horror"),
+    ("music-video", "Music Video"),
+    ("musical", "Musical"),
+    ("mystery", "Mystery"),
+    ("news", "News"),
+    ("romance", "Romance"),
+    ("romantic-comedy", "Romantic Comedy"),
+    ("science Fiction", "Science Fiction"),
+    ("thriller", "Thriller"),
+    ("western", "Western"),
+)
 
 
 class Movie(models.Model):
@@ -13,9 +38,13 @@ class Movie(models.Model):
     full_url = models.URLField(blank=True, default="")
     publish = models.BooleanField(default=True)
     imdb = models.URLField(blank=True, default="")
+    genre = models.CharField(blank=True, default="", choices=GENRES, max_length=255)
 
     def __unicode__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse("movies.detail", args=[self.slug,])
 
     def get_bragging_rights(self):
         rights = []
@@ -36,6 +65,22 @@ class Movie(models.Model):
                 right = "Official selection {}".format(festival.title)
                 rights.append(right)
         return rights
+
+    @property
+    def trailer_embed(self):
+        return get_embed_src(self.trailer_url)
+
+    @property
+    def movie_embed(self):
+        return get_embed_src(self.full_url)
+
+    @property
+    def trailer_share_text(self):
+        return "The trailer for {} looks awesome!".format(self.title)
+
+    @property
+    def movie_share_text(self):
+        return "I just saw {}. It kind of rocked. Go watch it now!".format(self.title)
 
 
 

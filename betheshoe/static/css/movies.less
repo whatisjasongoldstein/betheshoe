@@ -1,0 +1,26 @@
+@import "variables.less";
+.video-panel {
+    padding: 1em 0;
+
+    h3 {
+        font-family: @condensed;
+        text-align: center;
+        letter-spacing: 0.2em;
+        font-weight: 300;
+        text-transform: uppercase;
+        padding-bottom: 0.5em;
+        margin: 0;
+        clear: both;
+        color: darken(@bgColor, 60%);
+        border-bottom: 1px solid darken(@bgColor, 15%);
+    }
+    
+    &.trailer {
+        background: darken(@bgColor, 10%);
+    }
+    &.full-movie {
+        background: #111;
+        h3 {color: darken(@bgColor, 33%); border-bottom-color: fade(@bgColor, 20%);}
+    }
+    
+}

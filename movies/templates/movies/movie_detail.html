@@ -1,0 +1,75 @@
+{% extends "movies/base.html" %}
+{% load markup thumbnail %}
+
+{% block content %}
+
+<div class="splash movie" id="presenting"></div>
+<div class="movie-overview">
+
+    <div class="island summary">
+        <img class="poster" src="{% thumbnail movie.poster 300x675 %}">
+        <h1 class="title">{{ movie.title }}</h1>
+        <p class="meta">
+            <span class="data">{{ movie.year }} </span>
+            <span class="data">{{ movie.length }} minutes</span>
+            <span class="data">{{ movie.get_genre_display }}</span>
+        </p>
+        {{ movie.synopsis|markdown }}
+    </div>
+
+</div>
+
+<style type="text/css">
+    #presenting {background-image: url("{% thumbnail movie.image 600x300 crop=",1" %}");}
+    @media (min-width: 1000px){
+        #presenting {background-image: url("{% thumbnail movie.image 1000x500 crop=",1" %}");}
+    }
+    @media (min-width: 1200px){
+        #presenting {background-image: url("{% thumbnail movie.image 1200x600 crop=",1" %}");}
+    }
+    @media (min-width: 1600px){
+        #presenting {background-image: url("{% thumbnail movie.image 1600x800 crop=",1" %}");}
+    }
+</style>
+
+{% if movie.trailer_url %}
+<div class="video-panel trailer" id="trailer">
+    <div class="island is-player">
+        <h3>Trailer</h3>
+        {% include "movies/includes/vimeo_player.html" with url=movie.trailer_embed %}
+
+        {% with movie.trailer_url as url %}
+        {% with movie.trailer_share_text as text %}
+        {% with movie.title as title %}
+        {% with movie.poster as image %}
+            {% include "social/share_buttons.html" %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+    </div>
+</div>
+{% endif %}
+
+{% if movie.full_url %} 
+<div class="video-panel full-movie" id="watch">
+    <div class="island is-player">
+        <h3>Watch <i>{{ movie.title }}</i></h3>
+        {% include "movies/includes/vimeo_player.html" with url=movie.movie_embed %}
+        {% with movie.full_url as url %}
+        {% with movie.movie_share_text as text %}
+        {% with movie.title as title %}
+        {% with movie.poster as image %}
+        {% with "dark" as classes %}
+            {% include "social/share_buttons.html" %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock content %}

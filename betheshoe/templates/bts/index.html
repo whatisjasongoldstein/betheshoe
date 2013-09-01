@@ -1,12 +1,15 @@
 {% extends "bts/base.html" %}
-{% load socialaccount staticfiles thumbnail %}
+{% load socialaccount thumbnail %}
+
+{% block nav %}{% endblock nav %}
+{% block bodyclass %}no-nav{% endblock bodyclass %}
 
 {% block content %}
 
 {% with promoted_movie as movie %}
     
-<div class="splash-presenting" id="presenting">
-    <div class="shade">
+<div class="splash presenting" id="presenting">
+    <div class="shade color">
         <div class="wrap-inner">
             <hgroup class="nameplate">
                 <h1>Be The Shoe Productions</h1>
@@ -34,7 +37,6 @@
 <h2 class="tagline-banner">
     We&rsquo;re movie people. We&rsquo;ve been making original features and short films since 2002.
 </h2>
-
 <style type="text/css">
     #presenting {background-image: url("{% thumbnail movie.image 600x300 crop=",1" %}");}
     @media (min-width: 1000px){

@@ -46,6 +46,7 @@ TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
+SITE_URL = "http://betheshoe.com"
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -164,6 +165,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     "allauth.account.context_processors.account",
     "allauth.socialaccount.context_processors.socialaccount",
+    "betheshoe.context_processors.current_site_url",
  )
 
 COMPRESS_PRECOMPILERS = (
@@ -204,6 +206,7 @@ INSTALLED_APPS = (
     'avatar',
     'easy_thumbnails',
     'debug_toolbar',
+    'markup_deprecated',
 
     'betheshoe',
     'movies',
