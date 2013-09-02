@@ -1,6 +1,5 @@
 import json
 from django import template
-from django.template.defaultfilters import escapejs
 register = template.Library()
 
 @register.simple_tag

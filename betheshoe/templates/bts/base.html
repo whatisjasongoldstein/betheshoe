@@ -1,4 +1,4 @@
-{% load compress %}
+{% load compress movie_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +31,31 @@
             <li><a id="dropdown-btn" href="/" class="icon-reorder"></a></li>
             {% block navitems %}{% endblock navitems %}
         </ul>
+        <section class="dropdown">
+            <div class="column">
+                <h4><a href="/">Home</a></h4>
+            </div>
+            <div class="column">
+                {% get_movies as all_movies %}
+                <h4>Movies</h4>
+                <ul>
+                    {% for movie in all_movies %}
+                    <li><a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="column">
+                <h4>Blog</h4>
+                <ul>
+                    <li><a href="#">Latest Blog post</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h4><a href="#">Musician Friends</a></h4>
+                <h4><a href="#">Cast &amp; Crew</a></h4>
+                <h4><a href="#">Press Coverage</a></h4>
+            </div>
+        </section>
     </nav>
     {% endblock nav %}
 
