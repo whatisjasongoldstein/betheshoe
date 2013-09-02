@@ -33,7 +33,9 @@
             <span class="data">{{ movie.length }} minutes</span>
             <span class="data">{{ movie.get_genre_display }}</span>
         </p>
-        {{ movie.synopsis|markdown }}
+        <section class="synopsis">
+            {{ movie.synopsis|markdown }}
+        </section>
 
         <ul class="events">
             {% for right in movie.get_bragging_rights %}
