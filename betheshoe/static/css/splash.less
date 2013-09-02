@@ -1,26 +1,59 @@
 @import "variables.less";
 
 .splash {
-    height: 0;
-    padding-bottom: 50%;
     color:white;
     background: black;
-    background-position: top center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    overflow: hidden;
     position: relative;
     z-index: 100;
+    padding: 1em;
+    overflow: hidden;
+    /*padding-bottom:45%;*/
 
-    @media (max-width: 1024px){ padding-bottom: 60%; }
-    @media (max-width: 900px){ padding-bottom: 75%; }
+    //@media (max-width: 1024px){ padding-bottom: 60%; }
+/*    @media (max-width: 900px){ padding-bottom: 75%; }
     @media (max-width: 700px){ padding-bottom: 90%; }
     @media (max-width: 600px){ padding-bottom: 120%; }
+*/
+
+    .art {
+        position: absolute;
+        top: 0; left:0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        margin: 0;
+
+        img {
+            width: 100%;
+        }
+
+        &.shade:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            z-index: 50;
+            background: linear-gradient(
+                145deg,  
+                saturate(fade(@blue, 60%), 10%) 0%,
+                saturate(fade(spin(@blue, -120%), 60%), 10%) 100%);
+        }
+    }
+
+    .wrap-text {
+
+    }
+
 
     .nameplate {
         text-align: center;
-        margin: 50% auto 10% auto;
+        margin: 1em auto;
         font-family: @condensed;
+        position: relative;
+        z-index: 50;
         a {
             color:inherit;
             text-decoration: none;
@@ -52,11 +85,6 @@
         }
     }
 
-    .contents {
-        position: relative;
-        z-index: 100;
-    }
-
     .bragging-rights {
         font-family: @condensed;
         font-weight: 300;
@@ -65,6 +93,9 @@
         list-style-type: none;
         text-align: center;
         max-width: 80%;
+        z-index: 50;
+        position: relative;
+
         @media (max-width: 650px){
             max-width: 98%;
         }
@@ -75,6 +106,9 @@
         font-size: 1.5em;
         font-weight: 100;
         margin: 2em 0;
+        z-index: 50;
+        position: relative;
+
         a {
             color:white;
             display: inline-block;
@@ -88,31 +122,3 @@
         }
     }
 }
-
-
-.shade {
-    position: absolute;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    z-index: 50;
-
-    &.color {
-        background: linear-gradient(
-            145deg,  
-            saturate(fade(@blue, 60%), 10%) 0%,
-            saturate(fade(spin(@blue, -120%), 60%), 10%) 100%);
-    }
-    &.black {
-        background: rgba(0,0,0,.75);
-    }
-
-    .wrap-inner {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        padding-bottom: 1em;
-    }
-}
-

@@ -8,48 +8,44 @@
 
 {% with promoted_movie as movie %}
     
-<div class="splash presenting" id="presenting">
-    <div class="shade color">
-        <div class="wrap-inner">
-            <hgroup class="nameplate">
-                <h1>Be The Shoe Productions</h1>
-                <h3>Presents</h3>
-                <h2><a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a></h2>
-            </hgroup>
+<div class="splash presenting">
+    <div class="wrap-type">
+        <hgroup class="nameplate">
+            <h1>Be The Shoe Productions</h1>
+            <h3>Presents</h3>
+            <h2><a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a></h2>
+        </hgroup>
 
-            <div class="button-set">
-                {% if movie.trailer_url %}
-                    <a href="{{ movie.get_absolute_url }}#trailer">See The Trailer</a>                
-                {% endif %}
-                {% if movie.full_url %} 
-                    <a href="{{ movie.get_absolute_url }}#watch">Watch The Movie</a>
-                {% endif %}
-            </div>
-
-            <ul class="bragging-rights">
-                {% for right in movie.get_bragging_rights %}
-                    <li>{{ right }}</li>
-                {% endfor %}
-            </ul>
+        <div class="button-set">
+            {% if movie.trailer_url %}
+                <a href="{{ movie.get_absolute_url }}#trailer">See The Trailer</a>                
+            {% endif %}
+            {% if movie.full_url %} 
+                <a href="{{ movie.get_absolute_url }}#watch">Watch The Movie</a>
+            {% endif %}
         </div>
+
+        <ul class="bragging-rights">
+            {% for right in movie.get_bragging_rights %}
+                <li>{{ right }}</li>
+            {% endfor %}
+        </ul>
     </div>
+
+    {% thumbnail movie.image 600x300 crop=",1" as small_art %}
+    {% thumbnail movie.image 1000x500 crop=",1" as medium_art %}
+    {% thumbnail movie.image 1200x600 crop=",1" as large_art %}
+    {% thumbnail movie.image 1600x800 crop=",1" as massive_art %}
+    {% load responsive_tags %}
+
+    <figure class="art shade" id="presenting">
+        <img data-img-sizes={% image_sizes 0=small_art 900=medium_art 1200=large_art 1500=massive_art %} src="{% thumbnail movie.image 600x300 crop=",1" %}">
+    </figure>
 </div>
 <h2 class="tagline-banner">
     We&rsquo;re movie people. We&rsquo;ve been making original features and short films since 2002.
 </h2>
-<style type="text/css">
-    #presenting {background-image: url("{% thumbnail movie.image 600x300 crop=",1" %}");}
-    @media (min-width: 1000px){
-        #presenting {background-image: url("{% thumbnail movie.image 1000x500 crop=",1" %}");}
-    }
-    @media (min-width: 1200px){
-        #presenting {background-image: url("{% thumbnail movie.image 1200x600 crop=",1" %}");}
-    }
-    @media (min-width: 1600px){
-        #presenting {background-image: url("{% thumbnail movie.image 1600x800 crop=",1" %}");}
-    }
 
-</style>
 
 
 {% endwith %}
