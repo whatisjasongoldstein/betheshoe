@@ -4,13 +4,15 @@
 {% block content %}
 
 <div class="splash movie">
-    {% thumbnail movie.image 600x360 crop=",1" as small_art %}
-    {% thumbnail movie.image 1000x600 crop=",1" as medium_art %}
-    {% thumbnail movie.image 1200x720 crop=",1" as large_art %}
-    {% thumbnail movie.image 1600x960 crop=",1" as massive_art %}
-    <figure class="art" id="presenting">
-        <img data-img-sizes={% image_sizes 1=small_art 900=medium_art 1200=large_art 1500=massive_art %}>
-    </figure>
+    {% if movie.image %} 
+        {% thumbnail movie.image 600x360 crop=",1" as small_art %}
+        {% thumbnail movie.image 1000x600 crop=",1" as medium_art %}
+        {% thumbnail movie.image 1200x720 crop=",1" as large_art %}
+        {% thumbnail movie.image 1600x960 crop=",1" as massive_art %}
+        <figure class="art" id="presenting">
+            <img data-img-sizes={% image_sizes 1=small_art 900=medium_art 1200=large_art 1500=massive_art %}>
+        </figure>
+    {% endif %}
 </div>
 <div class="movie-overview">
     <h1 class="title">
@@ -18,11 +20,13 @@
     </h1>
     <div class="island summary">
 
-        {% thumbnail movie.poster 100x300 as tiny_poster %}
-        {% thumbnail movie.poster 200x600 as small_poster %}
-        {% thumbnail movie.poster 300x900 as medium_poster %}
-        {% thumbnail movie.poster 400x1200 as big_poster %}
-        <img class="poster" data-img-sizes={% image_sizes 100=tiny_poster 200=small_poster 300=medium_poster 400=big_poster %}>
+        {% if movie.poster %} 
+            {% thumbnail movie.poster 100x300 as tiny_poster %}
+            {% thumbnail movie.poster 200x600 as small_poster %}
+            {% thumbnail movie.poster 300x900 as medium_poster %}
+            {% thumbnail movie.poster 400x1200 as big_poster %}
+            <img class="poster" data-img-sizes={% image_sizes 100=tiny_poster 200=small_poster 300=medium_poster 400=big_poster %}>
+        {% endif %}
         
         <p class="meta">
             <span class="data">{{ movie.year }} </span>
