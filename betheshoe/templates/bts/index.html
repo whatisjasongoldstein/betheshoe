@@ -1,5 +1,5 @@
 {% extends "bts/base.html" %}
-{% load socialaccount thumbnail %}
+{% load socialaccount thumbnail responsive_tags %}
 
 {% block nav %}{% endblock nav %}
 {% block bodyclass %}no-nav{% endblock bodyclass %}
@@ -13,7 +13,6 @@
     {% thumbnail movie.image 1000x600 crop=",1" as medium_art %}
     {% thumbnail movie.image 1200x720 crop=",1" as large_art %}
     {% thumbnail movie.image 1600x960 crop=",1" as massive_art %}
-    {% load responsive_tags %}
 
     <figure class="art shade" id="presenting">
         <img data-img-sizes={% image_sizes 1=small_art 900=medium_art 1200=large_art 1500=massive_art %}>
