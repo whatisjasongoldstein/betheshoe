@@ -208,6 +208,8 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'markup_deprecated',
 
+    'responsive_bits',
+
     'betheshoe',
     'movies',
     'staff',
