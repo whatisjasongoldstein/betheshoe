@@ -82,12 +82,21 @@ img {max-width: 100%; display: block;}
         letter-spacing: 0.1em;
         font-family: @condensed;
 
+        @media (max-width: 600px){
+            font-size: 0.8em;
+            line-height: 2.1em;
+        }
+
         a {
             display: inline-block;
             padding: 0.5em 2.5em;
             @media (max-width: 800px){
                 padding: 0.25em 1em;
             }
+            @media (max-width: 800px){
+                padding: 0.25em 0.5em;
+            }
+
         }
         a#dropdown-btn {
             position: relative;
