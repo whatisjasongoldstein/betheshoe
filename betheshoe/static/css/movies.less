@@ -1,4 +1,4 @@
-@import "variables.sass";
+@import "variables.less";
 
 .movie-overview {
     background: white;
@@ -6,7 +6,7 @@
     z-index: 200;
 
     .title {
-         font-family: $condensed;
+         font-family: @condensed;
         font-weight: 100;
         padding: 0.25em 1%;
         margin: 0;
@@ -54,7 +54,7 @@
     padding: 1em 0;
 
     h3 {
-        font-family: $condensed;
+        font-family: @condensed;
         text-align: center;
         letter-spacing: 0.2em;
         font-weight: 300;
@@ -62,16 +62,16 @@
         padding-bottom: 0.5em;
         margin: 0;
         clear: both;
-        color: darken($bgColor, 60%);
-        border-bottom: 1px solid darken($bgColor, 15%);
+        color: darken(@bgColor, 60%);
+        border-bottom: 1px solid darken(@bgColor, 15%);
     }
     
     &.trailer {
-        background: darken($bgColor, 10%);
+        background: darken(@bgColor, 10%);
     }
     &.full-movie {
         background: #111;
-        h3 {color: darken($bgColor, 33%); border-bottom-color: fade($bgColor, 20%);}
+        h3 {color: darken(@bgColor, 33%); border-bottom-color: fade(@bgColor, 20%);}
     }
     
 }
