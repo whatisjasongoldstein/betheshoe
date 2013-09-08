@@ -1,4 +1,4 @@
-@import "variables.less";
+@import "variables.sass";
 
 html, body {
     position: relative;
@@ -6,9 +6,9 @@ html, body {
     height: 100%;
 }
 body {
-    background: @bgColor;
+    background: $bgColor;
     margin: 0;
-    font-family: @sans;
+    font-family: $sans;
     position: relative;
     padding-top: 2.25em;
     font-size: 16px;
@@ -37,7 +37,7 @@ hr.clear {
     min-height: 100%;
     position: relative;
     @media(min-width: 1680px){
-        border: 1px solid darken(@hairline, 5%);
+        border: 1px solid darken($hairline, 5%);
         border-top: 0;
         border-bottom: 0;
     }
@@ -80,7 +80,7 @@ img {max-width: 100%; display: block;}
         float: left;
         text-transform: uppercase;
         letter-spacing: 0.1em;
-        font-family: @condensed;
+        font-family: $condensed;
 
         @media (max-width: 600px){
             font-size: 0.8em;
@@ -119,12 +119,12 @@ img {max-width: 100%; display: block;}
         max-width: 100%;
 
         left: -10em;
-        .transition(0.2s ease all);
+        @include transition(0.2s ease all);
         opacity: 0;
         &.active {
             left: 0;
             opacity: 1;
-            .transition(0.2s ease all);
+            @include transition(0.2s ease all);
         }
 
         @media (max-width: 800px){
@@ -137,7 +137,7 @@ img {max-width: 100%; display: block;}
                 font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: 0.1em;
-                font-family: @condensed;
+                font-family: $condensed;
                 margin: 0.333em 0;
                 line-height: 1em;
             }
@@ -158,7 +158,7 @@ img {max-width: 100%; display: block;}
     font-weight: 600;
     padding: 1em;
     @media (max-width: 975px){ font-size: 0.9em; }
-    @media (max-width: 700px){ font-family: @condensed; }
+    @media (max-width: 700px){ font-family: $condensed; }
     @media (max-width: 600px){ text-align: left; font-weight: 100; }
 }
 
@@ -175,7 +175,7 @@ img {max-width: 100%; display: block;}
         &.active:before {color:gold;}
     }
     &.dark a {
-        color: lighten(@blue, 33%);
+        color: lighten($blue, 33%);
     }
 }
 
@@ -184,7 +184,7 @@ img {max-width: 100%; display: block;}
 .footer {
     color: #666;
     text-align: center;
-    border-top: 1px solid @hairline;
+    border-top: 1px solid $hairline;
     margin: 0;
     padding-bottom: 0.5em;
     clear:both;

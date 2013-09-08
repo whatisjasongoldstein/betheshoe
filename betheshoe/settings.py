@@ -170,6 +170,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 COMPRESS_PRECOMPILERS = (
     ('text/less', 'lessc {infile} {outfile}'),
+    ('text/sass', 'sassc {infile}'),
 )
 
 COMPRESS_CSS_FILTERS = (

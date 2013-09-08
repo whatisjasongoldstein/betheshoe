@@ -1,0 +1,20 @@
+$blue: #1A3575;
+$bgColor: #f5f5f5;
+$hairline: darken($bgColor, 10%);
+
+$sans: "proxima-nova", "Proxima Nova", helvetica, arial, sans-serif;
+$condensed: "proxima-nova-condensed", "Proxima Nova Condensed", helvetica, sans-serif;
+
+
+@mixin transform($args){
+    -webkit-transform: $args;
+    -moz-transform: $args;
+    -ms-transform: $args;
+    transform: $args;
+}
+
+@mixin transition($args: 1s all linear){
+    -moz-transition: $args;
+    -webkit-transition: $args;
+    transition: $args;
+}
