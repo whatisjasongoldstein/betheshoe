@@ -1,0 +1,16 @@
+{% load thumbnail responsive_tags %}
+{% thumbnail object.image 150x100 crop=",1" as small_art %}
+{% thumbnail object.image 300x200 crop=",1" as medium_art %}
+{% thumbnail object.image 600x400 crop=",1" as large_art %}
+<div class="featured-thing {{ extra_classes }}"
+    data-img-sizes={% image_sizes 1=small_art.url 200=medium_art.url 400=large_art.url %}
+    data-as-bg="1">
+    <a href="{{ object.get_absolute_url }}">
+    <div class="wrap-label">
+        <div class="label">
+            <p class="meta">Be The Shoe Presents</p>
+            <h1>{{ object.title }} ({{ object.year }})</h1>
+        </div>
+    </div>
+    </a>
+</div>

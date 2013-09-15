@@ -15,7 +15,7 @@
     {% thumbnail movie.image 1600x960 crop=",1" as massive_art %}
 
     <figure class="art shade" id="presenting">
-        <img data-img-sizes={% image_sizes 1=small_art 900=medium_art 1200=large_art 1500=massive_art %}>
+        <img data-img-sizes={% image_sizes 1=small_art.url 900=medium_art.url 1200=large_art.url 1500=massive_art.url %}>
     </figure>
 
     <div class="wrap-type">
@@ -45,10 +45,22 @@
 <h2 class="tagline-banner">
     We&rsquo;re movie people. We&rsquo;ve been making original features and short films since 2002.
 </h2>
-
-
-
 {% endwith %}
+
+
+<div class="feature-board">
+    {% load featuring_tags %}
+    {% get_featured_dashboard 'betheshoe-homepage' as featured %}
+    {% spaceless %}
+        {% for thing in featured.things.all %}
+            {% cycle 'orange' 'cyan' 'red' 'lime' 'blue' 'yellow' 'green' 'coral' 'purple' as color silent %}
+            {% with color as extra_classes %}
+                {% render_featured_item thing %}
+            {% endwith %}
+        {% endfor %}
+    {% endspaceless %}
+</div>
+
 
     {% comment %}
     <a href="{% provider_login_url "facebook" method="js_sdk" %}">Facebook Connect</a>

@@ -10,7 +10,7 @@
         {% thumbnail movie.image 1200x720 crop=",1" as large_art %}
         {% thumbnail movie.image 1600x960 crop=",1" as massive_art %}
         <figure class="art" id="presenting">
-            <img data-img-sizes={% image_sizes 1=small_art 900=medium_art 1200=large_art 1500=massive_art %}>
+            <img data-img-sizes={% image_sizes 1=small_art.url 900=medium_art.url 1200=large_art.url 1500=massive_art.url %}>
         </figure>
     {% endif %}
 </div>
@@ -25,7 +25,7 @@
             {% thumbnail movie.poster 200x600 as small_poster %}
             {% thumbnail movie.poster 300x900 as medium_poster %}
             {% thumbnail movie.poster 400x1200 as big_poster %}
-            <img class="poster" data-img-sizes={% image_sizes 100=tiny_poster 200=small_poster 300=medium_poster 400=big_poster %}>
+            <img class="poster" data-img-sizes={% image_sizes 100=tiny_poster.url 200=small_poster.url 300=medium_poster.url 400=big_poster.url %}>
         {% endif %}
         
         <p class="meta">

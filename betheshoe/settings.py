@@ -207,8 +207,10 @@ INSTALLED_APPS = (
     'easy_thumbnails',
     'debug_toolbar',
     'markup_deprecated',
+    'genericadmin',
 
     'responsive_bits',
+    'django_featuring',
 
     'betheshoe',
     'movies',
@@ -226,6 +228,11 @@ CACHES = {
 }
 JOHNNY_MIDDLEWARE_KEY_PREFIX='jhnybeshoe'
 
+
+FEATURABLE_CONTENT_TYPES = (
+    'movies/movie',
+    'movies/show',
+)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
