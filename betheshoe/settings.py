@@ -199,7 +199,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.linkedin',
+    # 'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.twitter',
     # 'allauth.socialaccount.providers.vimeo',
 
@@ -211,6 +211,8 @@ INSTALLED_APPS = (
 
     'responsive_bits',
     'django_featuring',
+    'scruffy_blog',
+    'cropper',
 
     'betheshoe',
     'movies',
@@ -232,6 +234,7 @@ JOHNNY_MIDDLEWARE_KEY_PREFIX='jhnybeshoe'
 FEATURABLE_CONTENT_TYPES = (
     'movies/movie',
     'movies/show',
+    'scruffy_blog/post',
 )
 
 # A sample logging configuration. The only tangible logging
