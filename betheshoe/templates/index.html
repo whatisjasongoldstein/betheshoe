@@ -1,4 +1,4 @@
-{% extends "bts/base.html" %}
+{% extends "base.html" %}
 {% load socialaccount thumbnail responsive_tags movie_tags %}
 
 {% block nav %}{% endblock nav %}
@@ -61,14 +61,4 @@
     {% endspaceless %}
 </div>
 
-
-    {% comment %}
-    <a href="{% provider_login_url "facebook" method="js_sdk" %}">Facebook Connect</a>
-
-        
-    {{ user.first_name }} {{ user.last_name }}
-
-    {% providers_media_js %}
-    {% endcomment %}
-    
 {% endblock content %}

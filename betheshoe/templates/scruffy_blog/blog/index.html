@@ -1,0 +1,50 @@
+{% extends base_template %}
+{% load thumbnail markup %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="rss/">
+{% endblock extrahead %}
+
+{% block content %}
+    {% if topic %} 
+    <div class="island">
+        <h2 class="topic-title">{{ topic.name }}</h2>    
+    </div>
+    {% endif %}
+
+    {% if not posts %} 
+        <p class="no-posts island">Nothing here yet.</h3>
+    {% endif %}
+
+    <div class="island">
+        {% for post in posts %}
+        <div class="blog-post listing">
+            {% if post.get_lead_art %}
+            <a class="art" href="{{ post.get_absolute_url }}" style="background-image:url({% thumbnail post.get_lead_art 300x300 crop=",9" %});"></a>
+            {% endif %}
+            <div class="wrap">
+                <a href="{{ post.get_absolute_url }}">
+                    <h2>{{ post.title }}</h2>
+                    {% if post.subtitle %}<h3>{{ post.subtitle }}</h3>{% endif %}
+                </a>
+                <p class="meta">{{ post.date }}</p>
+                <p>{{ post.cached_text|truncatewords:"50" }} <a href="{{ post.get_absolute_url }}">continue.</a></p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    {% if posts.has_next or posts.has_previous %} 
+    <div class="paginator">
+        {% if posts.has_previous %} 
+            <a href="?page={{ posts.previous_page_number }}"><span class="icon-chevron-left"></span></a>
+        {% endif %}
+        <span>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
+        {% if posts.has_next %} 
+            <a href="?page={{ posts.next_page_number }}"><span class="icon-chevron-right"></span></a>
+        {% endif %}
+    </div>
+    {% endif %}
+
+{% endblock content %}

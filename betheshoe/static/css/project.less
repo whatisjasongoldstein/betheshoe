@@ -6,7 +6,7 @@ html, body {
     height: 100%;
 }
 body {
-    background: @bgColor;
+    background: white;
     margin: 0;
     font-family: @sans;
     position: relative;
@@ -32,9 +32,9 @@ hr.clear {
 }
 
 .outer-island {
+    background: @bgColor;
     max-width: 1680px;
     margin: 0 auto;
-    min-height: 100%;
     position: relative;
     @media(min-width: 1680px){
         border: 1px solid darken(@hairline, 5%);
@@ -56,7 +56,7 @@ hr.clear {
     }
 }
 
-img {max-width: 100%; display: block;}
+img {display: block;}
 
 .nav {
     background: black;
@@ -65,6 +65,7 @@ img {max-width: 100%; display: block;}
     top: 0;
     z-index: 500;
     width: 100%;
+    min-height: 2.5em;
 
     ul.nav-items {
         padding: 0; list-style-type: none;

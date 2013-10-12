@@ -28,6 +28,8 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
+if 'test' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -92,8 +94,10 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'django.contrib.staticfiles.finders.DefaultStorageFinder',
     'compressor.finders.CompressorFinder',
+    'djangobower.finders.BowerFinder',
 )
 
+BOWER_COMPONENTS_ROOT = PROJECT_DIR.child('bower')
 
 
 # Make this unique, and don't share it with anybody.
@@ -193,6 +197,9 @@ INSTALLED_APPS = (
 
     'south',
     'compressor',
+    'djangobower',
+
+    'betheshoe', # Templates preempt allauth's
 
     'allauth',
     'allauth.account',
@@ -208,17 +215,29 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'markup_deprecated',
     'genericadmin',
+    'django_nose',
+    'typogrify',
 
     'responsive_bits',
     'django_featuring',
     'scruffy_blog',
     'cropper',
 
-    'betheshoe',
     'movies',
-    'staff',
-
 )
+if 'test' not in sys.argv:
+    INSTALLED_APPS += (
+            'south',
+        )
+
+BOWER_INSTALLED_APPS = (
+    'jquery#1.10',
+    'underscore',
+    'underscore.string',
+    'jcrop',
+)
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 
 CACHES = {

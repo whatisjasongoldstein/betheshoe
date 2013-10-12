@@ -19,6 +19,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/blogging/', include('scruffy_blog.urls.writing')),
+    url(r'^admin/crop/', include('cropper.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^blog/', include('scruffy_blog.urls.blog')),

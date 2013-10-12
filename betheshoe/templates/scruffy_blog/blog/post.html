@@ -1,0 +1,37 @@
+{% extends base_template %}
+{% load thumbnail markup responsive_tags typogrify_tags %}
+
+{% block content %}
+<div class="wrap-blog">
+    <div class="post-head">
+        <hgroup>
+            <h1>{{ post.title|typogrify }}</h1>
+            {% if post.subtitle %}<h2>{{ post.subtitle|typogrify }}</h2>{% endif %}
+            <p class="byline">
+                {{ post.author }}
+                {% if post.author and post.date %} &bull; {% endif %}
+                {{ post.date }}
+            </p>
+        </hgroup>
+        {% if post.image and not post.is_thumbnail %} 
+            {% thumbnail post.cropped_image 600x450 crop=",9" as small_art %}
+            {% thumbnail post.cropped_image 800x600 crop=",9" as medium_art %}
+            {% thumbnail post.cropped_image 1200x900 crop=",9" as large_art %}
+            {% thumbnail post.cropped_image 2000x1500 crop=",9" as massive_art %}
+            <img class="post-art" data-img-sizes={% image_sizes 1=small_art.url 800=medium_art.url 1200=large_art.url 2000=massive_art.url %} src="{{ small_art }}">
+        {% endif %}
+    </div>
+
+    <div class="post-body">
+        {% for element in post.get_elements %}
+            {{ element.render }}
+        {% endfor %}
+
+        <ul class="topics">
+            {% for topic in post.topics.all %}
+                <li><a href="{{ topic.get_absolute_url }}">{{ topic.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock content %}
