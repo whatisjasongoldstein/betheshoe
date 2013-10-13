@@ -7,12 +7,13 @@ from django.conf.urls.static import static
 from django.contrib import admin
 admin.autodiscover()
 
-from .views import Index
+from .views import Index, Privacy
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'betheshoe.views.home', name='home'),
     url(r'^$', Index.as_view(), name='index'),
+    url(r'^privacy/$', Privacy.as_view(), name='privacy'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

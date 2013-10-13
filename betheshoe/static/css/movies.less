@@ -70,7 +70,7 @@
         background: darken(@bgColor, 10%);
     }
     &.full-movie {
-        background: #111;
+        background: #111; color:white;
         h3 {color: darken(@bgColor, 33%); border-bottom-color: fade(@bgColor, 20%);}
     }
     
@@ -89,5 +89,19 @@
     li {
         margin: 0;
         line-height: 1.333em;
+    }
+}
+
+.please-login {
+    text-align: center; padding: 2em 0;
+    h1 {font-size: 2em; font-family: @condensed; font-weight: 100;}
+    a {color:white;}
+    .options {
+        margin: 3em 0; list-style-type: none; padding: 0; text-align: center;
+        li {list-style-type: none; display: inline-block; background: white;
+            padding: 0.5em 1em; border-radius: 0.5em; margin: 0.5em;
+            font-weight: 600;
+        }
+        a {text-decoration: none; color: @blue;}
     }
 }

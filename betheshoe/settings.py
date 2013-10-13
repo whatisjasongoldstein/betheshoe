@@ -150,13 +150,15 @@ SOCIALACCOUNT_AUTO_SIGNUP = True
 # SOCIALACCOUNT_AVATAR_SUPPORT = True
 SOCIALACCOUNT_EMAIL_REQUIRED = True
 SOCIALACCOUNT_PROVIDERS = { 
-    'facebook': { 'SCOPE': ['email', 'publish_stream'],
+    'facebook': { 'SCOPE': ['email',],
           'AUTH_PARAMS': { 'auth_type': 'reauthenticate' },
           'METHOD': 'oauth2' ,
           'LOCALE_FUNC': lambda request: 'en_US'}, 
 }
 
 LOGIN_REDIRECT_URL = "/"
+ACCOUNT_LOGOUT_ON_GET = True
+
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
@@ -206,14 +208,14 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
-    # 'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.twitter',
+    # 'allauth.socialaccount.providers.linkedin',
     # 'allauth.socialaccount.providers.vimeo',
 
     'avatar',
     'easy_thumbnails',
     'debug_toolbar',
-    'markup_deprecated',
+    'markdown_deux',
     'genericadmin',
     'django_nose',
     'typogrify',
@@ -252,7 +254,6 @@ JOHNNY_MIDDLEWARE_KEY_PREFIX='jhnybeshoe'
 
 FEATURABLE_CONTENT_TYPES = (
     'movies/movie',
-    'movies/show',
     'scruffy_blog/post',
 )
 
@@ -284,3 +285,13 @@ LOGGING = {
         },
     }
 }
+
+
+EMAIL_HOST=os.environ['BETHESHOE_EMAIL_HOST']
+EMAIL_HOST_USER=os.environ['BETHESHOE_EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD=os.environ['BETHESHOE_EMAIL_HOST_PASSWORD']
+EMAIL_PORT=587
+DEFAULT_FROM_EMAIL = os.environ['BETHESHOE_DEFAULT_FROM_EMAIL']
+SERVER_EMAIL = os.environ['BETHESHOE_SERVER_EMAIL']
+EMAIL_USE_TLS=True
+

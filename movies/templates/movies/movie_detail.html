@@ -1,5 +1,5 @@
 {% extends "movies/base.html" %}
-{% load markup thumbnail responsive_tags %}
+{% load markdown_deux_tags thumbnail responsive_tags scruffy_blog_tags %}
 
 {% block navitems %}
     <li><a href="#">Summary</a></li>
@@ -35,7 +35,7 @@
             {% thumbnail movie.poster 200x600 as small_poster %}
             {% thumbnail movie.poster 300x900 as medium_poster %}
             {% thumbnail movie.poster 400x1200 as big_poster %}
-            <img class="poster" data-img-sizes={% image_sizes 100=tiny_poster.url 200=small_poster.url 300=medium_poster.url 400=big_poster.url %}>
+            <img class="poster" data-img-sizes={% image_sizes 1=tiny_poster.url 150=small_poster.url 300=medium_poster.url 400=big_poster.url %}>
         {% endif %}
         
         <p class="meta">
@@ -84,21 +84,31 @@
 <div class="video-panel full-movie" id="watch">
     <div class="island is-player">
         <h3>Watch <i>{{ movie.title }}</i></h3>
-        {% include "movies/includes/vimeo_player.html" with url=movie.movie_embed %}
-        {% with movie.full_url as url %}
-        {% with movie.movie_share_text as text %}
-        {% with movie.title as title %}
-        {% with movie.poster as image %}
-        {% with "dark" as classes %}
-            {% include "social/share_buttons.html" %}
-        {% endwith %}
-        {% endwith %}
-        {% endwith %}
-        {% endwith %}
-        {% endwith %}
+        {% if user.is_authenticated or request.GET.opt_out %} 
+            {% include "movies/includes/vimeo_player.html" with url=movie.movie_embed %}
+            {% with movie.full_url as url %}
+            {% with movie.movie_share_text as text %}
+            {% with movie.title as title %}
+            {% with movie.poster as image %}
+            {% with "dark" as classes %}
+                {% include "social/share_buttons.html" %}
+            {% endwith %}
+            {% endwith %}
+            {% endwith %}
+            {% endwith %}
+            {% endwith %}
+        {% else %}
+            {% with "We’re very excited to show you our movie! Can you sign in first?" as text %}
+            {% with '#watch' as hash %}
+                {% include "includes/login_request.html" %}
+            {% endwith %}
+            {% endwith %}
+        {% endif %}
     </div>
 </div>
 {% endif %}
+
+
 
 
 {% endblock content %}

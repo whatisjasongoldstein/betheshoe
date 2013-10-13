@@ -8,3 +8,6 @@ class Index(TemplateView):
         context = super(Index, self).get_context_data(**kwargs)
         context['promoted_movie'] = Movie.objects.filter(publish=True, image__gt="").latest('year')
         return context
+
+class Privacy(TemplateView):
+    template_name = "privacy.html"

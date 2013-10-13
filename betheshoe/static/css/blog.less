@@ -214,11 +214,15 @@
     padding: 1em; border: 1px solid @hairline;
 
     a {color:black; text-decoration: none;}
-    img {float:left; margin: 0 1em 1em 0; position: relative; top: -0.5em;}
-    h4 {font-size: 2.5em; font-weight: 300; font-family: @condensed; text-transform: uppercase; margin: 0.5em;}
+    img {float:left; margin: 0 1em 1em 0; position: relative; }
+    h4 {font-size: 2.5em; font-weight: 300; font-family: @condensed; text-transform: uppercase; margin: 0; line-height: 1em;}
     ul {
         padding: 0; margin: 1em 0; list-style-type: none;
         line-height: 1.333em; font-size: 0.8em;
         li {list-style-type: none; margin: 0;}
+    }
+    @media (max-width: 500px){
+        border-left: 0; border-right: 0; border-bottom: 0;
+        padding: 1em 1em 0 1em;
     }
 }

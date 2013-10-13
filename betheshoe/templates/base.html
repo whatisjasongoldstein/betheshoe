@@ -1,4 +1,4 @@
-{% load compress movie_tags scruffy_blog_tags %}
+{% load compress movie_tags scruffy_blog_tags account %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,6 +75,9 @@
                 <a title="Follow us on Twitter&ndash;although we don't say much" href="http://twitter.com/betheshoe/" class="icon-twitter"></a>
             </p>
             <p class="copyright">&copy; Be The Shoe Productions {% now "Y" %}.</p>
+            {% if user.is_authenticated %} 
+                <p class="user"><a href="{% url 'account_logout' %}?next={{ request.path }}">Sign out</a> of {% user_display user %}</p>
+            {% endif %}
         </footer>
     </div>
 
