@@ -1,6 +1,16 @@
 {% extends "movies/base.html" %}
 {% load markup thumbnail responsive_tags %}
 
+{% block navitems %}
+    <li><a href="#">Summary</a></li>
+    {% if movie.trailer_url %} 
+        <li><a href="#trailer">Trailer</a></li>
+    {% endif %}
+    {% if movie.full_url %} 
+        <li><a href="#watch">Watch</a></li>
+    {% endif %}
+{% endblock navitems %}
+
 {% block content %}
 
 <div class="splash movie">

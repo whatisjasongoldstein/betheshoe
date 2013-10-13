@@ -1,5 +1,5 @@
 {% extends base_template %}
-{% load thumbnail markup responsive_tags typogrify_tags %}
+{% load thumbnail markup responsive_tags typogrify_tags scruffy_blog_tags movie_tags %}
 
 {% block content %}
 <div class="wrap-blog">
@@ -32,6 +32,26 @@
                 <li><a href="{{ topic.get_absolute_url }}">{{ topic.name }}</a></li>
             {% endfor %}
         </ul>
+    </div>
+
+    <div class="next-suggestion">
+        {% get_related_movie post.cached_text as movie %}
+        {% if movie %}
+            <a href="{{ movie.get_absolute_url }}">
+                <img src="{% thumbnail movie.poster 100x200 %}">
+                <h4>{{ movie.title }}</h4>
+                {% if movie.get_bragging_rights %}
+                    <ul>
+                        {% for right in movie.get_bragging_rights %}
+                            <li>{{ right }}</li>
+                        {% endfor %}
+                    </ul> 
+                {% else %}
+                    <p>{{ movie.synopsis|truncatewords:"50" }}</p>                
+                {% endif %}
+            </a>
+            
+        {% endif %}
     </div>
 </div>
 {% endblock content %}

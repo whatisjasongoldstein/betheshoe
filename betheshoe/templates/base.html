@@ -1,4 +1,4 @@
-{% load compress movie_tags %}
+{% load compress movie_tags scruffy_blog_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,8 +48,11 @@
             </div>
             <div class="column">
                 <h4><a href="{% url 'blog.index' %}">Blog</a></h4>
+                {% get_latest_posts count=3 as blog_posts %}
                 <ul>
-                    <li><a href="#">Latest Blog post</a></li>
+                    {% for post in blog_posts %}
+                        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="column">
