@@ -1,5 +1,5 @@
 {% extends base_template %}
-{% load thumbnail markup %}
+{% load thumbnail markup responsive_tags typogrify_tags %}
 
 {% block extrahead %}
     {{ block.super }}
@@ -17,21 +17,30 @@
         <p class="no-posts island">Nothing here yet.</h3>
     {% endif %}
 
-    <div class="island">
+    <div class="island blog-index">
         {% for post in posts %}
-        <div class="blog-post listing">
-            {% if post.get_lead_art %}
-            <a class="art" href="{{ post.get_absolute_url }}" style="background-image:url({% thumbnail post.get_lead_art 300x300 crop=",9" %});"></a>
-            {% endif %}
-            <div class="wrap">
-                <a href="{{ post.get_absolute_url }}">
-                    <h2>{{ post.title }}</h2>
-                    {% if post.subtitle %}<h3>{{ post.subtitle }}</h3>{% endif %}
-                </a>
-                <p class="meta">{{ post.date }}</p>
-                <p>{{ post.cached_text|truncatewords:"50" }} <a href="{{ post.get_absolute_url }}">continue.</a></p>
+        {% with post.get_lead_art as art %}                
+            <div class="entry {% if forloop.first and posts.number == 1 %}featured{% else %}{% cycle "small" "big" "big" "small" "full" %}{% endif %} {% if art %}has_art{% else %}no_art{% endif %} {% cycle "odd" "even" %}">
+                {% if art %}
+                    {% thumbnail art 200x150 crop=",9" as small_art %}
+                    {% thumbnail art 300x200 crop=",9" as medium_art %}
+                    {% thumbnail art 500x375 crop=",9" as large_art %}
+                    {% thumbnail art 1000x750 crop=",9" as massive_art %}
+                    <a href="{{ post.get_absolute_url }}">
+                        <img class="post-art" data-img-sizes={% image_sizes 1=small_art.url 200=medium_art.url 400=large_art.url 700=massive_art.url %} src="">
+                    </a>
+                {% endif %}
+
+                <div class="wrap">
+                    <a href="{{ post.get_absolute_url }}">
+                        <h2>{{ post.title|typogrify }}</h2>
+                        {% if post.subtitle %}<h3>{{ post.subtitle }}</h3>{% endif %}
+                    </a>
+                    <p>{{ post.cached_text|truncatewords:"30" }}</p>
+                    <p class="meta">{{ post.date }}</p>
+                </div>
             </div>
-        </div>
+        {% endwith %}
         {% endfor %}
     </div>
 
