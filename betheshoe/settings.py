@@ -209,8 +209,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.twitter',
-    # 'allauth.socialaccount.providers.linkedin',
-    # 'allauth.socialaccount.providers.vimeo',
+    'allauth.socialaccount.providers.persona',
 
     'avatar',
     'easy_thumbnails',

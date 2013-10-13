@@ -17,7 +17,12 @@
         <li>
             <a href="{% provider_login_url "google" %}?next={{ request.path }}{{ hash }}"><b class="icon-google-plus-sign"></b> Google</a>
         </li>
+        <li>
+            <a href="{% provider_login_url "persona" %}"><b class="icon-user"></b> Email (Persona)</a>
+        </li>
         <li> <a href="?opt_out=1{{ hash }}">I'll opt out, thanks!</a> </li>
     </ul>
 
 </div>
+
+{% providers_media_js %}
