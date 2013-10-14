@@ -75,9 +75,14 @@
                 <a title="Follow us on Twitter&ndash;although we don't say much" href="http://twitter.com/betheshoe/" class="icon-twitter"></a>
             </p>
             <p class="copyright">&copy; Be The Shoe Productions {% now "Y" %}.</p>
+            
             {% if user.is_authenticated %} 
-                <p class="user"><a href="{% url 'account_logout' %}?next={{ request.path }}">Sign out</a> of {% user_display user %}</p>
+                <p class="user">
+                    Hello, {% user_display user %}
+                    &bull; <a href="#">Preferences</a>
+                    &bull; <a href="{% url 'account_logout' %}?next={{ request.path }}">Sign out</a></p>
             {% endif %}
+
         </footer>
     </div>
 

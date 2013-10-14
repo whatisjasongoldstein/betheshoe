@@ -1,10 +1,10 @@
-{% load socialaccount %}
+{% load socialaccount markdown_deux_tags %}
 <div class="please-login">
     <h1>{{ text }}</h1>
     <p class="context">
         Why, you ask? We're trying to keep in touch with our viewers a little better.
         And yes, we promise to not a abuse it.
-        <a href="{% url 'privacy' %}">Learn more</a>.
+        <a data-open-id="#login-faq" href="{% url 'privacy' %}">Learn more</a>.
     </p>
 
     <ul class="options">
@@ -22,6 +22,12 @@
         </li>
         <li> <a href="?opt_out=1{{ hash }}">I'll opt out, thanks!</a> </li>
     </ul>
+
+    <div class="learn-more" id="login-faq">
+    {% markdown %}
+{% include "md/login-faq.md" %}
+    {% endmarkdown %}
+    </div>
 
 </div>
 

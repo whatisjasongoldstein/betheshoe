@@ -1,6 +1,10 @@
 {% extends base_template %}
 {% load thumbnail markdown_deux_tags responsive_tags typogrify_tags scruffy_blog_tags movie_tags %}
 
+{% block navitems %}
+    <li><a href="../">All Posts</a></li>
+{% endblock navitems %}
+
 {% block content %}
 <div class="wrap-blog">
     <div class="post-head">
