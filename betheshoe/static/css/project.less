@@ -114,11 +114,13 @@ img {display: block;}
         background: rgba(0,0,0,0.85);
         max-width: 100%;
         width: 10em;
-
         left: -10em;
         .transition(0.2s ease all);
         opacity: 0;
+        visibility: hidden;
+
         &.active {
+            visibility: visible;
             left: 0;
             opacity: 1;
             .transition(0.2s ease all);
