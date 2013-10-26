@@ -18,9 +18,9 @@
     <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/movies.less">
     <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/featured.less">
     <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/blog.less">
-    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}icons/less/font-awesome.less">
     <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/tooltip.less">
     {% endcompress %}
+    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}font-awesome/css/font-awesome.min.css">
 
 
     {% block extra_head %}{% endblock extra_head %}
@@ -30,7 +30,7 @@
     {% block nav %}
     <nav class="nav">
         <ul class="nav-items">
-            <li><a id="dropdown-btn" href="/" class="icon-reorder"></a></li>
+            <li><a id="dropdown-btn" href="/" class="fa fa-reorder"></a></li>
             {% block navitems %}{% endblock navitems %}
         </ul>
         <section class="dropdown">
@@ -69,10 +69,11 @@
 
         <footer class="footer">
             <p class="social">
-                <a title="Want to chat? Email us." href="mailto:hello@betheshoe.com" class="icon-envelope"></a>
-                <a title="Like the Shoe? Make it Facebook-official" href="https://www.facebook.com/betheshoe" class="icon-facebook-sign"></a>
-                <a title="Obviously we're on IMDB, too" href="http://www.imdb.com/company/co0276174/" class="icon-film"></a>
-                <a title="Follow us on Twitter&ndash;although we don't say much" href="http://twitter.com/betheshoe/" class="icon-twitter"></a>
+                <a title="Want to chat? Email us." href="mailto:hello@betheshoe.com" class="fa fa-envelope"></a>
+                <a title="Like the Shoe? Make it Facebook-official" href="https://www.facebook.com/betheshoe" class="fa fa-facebook-square"></a>
+                <a title="Obviously we're on IMDB, too" href="http://www.imdb.com/company/co0276174/" class="fa fa-film"></a>
+                <a title="Vimeo!" href="http://vimeo.com/betheshoe/" class="fa fa-vimeo-square"></a>
+                <a title="Follow us on Twitter&ndash;although we don't say much" href="http://twitter.com/betheshoe/" class="fa fa-twitter"></a>
             </p>
             <p class="copyright">&copy; Be The Shoe Productions {% now "Y" %}.</p>
             

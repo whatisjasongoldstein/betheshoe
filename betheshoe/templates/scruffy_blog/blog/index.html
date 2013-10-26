@@ -20,11 +20,11 @@
     {% if posts.has_previous %} 
     <div class="paginator">
         {% if posts.has_previous %} 
-            <a href="?page={{ posts.previous_page_number }}"><span class="icon-chevron-left"></span></a>
+            <a href="?page={{ posts.previous_page_number }}"><span class="fa fa-chevron-left"></span></a>
         {% endif %}
         <span>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
         {% if posts.has_next %} 
-            <a href="?page={{ posts.next_page_number }}"><span class="icon-chevron-right"></span></a>
+            <a href="?page={{ posts.next_page_number }}"><span class="fa fa-chevron-right"></span></a>
         {% endif %}
     </div>
     {% endif %}
@@ -59,11 +59,11 @@
     {% if posts.has_next or posts.has_previous %} 
     <div class="paginator">
         {% if posts.has_previous %} 
-            <a href="?page={{ posts.previous_page_number }}"><span class="icon-chevron-left"></span></a>
+            <a href="?page={{ posts.previous_page_number }}"><span class="fa fa-chevron-left"></span></a>
         {% endif %}
         <span>Page {{ posts.number }} of {{ posts.paginator.num_pages }}</span>
         {% if posts.has_next %} 
-            <a href="?page={{ posts.next_page_number }}"><span class="icon-chevron-right"></span></a>
+            <a href="?page={{ posts.next_page_number }}"><span class="fa fa-chevron-right"></span></a>
         {% endif %}
     </div>
     {% endif %}

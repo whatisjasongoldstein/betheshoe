@@ -9,16 +9,16 @@
 
     <ul class="options">
         <li>
-            <a href="{% provider_login_url "facebook" %}?next={{ request.path }}{{ hash }}"><b class="icon-facebook-sign"></b> Facebook</a>
+            <a href="{% provider_login_url "facebook" %}?next={{ request.path }}{{ hash }}"><b class="fa fa-facebook-square"></b> Facebook</a>
         </li>
         <li>
-            <a href="{% provider_login_url "twitter" %}?next={{ request.path }}{{ hash }}"><b class="icon-twitter-sign"></b> Twitter</a>
+            <a href="{% provider_login_url "twitter" %}?next={{ request.path }}{{ hash }}"><b class="fa fa-twitter-square"></b> Twitter</a>
         </li>
         <li>
-            <a href="{% provider_login_url "google" %}?next={{ request.path }}{{ hash }}"><b class="icon-google-plus-sign"></b> Google</a>
+            <a href="{% provider_login_url "google" %}?next={{ request.path }}{{ hash }}"><b class="fa fa-google-plus-square"></b> Google</a>
         </li>
         <li>
-            <a href="{% provider_login_url "persona" %}"><b class="icon-user"></b> Email (Persona)</a>
+            <a href="{% provider_login_url "persona" %}"><b class="fa fa-user"></b> Email (Persona)</a>
         </li>
         <li> <a href="?opt_out=1{{ hash }}">I'll opt out, thanks!</a> </li>
     </ul>

@@ -6,6 +6,7 @@ from unipath import Path
 DEBUG = False
 if 'runserver' in sys.argv:
     DEBUG = True
+    pass
 
 TEMPLATE_DEBUG = DEBUG
 
@@ -35,6 +36,7 @@ if 'test' in sys.argv:
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
     "betheshoe.com",
+    "127.0.0.1",
 ]
 
 # Local time zone for this installation. Choices can be found here:
@@ -186,7 +188,6 @@ COMPRESS_CSS_FILTERS = (
 COMPRESS_JS_FILTERS = ()  # Don't jack with anything, just combined them
 
 
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -236,6 +237,7 @@ BOWER_INSTALLED_APPS = (
     'underscore',
     'underscore.string',
     'jcrop',
+    'font-awesome#4.0.0',
 )
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
