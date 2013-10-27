@@ -1,28 +1,44 @@
-Django==1.5.2
-Markdown==2.3.1
-MySQL-python==1.2.4
-Pillow==2.1.0
--e git+git@github.com:whatisjasongoldstein/scruffy-video.git@master#egg=Scruffy_Video-dev
-South==0.8.2
-Unipath==1.0
+-e git+git@github.com:jmoiron/johnny-cache.git@017803e2d6c5995bf576103307adf4809eb5d519#egg=johnny_cache-dev
+-e git+git@github.com:whatisjasongoldstein/django-featuring.git@master#egg=Django_Featuring
+-e git+git@github.com:whatisjasongoldstein/django-responsive-bits.git@master#egg=django-responsive-bits
+-e git+git@github.com:whatisjasongoldstein/scruffy-blog.git@master#egg=Scruffy_Blog
+-e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@master#egg=Scruffy_Cropper
+-e git+git@github.com:whatisjasongoldstein/scruffy-video.git@master#egg=Scruffy_Video
+bleach==1.2.2
+cookiecutter==0.6.4
+debug==0.2.1
 django-allauth==0.12.0
 django-appconf==0.6
 django-avatar==1.0.5
+django-bower==4.8
 django-compressor==1.3
 django-debug-toolbar==0.9.4
-django-markup-deprecated==0.0.1
+django-genericadmin==0.4
+django-markdown-deux==1.0.4
 django-nose==1.2
-django-storages==1.1.8
+Django==1.5.2
+djangorestframework==2.3.7
 docutils==0.11
 easy-thumbnails==1.3
+html5lib==0.95
+huey==0.4.1
 ipython==1.0.0
 johnny-cache==1.4
+M2Crypto==0.21.1
+Markdown==2.3.1
+mock==1.0.1
+MySQL-python==1.2.4
 nose==1.3.0
 oauthlib==0.5.1
+Pillow==2.1.0
 python-memcached==1.53
 python-openid==2.2.5
-requests==1.2.3
+PyYAML==3.10
 requests-oauthlib==0.3.3
+requests==1.2.3
 six==1.3.0
+smartypants==1.8.2
+South==0.8.2
+typogrify==2.0.0
+Unipath==1.0
 wsgiref==0.1.2
--e git+git@github.com:whatisjasongoldstein/django-responsive-bits.git@master#egg=django-responsive-bits
