@@ -79,7 +79,7 @@
             
             {% if user.is_authenticated %} 
                 <p class="user">
-                    Hello, {% user_display user %}
+                    Hello, {{ user.email }}
                     &bull; <a href="#">Preferences</a>
                     &bull; <a href="{% url 'account_logout' %}?next={{ request.path }}">Sign out</a></p>
             {% endif %}

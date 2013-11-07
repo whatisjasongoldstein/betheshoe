@@ -18,10 +18,10 @@
             </p>
         </hgroup>
         {% if post.image and not post.is_thumbnail %} 
-            {% thumbnail post.cropped_image 600x450 crop=",9" as small_art %}
-            {% thumbnail post.cropped_image 800x600 crop=",9" as medium_art %}
-            {% thumbnail post.cropped_image 1200x900 crop=",9" as large_art %}
-            {% thumbnail post.cropped_image 2000x1500 crop=",9" as massive_art %}
+            {% thumbnail post.cropped_image 600x450 as small_art %}
+            {% thumbnail post.cropped_image 800x600 as medium_art %}
+            {% thumbnail post.cropped_image 1200x900 as large_art %}
+            {% thumbnail post.cropped_image 2000x1500 as massive_art %}
             <img class="post-art" data-img-sizes={% image_sizes 1=small_art.url 800=medium_art.url 1200=large_art.url 2000=massive_art.url %} src="{{ small_art }}">
         {% endif %}
     </div>
@@ -38,24 +38,25 @@
         </ul>
     </div>
 
+    {% get_related_movie post.cached_text as movie %}
+    {% if movie %}
     <div class="next-suggestion">
-        {% get_related_movie post.cached_text as movie %}
-        {% if movie %}
-            <a href="{{ movie.get_absolute_url }}">
-                <img src="{% thumbnail movie.poster 100x200 %}">
-                <h4>{{ movie.title }}</h4>
-                {% if movie.get_bragging_rights %}
-                    <ul>
-                        {% for right in movie.get_bragging_rights %}
-                            <li>{{ right }}</li>
-                        {% endfor %}
-                    </ul> 
-                {% else %}
-                    <p>{{ movie.synopsis|truncatewords:"50" }}</p>                
-                {% endif %}
-            </a>
-            
-        {% endif %}
+        <a href="{{ movie.get_absolute_url }}">
+            <img src="{% thumbnail movie.poster 100x200 %}">
+            <h4>{{ movie.title }}</h4>
+            {% if movie.get_bragging_rights %}
+                <ul>
+                    {% for right in movie.get_bragging_rights %}
+                        <li>{{ right }}</li>
+                    {% endfor %}
+                </ul> 
+            {% else %}
+                <p>{{ movie.synopsis|truncatewords:"50" }}</p>                
+            {% endif %}
+        </a>
+        
     </div>
+    {% endif %}
+
 </div>
 {% endblock content %}

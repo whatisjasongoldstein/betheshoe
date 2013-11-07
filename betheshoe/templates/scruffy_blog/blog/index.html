@@ -46,7 +46,7 @@
                 <div class="wrap">
                     <a href="{{ post.get_absolute_url }}">
                         <h2>{{ post.title|typogrify }}</h2>
-                        {% if post.subtitle %}<h3>{{ post.subtitle }}</h3>{% endif %}
+                        {% if post.subtitle %}<h3>{{ post.subtitle|typogrify }}</h3>{% endif %}
                     </a>
                     <p>{{ post.cached_text|truncatewords:"30" }}</p>
                     <p class="meta">{{ post.date }}</p>

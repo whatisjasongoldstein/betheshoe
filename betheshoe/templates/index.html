@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load socialaccount thumbnail responsive_tags movie_tags %}
+{% load socialaccount thumbnail responsive_tags movie_tags typogrify_tags %}
 
 {% block nav %}{% endblock nav %}
 {% block bodyclass %}no-nav{% endblock bodyclass %}
@@ -36,7 +36,7 @@
 
         <ul class="bragging-rights">
             {% for right in movie.get_bragging_rights %}
-                <li>{{ right }}</li>
+                <li>{{ right|typogrify }}</li>
             {% endfor %}
         </ul>
     </div>

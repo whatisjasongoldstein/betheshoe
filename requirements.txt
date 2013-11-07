@@ -2,7 +2,7 @@
 -e git+git@github.com:whatisjasongoldstein/django-featuring.git@master#egg=Django_Featuring
 -e git+git@github.com:whatisjasongoldstein/django-responsive-bits.git@master#egg=django-responsive-bits
 -e git+git@github.com:whatisjasongoldstein/scruffy-blog.git@master#egg=Scruffy_Blog
--e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@master#egg=Scruffy_Cropper
+-e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@class-based-views#egg=Scruffy_Cropper
 -e git+git@github.com:whatisjasongoldstein/scruffy-video.git@master#egg=Scruffy_Video
 bleach==1.2.2
 cookiecutter==0.6.4
