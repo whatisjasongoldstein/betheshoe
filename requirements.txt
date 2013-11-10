@@ -1,4 +1,4 @@
--e git+git@github.com:jmoiron/johnny-cache.git@017803e2d6c5995bf576103307adf4809eb5d519#egg=johnny_cache-dev
+-e git+git@github.com:whatisjasongoldstein/johnny-cache.git@master#egg=johnny_cache
 -e git+git@github.com:whatisjasongoldstein/django-featuring.git@master#egg=Django_Featuring
 -e git+git@github.com:whatisjasongoldstein/django-responsive-bits.git@master#egg=django-responsive-bits
 -e git+git@github.com:whatisjasongoldstein/scruffy-blog.git@master#egg=Scruffy_Blog
