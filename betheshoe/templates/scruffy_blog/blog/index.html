@@ -1,5 +1,5 @@
 {% extends base_template %}
-{% load thumbnail markdown_deux_tags responsive_tags typogrify_tags %}
+{% load thumbnail markdown_deux_tags responsive_tags %}
 
 {% block extrahead %}
     {{ block.super }}
@@ -37,7 +37,7 @@
                     {% thumbnail art 200x150 crop=",9" as small_art %}
                     {% thumbnail art 300x200 crop=",9" as medium_art %}
                     {% thumbnail art 500x375 crop=",9" as large_art %}
-                    {% thumbnail art 1000x750 crop=",9" as massive_art %}
+                    {% thumbnail art 1000x650 crop=",9" as massive_art %}
                     <a href="{{ post.get_absolute_url }}">
                         <img class="post-art" data-img-sizes={% image_sizes 1=small_art.url 200=medium_art.url 400=large_art.url 700=massive_art.url %} src="">
                     </a>
@@ -45,8 +45,8 @@
 
                 <div class="wrap">
                     <a href="{{ post.get_absolute_url }}">
-                        <h2>{{ post.title|typogrify }}</h2>
-                        {% if post.subtitle %}<h3>{{ post.subtitle|typogrify }}</h3>{% endif %}
+                        <h2>{{ post.title }}</h2>
+                        {% if post.subtitle %}<h3>{{ post.subtitle }}</h3>{% endif %}
                     </a>
                     <p>{{ post.cached_text|truncatewords:"30" }}</p>
                     <p class="meta">{{ post.date }}</p>

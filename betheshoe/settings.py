@@ -244,11 +244,15 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 
 CACHES = {
-    'default' : dict(
-        BACKEND = 'johnny.backends.memcached.MemcachedCache',
-        LOCATION = ['127.0.0.1:11211'],
-        JOHNNY_CACHE = True,
-    )
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    },
+    'johnny' : {
+        'BACKEND' : 'johnny.backends.memcached.MemcachedCache',
+        'LOCATION' : ['127.0.0.1:11211'],
+        'JOHNNY_CACHE' : True,
+    },
 }
 JOHNNY_MIDDLEWARE_KEY_PREFIX='jhnybeshoe'
 
