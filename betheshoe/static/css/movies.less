@@ -116,6 +116,9 @@
     position: relative;
     overflow: hidden;
     margin: 0 auto 4em auto;
+    @media (max-width: 600px){
+        margin-bottom: 1em;
+    }    
 
     a {
         color:white;
@@ -148,19 +151,30 @@
         position: relative;
         z-index: 120;
         color:white;
+        @media (max-width: 600px){
+            margin: 0 0 1em 0;
+        }
     }
     .poster {
         width:25%; max-width: 30em;
         float:right;
+        @media (max-width: 600px){
+            display: none;
+        }
     }
     .panel {
-        background: rgba(0,0,0,0.85);
+        background: rgba(0,0,0,0.9);
         padding: 1em;
         width: 60%;
         margin: 0 auto;
         &.has-poster {
             float: right;
             margin: 0;
+        }
+        @media (max-width: 600px){
+            float:none !important;
+            width: auto;
+            background: black;
         }
     }
     .synopsis {

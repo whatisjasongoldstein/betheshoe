@@ -7,13 +7,14 @@
     {% for movie in movies %}
         <article class="movie-listing island">
 
+            {% thumbnail movie.image 360x216 crop=",1" as mobile_art %}
             {% thumbnail movie.image 600x360 crop=",1" as small_art %}
             {% thumbnail movie.image 1000x600 crop=",1" as medium_art %}
             {% thumbnail movie.image 1200x720 crop=",1" as large_art %}
             {% thumbnail movie.image 1600x960 crop=",1" as massive_art %}
 
             <a href="{{ movie.get_absolute_url }}">
-                <img class="art" src="{{ small_art.url }}" data-img-sizes={% image_sizes 1=small_art.url 900=medium_art.url 1200=large_art.url 1500=massive_art.url %}>
+                <img class="art" src="{{ small_art.url }}" data-img-sizes={% image_sizes 1=mobile_art.url 500=small_art.url 900=medium_art.url 1200=large_art.url 1500=massive_art.url %}>
             </a>
 
             <div class="wrap-contents">
