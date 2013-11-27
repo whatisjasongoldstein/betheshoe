@@ -14,7 +14,7 @@
 {% block content %}
 
 <div class="splash movie">
-    {% if movie.image %} 
+    {% if movie.image %}
         {% thumbnail movie.image 600x360 crop=",1" as small_art %}
         {% thumbnail movie.image 1000x600 crop=",1" as medium_art %}
         {% thumbnail movie.image 1200x720 crop=",1" as large_art %}

@@ -10,13 +10,8 @@ body {
     margin: 0;
     font-family: @sans;
     position: relative;
-    padding-top: 2.25em;
     font-size: 16px;
     line-height: 1.6em;
-    &.no-nav {padding-top: 0;}
-    @media (max-width: 800px){
-        padding-top: 2em;
-    }
 }
 
 h1, h2, h3, h4, h5, h6, ul, ol, p {
@@ -37,6 +32,7 @@ hr.clear {
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    clear:both;
     @media(min-width: 1680px){
         border: 1px solid darken(@hairline, 5%);
         border-top: 0;
@@ -62,11 +58,12 @@ img {display: block;}
 .nav {
     background: black;
     color:white;
-    position: fixed;
     top: 0;
     z-index: 500;
     width: 100%;
-    min-height: 2.5em;
+    height: auto;
+    overflow: hidden;
+    position: relative;
 
     ul.nav-items {
         padding: 0; list-style-type: none;
@@ -87,64 +84,70 @@ img {display: block;}
         a {
             display: inline-block;
             padding: 0.5em 2.5em;
-            @media (max-width: 600px){
-                display: none;
-            }
         }
-        a#dropdown-btn {
-            position: relative;
-            top: 0.2em;
-            @media (max-width: 600px){
-                display: block;
-            }
-        }
-
     }
 
     a {color:#eee; text-decoration: none;}
     a:hover {color:#fff;}
     a:active {color:gold;}
+}
 
-    .dropdown {
-        clear:both;
-        position: fixed;
-        top: 2.5em;
-        height: 100%;
-        padding: 0.5em 2em 0 1em;
-        background: rgba(0,0,0,0.85);
-        max-width: 100%;
-        width: 10em;
-        left: -10em;
-        .transition(0.2s ease all);
-        opacity: 0;
-        visibility: hidden;
+.basement {
+    background: #050505;
+    padding: 0 1em 1em 1em;
+    margin: 0;
+    .simple-gradient(#222, #111);
+    box-shadow: inset 0 0 2em black;
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    color: #555;
+    text-shadow: 0 0px 1px #000;
+    display: none;
 
-        &.active {
-            visibility: visible;
-            left: 0;
-            opacity: 1;
-            .transition(0.2s ease all);
+    .wrap-columns {
+        max-width: 1680px;
+        width: 0 auto;
+    }
+
+    .fa { // Icons
+        margin-right: 0.75em;
+    }
+
+    a {
+        color:white;
+        &:active {color:gold;}
+        text-decoration: none;
+    }
+
+    h4 {
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        margin: 0.5em 0;
+        padding: 0.5em 0;
+        line-height: 1em;
+    }
+
+    .column {
+        width: 30%;
+        margin: 0 1%;
+        float:left;
+
+        @media (max-width: 580px){
+            float:none;
+            margin: 1em 1%;
+            width: auto;
         }
+    }
 
-        @media (max-width: 800px){
-            top:2em;
-        }
-
-        .column {
-            margin: 1em 0;
-            h4 {
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 0.1em;
-                font-family: @condensed;
-                margin: 0.333em 0;
-                line-height: 1em;
-            }
-            ul {list-style-type: none; margin: 0; padding: 0;
-                li {line-height: 1em; margin: 0.5em 0;}
-            }
-        }
-
+    ul {
+        margin: 0.5em 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    li {
+        margin: 0.25em 0;
+        padding: 0;
+        line-height: 1.2em;
     }
 
 }
@@ -154,7 +157,7 @@ img {display: block;}
 .tagline-banner {
     background: black;
     color:white;
-    margin: 0 0 1em 0;
+    margin: 0;
     text-align: center;
     font-weight: 600;
     padding: 1em;

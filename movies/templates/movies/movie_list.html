@@ -1,0 +1,59 @@
+{% extends "movies/base.html" %}
+{% load markdown_deux_tags thumbnail responsive_tags scruffy_blog_tags %}
+
+
+{% block content %}
+
+    {% for movie in movies %}
+        <article class="movie-listing island">
+
+            {% thumbnail movie.image 600x360 crop=",1" as small_art %}
+            {% thumbnail movie.image 1000x600 crop=",1" as medium_art %}
+            {% thumbnail movie.image 1200x720 crop=",1" as large_art %}
+            {% thumbnail movie.image 1600x960 crop=",1" as massive_art %}
+
+            <a href="{{ movie.get_absolute_url }}">
+                <img class="art" src="{{ small_art.url }}" data-img-sizes={% image_sizes 1=small_art.url 900=medium_art.url 1200=large_art.url 1500=massive_art.url %}>
+            </a>
+
+            <div class="wrap-contents">
+                <section class="panel {% if movie.poster %}has-poster{% endif %}">
+                    <h1>
+                        <a href="{{ movie.get_absolute_url }}">
+                            {{ movie.title }}
+                        </a>
+                    </h1>
+                    <p class="meta">
+                        {{ movie.year }}
+                        {% if movie.length %}
+                            {{ movie.length }} min
+                        {% endif %}
+                    </p>
+                    <section class="synopsis">
+                        {{ movie.synopsis|markdown }}
+                    </section>
+
+                    {% with movie.get_bragging_rights as bragging %}
+                    {% if bragging %}
+                        <p class="bragging-rights">
+                            {{ bragging|join:" &bull; " }}
+                        </p>
+                    {% endif %}
+                    {% endwith %}
+                </section>
+
+                {% if movie.poster %} 
+                    {% thumbnail movie.poster 100x300 as tiny_poster %}
+                    {% thumbnail movie.poster 200x600 as small_poster %}
+                    {% thumbnail movie.poster 300x900 as medium_poster %}
+                    {% thumbnail movie.poster 400x1200 as big_poster %}
+                    <a href="{{ movie.get_absolute_url }}">
+                        <img class="poster" data-img-sizes={% image_sizes 1=tiny_poster.url 150=small_poster.url 300=medium_poster.url 400=big_poster.url %}>
+                    </a>
+                {% endif %}
+            </div>
+
+        </article>
+    {% endfor %}
+
+{% endblock content %}

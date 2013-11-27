@@ -30,37 +30,50 @@
     {% block nav %}
     <nav class="nav">
         <ul class="nav-items">
-            <li><a id="dropdown-btn" href="/" class="fa fa-reorder"></a></li>
+            <li>
+                <a id="dropdown-btn" href="/">
+                    <b class="fa fa-reorder"></b>
+                </a>
+            </li>
             {% block navitems %}{% endblock navitems %}
         </ul>
-        <section class="dropdown">
+    </nav>
+    <nav class="basement">
+        <div class="wrap-columns">
             <div class="column">
                 <h4><a href="/">Home</a></h4>
-            </div>
-            <div class="column">
+
                 {% get_movies as all_movies %}
-                <h4>Movies</h4>
+                <h4><a href="#">Movies</a></h4></h4>
                 <ul>
                     {% for movie in all_movies %}
                     <li><a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
+
             <div class="column">
                 <h4><a href="{% url 'blog.index' %}">Blog</a></h4>
-                {% get_latest_posts count=3 as blog_posts %}
+                {% get_latest_posts count=all_movies|length as blog_posts %}
                 <ul>
                     {% for post in blog_posts %}
                         <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
+            
             <div class="column">
                 <h4><a href="#">Musician Friends</a></h4>
                 <h4><a href="#">Cast &amp; Crew</a></h4>
-                <h4><a href="#">Press Coverage</a></h4>
+                <h4>
+                <a title="Want to chat? Email us." href="mailto:hello@betheshoe.com" class="fa fa-envelope"></a>
+                <a title="Like the Shoe? Make it Facebook-official" href="https://www.facebook.com/betheshoe" class="fa fa-facebook-square"></a>
+                <a title="Obviously we're on IMDB, too" href="http://www.imdb.com/company/co0276174/" class="fa fa-film"></a>
+                <a title="Vimeo!" href="http://vimeo.com/betheshoe/" class="fa fa-vimeo-square"></a>
+                <a title="Follow us on Twitter&ndash;although we don't say much" href="http://twitter.com/betheshoe/" class="fa fa-twitter"></a>
+                </h4>
             </div>
-        </section>
+        </div>
     </nav>
     {% endblock nav %}
 

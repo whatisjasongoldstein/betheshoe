@@ -111,3 +111,69 @@
         h2 {margin: 1em 0 0 0;}
     }
 }
+
+.movie-listing {
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto 4em auto;
+
+    a {
+        color:white;
+        &:active {color:gold;}
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    h1 {
+        font-weight: 300;
+        font-size: 2em;
+        margin: 0;
+        font-family: @condensed;
+    }
+
+    .meta {
+        font-size: 0.75em;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .art {
+        display: block; width: 100%;
+        position: relative;
+        z-index: 100;
+    }
+    .wrap-contents {
+        max-width: 50em;
+        margin: -5em auto 2em auto;
+        position: relative;
+        z-index: 120;
+        color:white;
+    }
+    .poster {
+        width:25%; max-width: 30em;
+        float:right;
+    }
+    .panel {
+        background: rgba(0,0,0,0.85);
+        padding: 1em;
+        width: 60%;
+        margin: 0 auto;
+        &.has-poster {
+            float: right;
+            margin: 0;
+        }
+    }
+    .synopsis {
+        font-size: 0.85em;
+        line-height: 1.2em;
+    }
+
+    .bragging-rights {
+        border-top: 1px solid rgba(0,0,0,.25);
+        padding: 1em 0 0 0;
+        margin: 1em 0 0 0;
+        list-style-type: none;
+        font-size: 0.6em;
+        line-height: 1.25em;
+    }
+}
