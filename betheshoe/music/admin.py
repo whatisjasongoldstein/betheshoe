@@ -11,6 +11,7 @@ class MusicianAdmin(admin.ModelAdmin):
     list_editable = ["order",]
     inlines = [LinkInline,]
     filter_horizontal = ["movies",]
+    ordering = ["order",]
 
 admin.site.register(Musician, MusicianAdmin)
 admin.site.register(Link)

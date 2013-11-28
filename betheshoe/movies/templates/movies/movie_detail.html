@@ -99,7 +99,7 @@
             {% endwith %}
         {% else %}
             {% with "We’re very excited to show you our movie! Can you sign in first?" as text %}
-            {% with '#watch' as hash %}
+            {% with 'jump=watch' as query %}
                 {% include "includes/login_request.html" %}
             {% endwith %}
             {% endwith %}
