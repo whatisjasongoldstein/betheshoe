@@ -5,25 +5,35 @@
 {% block content %}
 
     {% for movie in movies %}
-        <article class="movie-listing island">
+        <article class="movie-listing">
 
-            {% thumbnail movie.image 360x216 crop=",1" as mobile_art %}
-            {% thumbnail movie.image 600x360 crop=",1" as small_art %}
-            {% thumbnail movie.image 1000x600 crop=",1" as medium_art %}
-            {% thumbnail movie.image 1200x720 crop=",1" as large_art %}
-            {% thumbnail movie.image 1600x960 crop=",1" as massive_art %}
+            {% thumbnail movie.image 360x180 crop=",1" as mobile_art %}
+            {% thumbnail movie.image 600x300 crop=",1" as small_art %}
+            {% thumbnail movie.image 1000x500 crop=",1" as medium_art %}
+            {% thumbnail movie.image 1200x600 crop=",1" as large_art %}
+            {% thumbnail movie.image 1600x800 crop=",1" as massive_art %}
 
             <a href="{{ movie.get_absolute_url }}">
                 <img class="art" src="{{ small_art.url }}" data-img-sizes={% image_sizes 1=mobile_art.url 500=small_art.url 900=medium_art.url 1200=large_art.url 1500=massive_art.url %}>
             </a>
 
+            {% if movie.poster %} 
+                {% thumbnail movie.poster 100x300 as tiny_poster %}
+                {% thumbnail movie.poster 200x600 as small_poster %}
+                {% thumbnail movie.poster 300x900 as medium_poster %}
+                {% thumbnail movie.poster 400x1200 as big_poster %}
+                <a href="{{ movie.get_absolute_url }}">
+                    <img class="poster" data-img-sizes={% image_sizes 1=tiny_poster.url 150=small_poster.url 300=medium_poster.url 400=big_poster.url %}>
+                </a>
+            {% endif %}
+
             <div class="wrap-contents">
-                <section class="panel {% if movie.poster %}has-poster{% endif %}">
-                    <h1>
-                        <a href="{{ movie.get_absolute_url }}">
-                            {{ movie.title }}
-                        </a>
-                    </h1>
+                <h1>
+                    <a href="{{ movie.get_absolute_url }}">
+                        {{ movie.title }}
+                    </a>
+                </h1>
+                <section class="panel">
                     <p class="meta">
                         {{ movie.year }}
                         {% if movie.length %}
@@ -43,15 +53,6 @@
                     {% endwith %}
                 </section>
 
-                {% if movie.poster %} 
-                    {% thumbnail movie.poster 100x300 as tiny_poster %}
-                    {% thumbnail movie.poster 200x600 as small_poster %}
-                    {% thumbnail movie.poster 300x900 as medium_poster %}
-                    {% thumbnail movie.poster 400x1200 as big_poster %}
-                    <a href="{{ movie.get_absolute_url }}">
-                        <img class="poster" data-img-sizes={% image_sizes 1=tiny_poster.url 150=small_poster.url 300=medium_poster.url 400=big_poster.url %}>
-                    </a>
-                {% endif %}
             </div>
 
         </article>
