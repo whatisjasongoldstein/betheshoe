@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load markdown_deux_tags thumbnail responsive_tags %}
+
+{% block content %}
+<article class="about-page">
+<section class="intro">
+{% markdown %}
+# Be The Shoe Music
+
+We've been teaming up with local musicians to build great soundtracks for our movies. You should listen.
+{% endmarkdown %}
+</section>
+
+<ul class="cards">
+    {% for band in bands %}
+        <li>
+            {% thumbnail band.image 100x100 crop=",9" as small_photo %}
+            {% thumbnail band.image 200x200 crop=",9" as medium_photo %}
+            {% thumbnail band.image 320x320 crop=",9" as full_photo %}
+            <img src="{% thumbnail band.image 200x200 crop=",9" %}"
+            data-img-sizes={% image_sizes 1=small_photo.url 150=medium_photo.url 250=full_photo.url %}>
+            <h2>{{ band.name }}</h2>
+            <div class="context">
+                <p>
+                    {{ band.hometown }}.
+                    {% if band.get_movies.count %}
+                    As seen in
+                    {% for movie in band.get_movies %}
+                        <i><a href="{{ movie.get_absolute_url }}">{{ movie }}</a></i>{% if not forloop.last %}, {% else %}.
+                        {% endif %}
+                    {% endfor %}
+                    {% endif %}
+                </p>
+            </div>
+            {% if band.link_set.count %}
+                <p class="links">
+                    {% for link in band.link_set.all %}
+                        <a href="{{ link.url }}">{{ link.get_icon_display }}</a>
+                        {% if not forloop.last %} &bull; {% endif %}
+                    {% endfor %}
+                </p>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+</article>
+{% endblock content %}

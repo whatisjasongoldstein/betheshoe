@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load markdown_deux_tags thumbnail responsive_tags %}
+
+{% block title %}About The Shoe | {{ block.super }}{% endblock title %}
+
+{% block content %}
+<article class="about-page">
+
+<section class="intro">
+{% markdown %}
+# About The Shoe
+
+We've built a dynamic team of talented actors, producers, writers, shooters, editors, and inflatable ducks from all over.
+
+We make movies focused on story and character.
+
+We've been doing it for {{ years }} years, and this is just the beginning.
+{% endmarkdown %}
+</section>
+
+<ul class="cards {% cycle 'odd' 'even' %}">
+    {% for person in staff %}
+        {% ifchanged person.group %}
+            {% if not forloop.first %} 
+                </ul><ul class="cards {% cycle 'even' 'odd' %}">
+            {% endif %}
+        {% endifchanged %}
+        <li>
+            {% thumbnail person.image 100x100 crop=",9" as small_photo %}
+            {% thumbnail person.image 200x200 crop=",9" as medium_photo %}
+            {% thumbnail person.image 320x320 crop=",9" as full_photo %}
+            <img src="{% thumbnail person.image 200x200 crop=",9" %}"
+            data-img-sizes={% image_sizes 1=small_photo.url 150=medium_photo.url 250=full_photo.url %}>
+            <h2>{{ person.first_name }} {{ person.last_name }}</h2>
+            <div class="context">
+                {{ person.bio|markdown }}
+            </div>
+            <p class="links">
+                {% for link in person.socialprofile_set.all %}
+                    <a href="{{ link.url }}">{{ link.get_icon_display }}</a>
+                    {% if not forloop.last %} &bull; {% endif %}
+                {% endfor %}
+            </p>
+        </li>
+    {% endfor %}
+</ul>
+
+
+</article>
+{% endblock content %}

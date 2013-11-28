@@ -1,0 +1,114 @@
+@import "variables.less";
+
+.about-page {
+
+    .intro {
+        text-align: center;
+        padding: 1em 1em 2em 1em;
+        color: white;
+        background: darken(@blue, 10%);
+        font-size: 1.2em;
+        
+        @media (max-width: 560px){
+            font-size: 1em;
+            text-align: left;
+        }
+
+        > * {
+            max-width: 30em;
+            margin: 0 auto;
+        }
+
+        h1 {
+            max-width: auto;
+            font-size: 3em;
+            font-weight: 700;
+            margin: 0.5em 0;
+            line-height: 1em;
+        }
+
+        p {margin: 0.75em auto;}
+
+    }
+
+    .cards {
+        margin: 0;
+        padding: 2em 0;
+        position: relative; overflow: hidden;
+        clear:both;
+        list-style-type: none;
+        text-align: center;
+
+        &.even {background: lighten(@bgColor, 1%);}
+
+        border-top: 1px solid darken(@bgColor, 5%);
+        &:first-child {border-top: 0;}
+
+        li {
+            margin: 1em 2%;
+            width: 20%;
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+
+            @media (max-width: 850px){
+                width: 30%;
+                margin: 1em 1.333%;
+            }
+
+            @media (max-width: 560px){
+                width: 46%;
+                margin: 1em 1%;
+            }
+
+            @media (max-width: 360px){
+                width: 98%;
+                margin: 1em 1%;
+            }
+
+            img {
+                display: block; width: 100%;
+                border: 1px solid darken(@bgColor, 25%);
+            }
+            
+            h2 {
+                margin: 0.25em 0;
+                font-size: 1.25em;
+                font-weight: 500;
+            }
+            
+            .context {
+                line-height: 1em;
+                font-size: 0.85em;
+                line-height: 1.2em;
+
+                > * {margin: 0.25em 0;}
+            }
+
+            .links {
+                vertical-align: bottom;
+                font-size: 1em;
+                margin: 0;
+                line-height: 1em;
+                font-size: 0.6em;
+
+                a {
+                    color: #666;
+                    text-decoration: none;
+                    &:hover, &:active {
+                        color:black;
+                        text-decoration: underline;
+                    }
+                }
+                .fa {
+                    vertical-align: middle;
+                    margin: 0 0.5em;
+                }
+            }
+
+        }
+
+
+    }
+
+}

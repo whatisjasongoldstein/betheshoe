@@ -4,6 +4,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 
 # Uncomment the next two lines to enable the admin:
+from django.views.generic import TemplateView
+
 from django.contrib import admin
 admin.autodiscover()
 
@@ -14,6 +16,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'betheshoe.views.home', name='home'),
     url(r'^$', Index.as_view(), name='index'),
     url(r'^privacy/$', Privacy.as_view(), name='privacy'),
+    url(r'^music/$', 'betheshoe.music.views.music_list', name='music'),
+    url(r'^about/$', 'betheshoe.staff.views.staff_list', name='about'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -24,6 +28,6 @@ urlpatterns = patterns('',
 
     url(r'^blog/', include('scruffy_blog.urls.blog')),
     url(r'^accounts/', include('allauth.urls')),
-    url(r'^movies/', include('movies.urls')),
+    url(r'^movies/', include('betheshoe.movies.urls')),
 
 ) + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

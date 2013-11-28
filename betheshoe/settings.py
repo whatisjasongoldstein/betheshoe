@@ -227,7 +227,9 @@ INSTALLED_APPS = (
     'scruffy_blog',
     'cropper',
 
-    'movies',
+    'betheshoe.movies',
+    'betheshoe.music',
+    'betheshoe.staff',
 )
 if 'test' not in sys.argv:
     INSTALLED_APPS += (
