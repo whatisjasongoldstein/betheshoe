@@ -230,33 +230,39 @@ img {display: block;}
     }
 }
 
-.social-login-page {
-    padding: 2em 0;
-    h1 {
-        font-size: 3em; font-family: @condensed; margin: 0 0 0.5em 0; font-weight: 100;
-        color: @blue;
-    }
-    form {
-        label {width: 8em; display: inline-block;}
-    }
-    button[type=submit] {
-        background: @blue; color: white; font-family: @condensed; font-weight: 600;
-        border: 0; font-size: 1em; border-radius: 0.2em; padding: 0.2em 1em;
-    }
+.social-form {
+
+    max-width: 25em;
+    margin: 2em auto;
+
+    label {width: 100%; display: block;}
+
     input[type=text] {
         background: white;
         border: 1px solid #ccc;
-        padding: 0.5em;
-        font-size: 0.9em;
+        padding: 0.5em 2%;
+        font-size: 1.25em;
+        display: block;
+        width: 96%;
+    }
+
+    button[type=submit] {
+        background: @blue; color: white; font-family: @condensed; font-weight: 600;
+        border: 0; font-size: 2em; border-radius: 0.2em; padding: 0.2em 1em;
+        display: block; margin: 1em auto; cursor: pointer;
+
+        &:active {color:gold;}
     }
 }
 
 .errorlist {
-    color: maroon;
+    color: #c00;
     list-style-type: none;
     font-weight: bold;
     font-family: @condensed;
-    margin: 1em 0; padding: 0;
+    margin: 1em 0 -1em 0;
+    text-align: right;
+    padding: 0;
 }
 
 .footer .user {

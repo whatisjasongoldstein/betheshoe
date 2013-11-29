@@ -5,22 +5,33 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="island social-login-page">
-    <h1>{% trans "Sign Up" %}</h1>
+<article class="about-page">
+    <section class="intro">
+        <h1>Welcome!</h1>
+        <p>
+          Thanks for signing up with {{ account.get_provider.name }}.
+        </p>
+        <p>
+          We've got a few more quick questions for you.
+        </p>
+    </section>
 
-    <p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to 
-    {{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
         
-    <form class="signup" id="signup_form" method="post" action="">
+    <form class="signup social-form" id="signup_form" method="post" action="">
       {% csrf_token %}
       {{ form.as_p }}
       {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
+      
+      <p>
+        <input type="checkbox" checked disabled> I's okay to email me occassionally (<a href="{% url 'privacy' %}">Learn more</a>).
+      </p>
+
       <button type="submit">{% trans "Sign Up" %} &raquo;</button>
     </form>
         
-</div>
+</article>
 {% endblock %}
 
 

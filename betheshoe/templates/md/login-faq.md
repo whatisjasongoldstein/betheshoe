@@ -8,16 +8,22 @@ So we're looking to build a list of people who like our movies, and contact them
 
 Sound good?
 
-## Will you write on my wall?
+## Will you write on my wall or send spammy messages to my friends?
 
-No. Seriously, we have principles, and better things to do.
-
-You *should* post about us on Facebook, but that's your decision, not ours.
+No. Seriously, we have principles, and better things to do. You *should* post about us on Facebook and Twitter, but that's your decision, not ours.
 
 ## Will you spam me?
 
 No. We appreciate you sharing your email address, and we'll use it very sparingly.
 
+## Can I unsubscribe?
+
+Yes, this will be built before we send the first email.
+
 ## I hate you!
 
 That makes me sad.
+
+## I have other questions, comments, concerns, and thoughts on the meaning of life.
+
+Cool! Email <hello@betheshoe.com>.

@@ -19,10 +19,7 @@ urlpatterns = patterns('',
     url(r'^music/$', 'betheshoe.music.views.music_list', name='music'),
     url(r'^about/$', 'betheshoe.staff.views.staff_list', name='about'),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/crop/', include('cropper.urls')),
     url(r'^admin/', include(admin.site.urls)),
 

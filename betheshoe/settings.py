@@ -149,9 +149,14 @@ AUTHENTICATION_BACKENDS = (
     # `allauth` specific authentication methods, such as login by e-mail
     "allauth.account.auth_backends.AuthenticationBackend",
 )
+
+ACCOUNT_USERNAME_REQUIRED = False
+SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
 SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_AUTO_SIGNUP = True
 # SOCIALACCOUNT_AVATAR_SUPPORT = True
+ACCOUNT_EMAIL_REQUIRED = True
 SOCIALACCOUNT_EMAIL_REQUIRED = True
 SOCIALACCOUNT_PROVIDERS = { 
     'facebook': { 'SCOPE': ['email',],
