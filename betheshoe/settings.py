@@ -38,8 +38,8 @@ if 'test' in sys.argv:
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
     "betheshoe.com",
+    "preview.betheshoe.com",
     "local.betheshoe.com",
-    "bts.scruffylogic.com",
     "127.0.0.1",
 ]
 
