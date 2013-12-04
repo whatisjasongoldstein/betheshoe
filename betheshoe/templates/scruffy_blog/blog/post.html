@@ -3,7 +3,6 @@
 
 
 {% block og %}
-    <meta property="og:url" content="{{ request.path }}">
     <meta property="og:title" content="{{ post.title }}">
     <meta property="og:image" content="{% thumbnail post.cropped_image 1200x900 %}">
 {% endblock og %}
