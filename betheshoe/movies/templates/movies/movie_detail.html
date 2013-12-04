@@ -3,7 +3,7 @@
 
 {% block og %}
     <meta property="og:title" content="Be The Shoe Presents &quot;{{ movie.title }}&rquote;">
-    <meta property="og:image" content="{% thumbnail movie.image 1200x720 crop=",1" %}">
+    <meta property="og:image" content="http://{{ request.get_host }}{% thumbnail movie.image 1200x720 crop=",1" %}">
 {% endblock og %}
 
 {% block navitems %}

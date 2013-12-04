@@ -4,7 +4,7 @@
 
 {% block og %}
     <meta property="og:title" content="{{ post.title }}">
-    <meta property="og:image" content="{% thumbnail post.cropped_image 1200x900 %}">
+    <meta property="og:image" content="http://{{ request.get_host }}{% thumbnail post.cropped_image 1200x900 %}">
 {% endblock og %}
 
 {% block navitems %}
