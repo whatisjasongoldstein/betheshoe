@@ -1,6 +1,12 @@
 {% extends "movies/base.html" %}
 {% load markdown_deux_tags thumbnail responsive_tags scruffy_blog_tags %}
 
+{% block og %}
+    <meta property="og:url" content="{{ request.path }}">
+    <meta property="og:title" content="Be The Shoe Presents &quot;{{ movie.title }}&rquote;">
+    <meta property="og:image" content="{% thumbnail movie.image 1200x720 crop=",1" %}">
+{% endblock og %}
+
 {% block navitems %}
     <li><a href="#">Summary</a></li>
     {% if movie.trailer_url %} 

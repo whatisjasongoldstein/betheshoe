@@ -23,8 +23,9 @@
     {% endcompress %}
     <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}font-awesome/css/font-awesome.min.css">
 
-
     {% block extra_head %}{% endblock extra_head %}
+
+    {% block og %}{% endblock og %}
 </head>
 <body class="{% block bodyclass %}default{% endblock bodyclass %}" id="feature">
 
