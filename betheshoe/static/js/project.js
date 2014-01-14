@@ -1,5 +1,5 @@
 // Enable tooltip on all tite'd links
-$('a[title]').tooltip({});
+$('*[title]').tooltip({});
 
 $('#dropdown-btn').on("click touch", function(e) {
     $('.basement').slideToggle();
