@@ -52,3 +52,5 @@ sqlparse==0.1.10
 typogrify==2.0.0
 urllib3==1.7
 wsgiref==0.1.2
+-e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@6393cdd53af920547f02c5f2212062949a30fc04#egg=scruffy-cropper
+-e git+git@github.com:whatisjasongoldstein/scruffy-blog.git@31f2582195acfa6c8fa3e15acd0b17cb03d5f2f2#egg=scruffy-blog
