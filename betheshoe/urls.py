@@ -7,7 +7,6 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 from django.contrib import admin
-admin.autodiscover()
 
 from .views import Index, Privacy
 
