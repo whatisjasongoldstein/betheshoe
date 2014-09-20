@@ -159,12 +159,19 @@ SOCIALACCOUNT_AUTO_SIGNUP = True
 # SOCIALACCOUNT_AVATAR_SUPPORT = True
 ACCOUNT_EMAIL_REQUIRED = True
 SOCIALACCOUNT_EMAIL_REQUIRED = True
+
+PERSONA_AUDIENCE = 'http://betheshoe.com'
+if 'runserver' in sys.argv:
+    PERSONA_AUDIENCE = "http://betheshoe.bs:8000"
+
 SOCIALACCOUNT_PROVIDERS = { 
     'facebook': { 'SCOPE': ['email',],
           'AUTH_PARAMS': { 'auth_type': 'reauthenticate' },
           'METHOD': 'oauth2' ,
           'LOCALE_FUNC': lambda request: 'en_US'}, 
+    'persona': { 'AUDIENCE': PERSONA_AUDIENCE, } 
 }
+
 
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_LOGOUT_ON_GET = True
@@ -206,7 +213,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
 
-    'south',
     'compressor',
     'djangobower',
 
@@ -237,10 +243,6 @@ INSTALLED_APPS = (
     'betheshoe.music',
     'betheshoe.staff',
 )
-if 'test' not in sys.argv:
-    INSTALLED_APPS += (
-            'south',
-        )
 
 BOWER_INSTALLED_APPS = (
     'jquery#1.10',
