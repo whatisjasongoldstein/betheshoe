@@ -47,5 +47,5 @@ typogrify==2.0.0
 urllib3==1.7
 wsgiref==0.1.2
 -e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@2fc7608d9ba88326ea770151876228b9a18cc126#egg=scruffy-cropper
--e git+git@github.com:whatisjasongoldstein/scruffy-blog.git@710187b068b8a049bc94d2c6f1bbf4b6d2d2d15a#egg=scruffy-blog
+-e git+git@github.com:whatisjasongoldstein/scruffy-blog.git@6085ee6dac48e39c1d0c0ed57d3aa58ea295f4e3#egg=scruffy-blog
 -e git+git@github.com:whatisjasongoldstein/django-featuring.git@c4d122106198e8dac3c04e259e13425858f95cb5#egg=django-featuring
