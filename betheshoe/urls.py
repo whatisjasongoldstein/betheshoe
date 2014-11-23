@@ -26,5 +26,6 @@ urlpatterns = patterns('',
     url(r'^blog/', include('scruffy_blog.urls.blog')),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^movies/', include('betheshoe.movies.urls')),
+    url(r'^draftin/webhooks/', include('draftin.urls')),
 
 ) + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

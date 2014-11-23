@@ -238,6 +238,7 @@ INSTALLED_APPS = (
     'django_featuring',
     'scruffy_blog',
     'cropper',
+    'draftin',
 
     'betheshoe.movies',
     'betheshoe.music',
