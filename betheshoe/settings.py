@@ -125,7 +125,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-if DEBUG:
+
+DEBUG_TOOLBAR = True
+
+if DEBUG and DEBUG_TOOLBAR:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
     INTERNAL_IPS = ('127.0.0.1',)
     DEBUG_TOOLBAR_CONFIG = {
@@ -176,7 +179,6 @@ SOCIALACCOUNT_PROVIDERS = {
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_LOGOUT_ON_GET = True
 
-
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     'django.contrib.auth.context_processors.auth',
@@ -203,7 +205,7 @@ COMPRESS_CSS_FILTERS = (
 COMPRESS_JS_FILTERS = ()  # Don't jack with anything, just combined them
 
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -228,7 +230,6 @@ INSTALLED_APPS = (
 
     'avatar',
     'easy_thumbnails',
-    'debug_toolbar',
     'markdown_deux',
     'genericadmin',
     'django_nose',
@@ -243,7 +244,10 @@ INSTALLED_APPS = (
     'betheshoe.blog',
     'betheshoe.music',
     'betheshoe.staff',
-)
+]
+
+if DEBUG_TOOLBAR:
+    INSTALLED_APPS.append('debug_toolbar')
 
 BOWER_INSTALLED_APPS = (
     'jquery#1.10',
