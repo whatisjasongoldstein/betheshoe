@@ -1,6 +1,5 @@
 {% extends base_template %}
-{% load thumbnail markdown_deux_tags responsive_tags typogrify_tags scruffy_blog_tags movie_tags %}
-
+{% load thumbnail markdown_deux_tags responsive_tags typogrify_tags movie_tags %}
 
 {% block og %}
     <meta property="og:title" content="{{ post.title }}">
@@ -33,9 +32,7 @@
     </div>
 
     <div class="post-body">
-        {% for element in post.get_elements %}
-            {{ element.render }}
-        {% endfor %}
+        {{ post.content|markdown:"embeds"|wrap_videos }}
 
         <ul class="topics">
             {% for topic in post.topics.all %}

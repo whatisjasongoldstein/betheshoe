@@ -135,10 +135,12 @@
             float:left;
         }
     }
-    .video-embed {
-        width: 120%; margin-left: -10%;
-        @media (max-width: 1000px){
-            width: 100%; margin: 0;
+    .video-embed,
+    .embed-wrapper.player-vimeo-com,
+    .embed-wrapper.www-youtube-com {
+        @media (min-width: 1000px){
+            width: 120%; margin-left: -10%; 
+            padding-bottom: 67.5%;
         }
     }
     .photo-embed img {

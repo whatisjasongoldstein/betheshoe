@@ -31,7 +31,7 @@
 
     <div class="island blog-index">
         {% for post in posts %}
-        {% with post.get_lead_art as art %}                
+        {% with post.cropped_image as art %}                
             <div class="entry {% if forloop.first and posts.number == 1 %}featured{% else %}{% cycle "small" "big" "big" "small" "full" %}{% endif %} {% if art %}has_art{% else %}no_art{% endif %} {% cycle "odd" "even" %}">
                 {% if art %}
                     {% thumbnail art 200x150 crop=",9" as small_art %}
@@ -48,7 +48,7 @@
                         <h2>{{ post.title }}</h2>
                         {% if post.subtitle %}<h3>{{ post.subtitle }}</h3>{% endif %}
                     </a>
-                    <p>{{ post.cached_text|truncatewords:"30" }}</p>
+                    <p>{{ post.content|striptags|truncatewords:"30" }}</p>
                     <p class="meta">{{ post.date }}</p>
                 </div>
             </div>

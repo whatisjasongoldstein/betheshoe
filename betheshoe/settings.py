@@ -241,6 +241,7 @@ INSTALLED_APPS = (
     'draftin',
 
     'betheshoe.movies',
+    'betheshoe.blog',
     'betheshoe.music',
     'betheshoe.staff',
 )
@@ -313,3 +314,17 @@ DEFAULT_FROM_EMAIL = os.environ['BETHESHOE_DEFAULT_FROM_EMAIL']
 SERVER_EMAIL = os.environ['BETHESHOE_SERVER_EMAIL']
 EMAIL_USE_TLS=True
 
+MARKDOWN_DEUX_STYLES = {
+    "default": {
+        "extras": {
+            "code-friendly": None,
+        },
+        "safe_mode": "escape",
+    },
+    "embeds": {
+        "extras": {
+            "code-friendly": None,
+        },
+        "safe_mode": False,
+    },
+}

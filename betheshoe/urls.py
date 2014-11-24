@@ -23,7 +23,7 @@ urlpatterns = patterns('',
     url(r'^admin/crop/', include('cropper.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^blog/', include('scruffy_blog.urls.blog')),
+    url(r'^blog/', include('betheshoe.blog.urls')),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^movies/', include('betheshoe.movies.urls')),
     url(r'^draftin/webhooks/', include('draftin.urls')),

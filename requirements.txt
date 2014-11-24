@@ -1,5 +1,5 @@
 Django==1.7
--e git+git@github.com:whatisjasongoldstein/django-responsive-bits.git@a8140e76cde4b22ee5308bfbfda7e0dcc85c58e1#egg=django_responsive_bits
+-e git+git@github.com:whatisjasongoldstein/django-responsive-bits.git@0867ac6706ceab652c631fb1f474e1bb7185afad#egg=django_responsive_bits
 Markdown==2.3.1
 MarkupSafe==0.18
 MySQL-python==1.2.5
@@ -49,3 +49,5 @@ wsgiref==0.1.2
 -e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@2fc7608d9ba88326ea770151876228b9a18cc126#egg=scruffy-cropper
 -e git+git@github.com:whatisjasongoldstein/scruffy-blog.git@6085ee6dac48e39c1d0c0ed57d3aa58ea295f4e3#egg=scruffy-blog
 -e git+git@github.com:whatisjasongoldstein/django-featuring.git@c4d122106198e8dac3c04e259e13425858f95cb5#egg=django-featuring
+lxml
+cssselect
