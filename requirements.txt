@@ -46,7 +46,7 @@ sqlparse==0.1.10
 typogrify==2.0.0
 urllib3==1.7
 wsgiref==0.1.2
--e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@2fc7608d9ba88326ea770151876228b9a18cc126#egg=scruffy-cropper
+-e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@50f0cc962a27aafd439146c0e336e14474d24132#egg=scruffy-cropper
 -e git+git@github.com:whatisjasongoldstein/django-featuring.git@c4d122106198e8dac3c04e259e13425858f95cb5#egg=django-featuring
 lxml
 cssselect
