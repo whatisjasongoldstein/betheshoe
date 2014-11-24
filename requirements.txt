@@ -30,7 +30,7 @@ huey==0.4.1
 ipdb==0.7
 ipython==1.0.0
 -e git+git@github.com:whatisjasongoldstein/johnny-cache.git@c4403c4b95c9a374241b59399b5fe816d7452fdd#egg=johnny_cache-dev
--e git+git@github.com:whatisjasongoldstein/django-draftin.git@7bf7478329052f95977bd04e9ed624f59ed20d76#egg=django-draftin
+-e git+git@github.com:whatisjasongoldstein/django-draftin.git@761ea1b05a64143bb493acd7d8ec9733b71c9640#egg=django-draftin
 markdown2==2.1.0
 mock==1.0.1
 msgpack-python==0.3.0
