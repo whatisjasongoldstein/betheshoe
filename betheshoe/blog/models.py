@@ -1,12 +1,15 @@
 from django.db import models
 from django.core.urlresolvers import reverse
+from django.utils.text import slugify
+
 from cropper.models import CroppableImageMixin
 from cropper.helpers import get_cropped_image
 
 from draftin.models import Draft
 
 
-class Post(CroppableImageMixin, Draft):
+class Post(CroppableImageMixin, models.Model):
+    draft = models.OneToOneField(Draft)
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255, blank=True, null=True)
     slug = models.SlugField(max_length=255, help_text="looks-like-this-and-should-never-change", unique=True)
@@ -18,6 +21,15 @@ class Post(CroppableImageMixin, Draft):
 
     def __unicode__(self):
         return self.title or self.name
+
+    draft_properties = [
+        "content",
+        "created_at",
+        "updated_at",
+        "published",
+        "date_published",
+        "name",
+    ]
         
     def get_absolute_url(self):
         return reverse('blog.post', kwargs={"slug": self.slug})
@@ -26,3 +38,28 @@ class Post(CroppableImageMixin, Draft):
     def cropped_image(self):
         crop = get_cropped_image(self, 'image')
         return crop or self.image
+
+    def __getattr__(self, key, *args):
+        """
+        Bullshit-free concrete inheritance.
+        Fall back on the property check, but
+        don't do anything crazy in the database
+        or break signals.
+        """
+        if key in self.draft_properties:
+            return getattr(self.draft, key)
+        return super(Post, self).__getattribute__(key, *args)
+
+
+def create_posts_with_drafts(**kwargs):
+    """
+    Create a post any time a Draft is received.
+    """
+    obj = kwargs.get("instance", None)
+    Post.objects.get_or_create(draft=obj, defaults={
+        "title": obj.name,
+        "slug": slugify(obj.name),
+    })
+
+models.signals.post_save.connect(create_posts_with_drafts, sender=Draft)
+

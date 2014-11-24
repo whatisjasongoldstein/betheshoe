@@ -4,10 +4,10 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Post
 
-POST_ORDER = ('-date_published', '-id')
+POST_ORDER = ('-draft__date_published', '-id')
 
 def index(request, **kwargs):
-    params = {"published": True}
+    params = {"draft__published": True}
     post_list = Post.objects.filter(**params).order_by(*POST_ORDER)
 
     page_num = request.GET.get('page')

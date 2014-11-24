@@ -25,6 +25,6 @@ class Migration(migrations.Migration):
             ],
             options={
             },
-            bases=('draftin.draft',),
+            bases=(models.Model,),
         ),
     ]

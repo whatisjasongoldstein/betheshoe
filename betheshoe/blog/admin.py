@@ -36,9 +36,20 @@ class PostForm(forms.ModelForm):
 
 class PostAdmin(admin.ModelAdmin):
     model = Post
-    # form = PostForm
+    form = PostForm
     list_display = ["title", "subtitle", "author", "created_at", "published"]
-    ordering = ["-created_at", ]
+    ordering = ["-id", ]
+    readonly_fields = ["draft", ]
+
+    def published(self, instance=None):
+        if instance:
+            return instance.draft.published
+        return ""
+
+    def created_at(self, instance=None):
+        if instance:
+            return instance.draft.created_at
+        return ""
 
     def get_form(self, request, obj, fields=None):
 
