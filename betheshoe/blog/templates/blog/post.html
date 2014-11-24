@@ -17,9 +17,9 @@
             <h1>{{ post.title|typogrify }}</h1>
             {% if post.subtitle %}<h2>{{ post.subtitle|typogrify }}</h2>{% endif %}
             <p class="byline">
-                {{ post.author }}
-                {% if post.author and post.date %} &bull; {% endif %}
-                {{ post.date }}
+                {{ post.author.display_name }}
+                {% if post.author and post.date_published %} &bull; {% endif %}
+                {{ post.date_published|default:"" }}
             </p>
         </hgroup>
         {% if post.image and not post.is_thumbnail %} 

@@ -9,7 +9,7 @@ from draftin.models import Draft
 
 
 class Post(CroppableImageMixin, models.Model):
-    draft = models.OneToOneField(Draft)
+    draft = models.OneToOneField(Draft, editable=False)
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255, blank=True, null=True)
     slug = models.SlugField(max_length=255, help_text="looks-like-this-and-should-never-change", unique=True)

@@ -126,7 +126,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-DEBUG_TOOLBAR = True
+DEBUG_TOOLBAR = False
 
 if DEBUG and DEBUG_TOOLBAR:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
