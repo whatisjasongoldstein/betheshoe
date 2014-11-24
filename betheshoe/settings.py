@@ -236,7 +236,6 @@ INSTALLED_APPS = (
 
     'responsive_bits',
     'django_featuring',
-    'scruffy_blog',
     'cropper',
     'draftin',
 

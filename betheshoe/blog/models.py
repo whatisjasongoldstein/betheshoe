@@ -16,6 +16,9 @@ class Post(CroppableImageMixin, Draft):
     is_thumbnail = models.BooleanField("Thumbnail only", blank=True, default=False,
         help_text="The image is only for thumbnails, don't use it as lead art.")
 
+    def __unicode__(self):
+        return self.title or self.name
+        
     def get_absolute_url(self):
         return reverse('blog.post', kwargs={"slug": self.slug})
 

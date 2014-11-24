@@ -53,7 +53,7 @@ def import_posts(apps, schema_editor):
         markdown = "\n\n".join([element.content for element in elements])
 
         post = DraftPost(
-            id = old_post.id,
+            pk = old_post.id,
             title = old_post.title,
             subtitle = old_post.subtitle,
             slug = old_post.slug,
