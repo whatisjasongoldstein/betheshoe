@@ -39,7 +39,7 @@ class PostAdmin(admin.ModelAdmin):
     form = PostForm
     list_display = ["title", "subtitle", "draft_admin", "author", "created_at", "published"]
     ordering = ["-id", ]
-    readonly_fields = ["draft", ]
+    readonly_fields = ["draft", "preview"]
 
     def draft_admin(self, instance=None):
         if instance:
@@ -47,6 +47,12 @@ class PostAdmin(admin.ModelAdmin):
                     url = reverse("admin:draftin_draft_change", args=[instance.draft.id,]),
                     draft_id = instance.draft.draft_id)
     draft_admin.allow_tags = True
+
+    def preview(self, instance=None):
+        if instance and instance.draft:
+            return instance.draft.content_html
+        return ""
+    preview.allow_tags = True
 
     def published(self, instance=None):
         if instance:
