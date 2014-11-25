@@ -99,10 +99,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
-    'djangobower.finders.BowerFinder',
 )
-
-BOWER_COMPONENTS_ROOT = PROJECT_DIR.child('bower')
 
 
 # Make this unique, and don't share it with anybody.
@@ -216,7 +213,6 @@ INSTALLED_APPS = [
     'django.contrib.admindocs',
 
     'compressor',
-    'djangobower',
 
     'betheshoe', # Templates preempt allauth's
 
@@ -249,16 +245,7 @@ INSTALLED_APPS = [
 if DEBUG_TOOLBAR:
     INSTALLED_APPS.append('debug_toolbar')
 
-BOWER_INSTALLED_APPS = (
-    'jquery#1.10',
-    'underscore',
-    'underscore.string',
-    'jcrop',
-    'font-awesome#4.0.0',
-)
-
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
 
 CACHES = {
     'default': {
