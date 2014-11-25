@@ -276,7 +276,7 @@ JOHNNY_MIDDLEWARE_KEY_PREFIX='jhnybeshoe'
 
 FEATURABLE_CONTENT_TYPES = (
     'movies/movie',
-    'scruffy_blog/post',
+    'blog/post',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -331,3 +331,4 @@ MARKDOWN_DEUX_STYLES = {
         "safe_mode": False,
     },
 }
+

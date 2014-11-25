@@ -24,6 +24,7 @@ class Post(CroppableImageMixin, models.Model):
 
     draft_properties = [
         "content",
+        "content_html",
         "created_at",
         "updated_at",
         "published",

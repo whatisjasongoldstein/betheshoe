@@ -17,7 +17,7 @@ django-avatar==1.0.5
 django-bower==4.8
 django-compressor==1.4
 django-debug-toolbar==1.2.1
--e git+git@github.com:whatisjasongoldstein/django-genericadmin.git@5207f314285ca9724eb5e599f68880c579b1eff4#egg=django_genericadmin-dev
+-e git+git@github.com:whatisjasongoldstein/django-genericadmin.git@a41439e20d069439b5964d4434f31f0fee24ee64#egg=django_genericadmin-dev
 django-markdown-deux==1.0.4
 django-markup-deprecated==0.0.1
 django-nose==1.2
