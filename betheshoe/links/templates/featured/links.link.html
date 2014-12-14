@@ -7,7 +7,9 @@
     <a href="{{ object.get_absolute_url }}">
     <div class="wrap-label">
         <div class="label">
-            <p class="meta">From the Blog</p>
+            {% if object.kicker %}
+                <p class="meta">{{ object.kicker }}</p>                
+            {% endif %}
             <h1>{{ object.title }}</h1>
         </div>
     </div>

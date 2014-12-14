@@ -240,6 +240,7 @@ INSTALLED_APPS = [
     'betheshoe.blog',
     'betheshoe.music',
     'betheshoe.staff',
+    'betheshoe.links',
 ]
 
 if DEBUG_TOOLBAR:
@@ -264,6 +265,7 @@ JOHNNY_MIDDLEWARE_KEY_PREFIX='jhnybeshoe'
 FEATURABLE_CONTENT_TYPES = (
     'movies/movie',
     'blog/post',
+    'links/link',
 )
 
 # A sample logging configuration. The only tangible logging
