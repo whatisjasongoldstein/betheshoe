@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}Be The Shoe Productions{% endblock title %}</title>
+    <title>{% block title %}Be The Shoe{% endblock title %}</title>
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width" user-scaleable="no">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -91,7 +91,7 @@
                 <a title="Subscribe to our YouTube channel!" href="https://www.youtube.com/c/betheshoe" class="fa fa-youtube"></a>
                 <a title="Follow us on Twitter&ndash;although we don't say much" href="http://twitter.com/betheshoe/" class="fa fa-twitter"></a>
             </p>
-            <p class="copyright">&copy; Be The Shoe Productions {% now "Y" %}.</p>
+            <p class="copyright">&copy; Be The Shoe{% now "Y" %}.</p>
             
             {% if user.is_authenticated %} 
                 <p class="user">
