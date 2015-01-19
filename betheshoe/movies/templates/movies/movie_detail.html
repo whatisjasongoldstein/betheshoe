@@ -89,26 +89,18 @@
 <div class="video-panel full-movie" id="watch">
     <div class="island is-player">
         <h3>Watch <i>{{ movie.title }}</i></h3>
-        {% if user.is_authenticated or request.GET.opt_out %} 
-            {% include "movies/includes/vimeo_player.html" with url=movie.movie_embed %}
-            {% with movie.full_url as url %}
-            {% with movie.movie_share_text as text %}
-            {% with movie.title as title %}
-            {% with movie.poster as image %}
-            {% with "dark" as classes %}
-                {% include "social/share_buttons.html" %}
-            {% endwith %}
-            {% endwith %}
-            {% endwith %}
-            {% endwith %}
-            {% endwith %}
-        {% else %}
-            {% with "We’re very excited to show you our movie! Can you sign in first?" as text %}
-            {% with 'jump=watch' as query %}
-                {% include "includes/login_request.html" %}
-            {% endwith %}
-            {% endwith %}
-        {% endif %}
+        {% include "movies/includes/vimeo_player.html" with url=movie.movie_embed %}
+        {% with movie.full_url as url %}
+        {% with movie.movie_share_text as text %}
+        {% with movie.title as title %}
+        {% with movie.poster as image %}
+        {% with "dark" as classes %}
+            {% include "social/share_buttons.html" %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
+        {% endwith %}
     </div>
 </div>
 {% endif %}
