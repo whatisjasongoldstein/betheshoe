@@ -38,7 +38,7 @@ oauthlib==0.6.3
 pycrypto==2.6
 python-memcached==1.53
 pyzmq==13.1.0
-requests==1.2.3
+requests==2.5.1
 see==1.0.1
 smartypants==1.8.2
 sqlparse==0.1.10
