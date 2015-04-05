@@ -29,7 +29,7 @@ GENRES = (
 class Movie(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField()
-    year = models.IntegerField(max_length=4)
+    year = models.IntegerField()
     length = models.IntegerField(default=0, blank=True, help_text="In minutes")
     synopsis = models.TextField(blank=True, default="")
     image = models.ImageField(upload_to="movies/", blank=True, default="")

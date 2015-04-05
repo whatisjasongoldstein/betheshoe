@@ -113,8 +113,6 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'johnny.middleware.LocalStoreClearMiddleware',
-    'johnny.middleware.QueryCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,7 +121,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-DEBUG_TOOLBAR = False
+DEBUG_TOOLBAR = True
 
 if DEBUG and DEBUG_TOOLBAR:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
@@ -146,31 +144,9 @@ TEMPLATE_DIRS = (
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
     "django.contrib.auth.backends.ModelBackend",
-
-    # `allauth` specific authentication methods, such as login by e-mail
-    "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-ACCOUNT_USERNAME_REQUIRED = False
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-
-SOCIALACCOUNT_QUERY_EMAIL = True
-SOCIALACCOUNT_AUTO_SIGNUP = True
-# SOCIALACCOUNT_AVATAR_SUPPORT = True
-ACCOUNT_EMAIL_REQUIRED = True
-SOCIALACCOUNT_EMAIL_REQUIRED = True
-
-PERSONA_AUDIENCE = 'http://betheshoe.com'
-if 'runserver' in sys.argv:
-    PERSONA_AUDIENCE = "http://betheshoe.bs:8000"
-
-SOCIALACCOUNT_PROVIDERS = { 
-    'facebook': { 'SCOPE': ['email',],
-          'AUTH_PARAMS': { 'auth_type': 'reauthenticate' },
-          'METHOD': 'oauth2' ,
-          'LOCALE_FUNC': lambda request: 'en_US'}, 
-    'persona': { 'AUDIENCE': PERSONA_AUDIENCE, } 
-}
 
 
 LOGIN_REDIRECT_URL = "/"
@@ -185,8 +161,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
-    "allauth.account.context_processors.account",
-    "allauth.socialaccount.context_processors.socialaccount",
     "betheshoe.context_processors.current_site_url",
  )
 
@@ -214,28 +188,18 @@ INSTALLED_APPS = [
 
     'compressor',
 
-    'betheshoe', # Templates preempt allauth's
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.twitter',
-    'allauth.socialaccount.providers.persona',
-
-    'avatar',
     'easy_thumbnails',
     'markdown_deux',
     'genericadmin',
-    'django_nose',
     'typogrify',
+    'cachalot',
 
     'responsive_bits',
     'django_featuring',
     'cropper',
     'draftin',
 
+    'betheshoe', # Templates preempt allauth's
     'betheshoe.movies',
     'betheshoe.blog',
     'betheshoe.music',
@@ -246,21 +210,13 @@ INSTALLED_APPS = [
 if DEBUG_TOOLBAR:
     INSTALLED_APPS.append('debug_toolbar')
 
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': '127.0.0.1:11211',
     },
-    'johnny' : {
-        'BACKEND' : 'johnny.backends.memcached.MemcachedCache',
-        'LOCATION' : ['127.0.0.1:11211'],
-        'JOHNNY_CACHE' : True,
-    },
 }
-JOHNNY_MIDDLEWARE_KEY_PREFIX='jhnybeshoe'
-
 
 FEATURABLE_CONTENT_TYPES = (
     'movies/movie',

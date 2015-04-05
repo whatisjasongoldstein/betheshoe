@@ -4,7 +4,7 @@ from betheshoe.movies.models import Movie
 class Musician(models.Model):
     name = models.CharField(max_length=255, unique=True)
     hometown = models.CharField(max_length=255, blank=True, default="")
-    movies = models.ManyToManyField(Movie, blank=True, null=True)
+    movies = models.ManyToManyField(Movie, blank=True)
     image = models.ImageField(upload_to="musicians/", blank=True, null=True)
     order = models.IntegerField(default=0)
     publish = models.BooleanField(default=True)
