@@ -1,4 +1,4 @@
-{% load compress movie_tags blog_tags account %}
+{% load compress movie_tags blog_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -92,14 +92,6 @@
                 <a title="Follow us on Twitter&ndash;although we don't say much" href="http://twitter.com/betheshoe/" class="fa fa-twitter"></a>
             </p>
             <p class="copyright">&copy; Be The Shoe{% now "Y" %}.</p>
-            
-            {% if user.is_authenticated %} 
-                <p class="user">
-                    Hello, {{ user.email }}
-                    &bull; <a href="#">Preferences</a>
-                    &bull; <a href="{% url 'account_logout' %}?next={{ request.path }}">Sign out</a></p>
-            {% endif %}
-
         </footer>
     </div>
 
