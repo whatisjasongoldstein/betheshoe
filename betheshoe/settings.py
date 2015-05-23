@@ -98,9 +98,10 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
+    'pipeline.finders.PipelineFinder',
 )
 
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.environ['BETHESHOE_DB_SECRET_KEY']
@@ -164,18 +165,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "betheshoe.context_processors.current_site_url",
  )
 
-COMPRESS_PRECOMPILERS = (
-    ('text/less', 'lessc {infile} {outfile}'),
-)
-
-COMPRESS_CSS_FILTERS = (
-    'compressor.filters.css_default.CssAbsoluteFilter',
-    'compressor.filters.cssmin.CSSMinFilter',
-)
-
-COMPRESS_JS_FILTERS = ()  # Don't jack with anything, just combined them
-
-
 INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -186,7 +175,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.admindocs',
 
-    'compressor',
+    'pipeline',
 
     'easy_thumbnails',
     'markdown_deux',
@@ -277,3 +266,45 @@ MARKDOWN_DEUX_STYLES = {
     },
 }
 
+
+# PIPELINE = True
+PIPELINE_DISABLE_WRAPPER = True
+
+PIPELINE_CSS = {
+    'betheshoe_styles': {
+        'source_filenames': (
+            "css/project.less",
+            "css/splash.less",
+            "css/player.less",
+            "css/movies.less",
+            "css/featured.less",
+            "css/blog.less",
+            "css/about.less",
+            "css/tooltip.less",
+            "css/font-awesome.min.css",
+        ),
+        'output_filename': 'css/app.css',
+        'extra_context': {
+            'media': 'screen,projection',
+        },
+    },
+}
+
+PIPELINE_JS = {
+    'betheshoe_js': {
+        'source_filenames': (
+            "js/jquery.js",
+            "js/underscore.js",
+            "js/underscore.string.js",
+            "js/modernizer.2.6.2.js",
+            "js/tooltip.js",
+            "js/project.js",
+            "js/deferred-images.js",
+        ),
+        'output_filename': 'js/app.js',
+    }
+}
+
+PIPELINE_COMPILERS = (
+    'pipeline.compilers.less.LessCompiler',
+)

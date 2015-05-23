@@ -1,4 +1,4 @@
-{% load compress movie_tags blog_tags %}
+{% load pipeline movie_tags blog_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,17 +11,7 @@
     <script type="text/javascript" src="//use.typekit.net/hax8lrw.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-    {% compress css %}
-    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/project.less">
-    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/splash.less">
-    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/player.less">
-    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/movies.less">
-    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/featured.less">
-    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/blog.less">
-    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/about.less">
-    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/tooltip.less">
-    <link rel="stylesheet" type="text/less" href="{{ STATIC_URL }}css/font-awesome.min.css">
-    {% endcompress %}
+    {% stylesheet 'betheshoe_styles' %}
 
     {% block extra_head %}{% endblock extra_head %}
 
@@ -95,18 +85,7 @@
         </footer>
     </div>
 
-    {% compress js %}
-    {# Bower stuff first #}
-    <script src="{{ STATIC_URL }}js/jquery.js"></script>
-    <script src="{{ STATIC_URL }}js/underscore.js"></script>
-    <script src="{{ STATIC_URL }}js/underscore.string.js"></script>
-
-    <script src="{{ STATIC_URL }}js/modernizer.2.6.2.js"></script>
-    <script src="{{ STATIC_URL }}js/tooltip.js"></script>
-    <script src="{{ STATIC_URL }}js/project.js"></script>
-    <script src="{{ STATIC_URL }}js/deferred-images.js"></script>
-    {% endcompress %}
-
+    {% javascript 'betheshoe_js' %}
 
     <!-- Local Scripts -->
     {% block scripts %}{% endblock scripts %}

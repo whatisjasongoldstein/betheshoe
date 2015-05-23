@@ -7,7 +7,7 @@ PyYAML==3.10
 -e git+git@github.com:whatisjasongoldstein/scruffy-video.git@e3518ea38694313e8404ca64e9c7378b88ba6826#egg=scruffy_video
 Unipath==1.0
 cookiecutter==0.6.4
-django-compressor==1.4
+django-pipeline==1.5.0
 django-debug-toolbar==1.3.0
 -e git+git@github.com:whatisjasongoldstein/django-genericadmin.git@a41439e20d069439b5964d4434f31f0fee24ee64#egg=django_genericadmin-dev
 django-markdown-deux==1.0.4
@@ -21,7 +21,7 @@ python-memcached==1.53
 requests==2.5.1
 typogrify==2.0.0
 wsgiref==0.1.2
--e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@e8f5451a887fdb598e726bb92bd6082a13496c8a#egg=scruffy-cropper
+-e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@6ba5c814e8e2d0d56c2bf9ca045a8244bec64c56#egg=scruffy-cropper
 -e git+git@github.com:whatisjasongoldstein/django-featuring.git@c4d122106198e8dac3c04e259e13425858f95cb5#egg=django-featuring
 lxml
 django-cachalot==1.0.0
