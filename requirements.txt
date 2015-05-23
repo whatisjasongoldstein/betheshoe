@@ -25,4 +25,4 @@ wsgiref==0.1.2
 -e git+git@github.com:whatisjasongoldstein/django-featuring.git@c4d122106198e8dac3c04e259e13425858f95cb5#egg=django-featuring
 lxml
 django-cachalot==1.0.0
--e git@github.com:whatisjasongoldstein/django-pipeline-helpers.git@da5ced9888d80966c0c668ea6b1c4b92009db3f5#egg=django-pipeline-helpers
+-e git+git@github.com:whatisjasongoldstein/django-pipeline-helpers.git@da5ced9888d80966c0c668ea6b1c4b92009db3f5#egg=django-pipeline-helpers
