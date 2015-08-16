@@ -1,5 +1,5 @@
 PIPELINE_CSS = {
-    'betheshoe_styles': {
+    'styles': {
         'source_filenames': (
             "css/project.less",
             "css/splash.less",
@@ -19,7 +19,7 @@ PIPELINE_CSS = {
 }
 
 PIPELINE_JS = {
-    'betheshoe_js': {
+    'scripts': {
         'source_filenames': (
             "js/jquery.js",
             "js/underscore.js",
