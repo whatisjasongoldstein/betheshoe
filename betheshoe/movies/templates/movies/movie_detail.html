@@ -1,6 +1,8 @@
 {% extends "movies/base.html" %}
 {% load markdown_deux_tags thumbnail responsive_tags blog_tags %}
 
+{% block title %}{{ movie.title }} | {{ block.super }}{% endblock title %}
+
 {% block og %}
     <meta property="og:title" content="Be The Shoe Presents &quot;{{ movie.title }}&quot;">
     <meta property="og:image" content="http://{{ request.get_host }}{% thumbnail movie.image 1200x720 crop=",1" %}">
