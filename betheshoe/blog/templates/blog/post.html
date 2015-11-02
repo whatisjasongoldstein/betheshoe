@@ -1,6 +1,8 @@
 {% extends base_template %}
 {% load thumbnail markdown_deux_tags responsive_tags typogrify_tags movie_tags %}
 
+{% block title %}{{ post.title }} | {{ block.super }}{% endblock title %}
+
 {% block og %}
     <meta property="og:title" content="{{ post.title }}">
     <meta property="og:image" content="http://{{ request.get_host }}{% thumbnail post.cropped_image 1200x900 %}">
