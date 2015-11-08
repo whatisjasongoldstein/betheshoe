@@ -26,3 +26,4 @@ wsgiref==0.1.2
 lxml
 django-cachalot==1.0.0
 -e git+git@github.com:whatisjasongoldstein/django-pipeline-helpers.git@4da01667aa10c9fef83e1f98e7cf7c6dba989c69#egg=django-pipeline-helpers
+raven==5.8.1
