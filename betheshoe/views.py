@@ -6,7 +6,7 @@ class Index(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(Index, self).get_context_data(**kwargs)
-        context['promoted_movie'] = Movie.objects.filter(publish=True, image__gt="").latest('year')
+        context['promoted_movie'] = Movie.objects.filter(publish=True, image__gt="").order_by('-year').first()
         return context
 
 class Privacy(TemplateView):

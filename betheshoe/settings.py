@@ -4,7 +4,8 @@ import sys
 from unipath import Path
 
 DEBUG = False
-if 'runserver' in sys.argv:
+
+if sys.argv[1] in ['runserver', 'migrate', 'shell']:
     DEBUG = True
     pass
 
@@ -14,6 +15,7 @@ PROJECT_DIR = Path(__file__).ancestor(2)
 
 ADMINS = (
     ('Jason Goldstein', 'jason@betheshoe.com'),
+    ('Randy Prywitch', 'randy@betheshoe.com'),
 )
 
 THUMBNAIL_BASEDIR = "thumbnails/"
@@ -22,23 +24,15 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'betheshoeproductions',                      # Or path to database file if using sqlite3.
-        # The following settings are not used with sqlite3:
-        'USER': 'betheshoe',
-        'PASSWORD': os.environ["BETHESHOE_DB_PASSWORD"],
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(PROJECT_DIR, 'db.sqlite3'),
     }
 }
-if 'test' in sys.argv:
-    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = [
     "betheshoe.com",
-    "preview.betheshoe.com",
     "local.betheshoe.com",
     "127.0.0.1",
 ]
@@ -59,10 +53,6 @@ SITE_URL = "http://betheshoe.com"
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
 USE_I18N = True
-
-# If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale.
-USE_L10N = True
 
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
@@ -106,21 +96,32 @@ STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.environ['BETHESHOE_DB_SECRET_KEY']
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    'django.template.loaders.eggs.Loader',
-)
-
 MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
 )
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 DEBUG_TOOLBAR = True
 
@@ -136,22 +137,7 @@ ROOT_URLCONF = 'betheshoe.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'betheshoe.wsgi.application'
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
-
-AUTHENTICATION_BACKENDS = (
-    # Needed to login by username in Django admin, regardless of `allauth`
-    "django.contrib.auth.backends.ModelBackend",
-)
-
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-
-
 LOGIN_REDIRECT_URL = "/"
-ACCOUNT_LOGOUT_ON_GET = True
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
@@ -182,7 +168,6 @@ INSTALLED_APPS = [
     'markdown_deux',
     'genericadmin',
     'typogrify',
-    'cachalot',
 
     'responsive_bits',
     'django_featuring',
@@ -237,23 +222,19 @@ MARKDOWN_DEUX_STYLES = {
     },
 }
 
-
 PIPELINE_DISABLE_WRAPPER = True
 
 import pipeline_helpers
 PIPELINE_CSS = pipeline_helpers.find_css()
 PIPELINE_JS = pipeline_helpers.find_js()
 
-
 PIPELINE_COMPILERS = (
     'pipeline.compilers.less.LessCompiler',
 )
 
 import raven
-if "RAVEN_DSN_BETHESHOE" in os.environ:
+if "RAVEN_DSN_BETHESHOE" in os.environ and not DEBUG:
     RAVEN_CONFIG = {
         'dsn': os.environ['RAVEN_DSN_BETHESHOE'],
-        # If you are using git, you can also automatically configure the
-        # release based on the git info.
         'release': raven.fetch_git_sha(os.path.join(os.path.dirname(__file__), "../")),
     }

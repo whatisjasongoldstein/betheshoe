@@ -62,5 +62,5 @@ def create_posts_with_drafts(**kwargs):
         "slug": slugify(obj.name),
     })
 
-models.signals.post_save.connect(create_posts_with_drafts, sender=Draft)
+# models.signals.post_save.connect(create_posts_with_drafts, sender=Draft)
 
