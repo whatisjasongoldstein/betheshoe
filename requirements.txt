@@ -19,7 +19,7 @@ python-memcached==1.53
 requests==2.5.1
 typogrify==2.0.0
 -e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@6ba5c814e8e2d0d56c2bf9ca045a8244bec64c56#egg=scruffy-cropper
--e git+git@github.com:whatisjasongoldstein/django-featuring.git@c4d122106198e8dac3c04e259e13425858f95cb5#egg=django-featuring
+-e git+git@github.com:whatisjasongoldstein/django-featuring.git@23452996ff409be7c683ae343a3a277f6e612375#egg=django-featuring
 lxml
 -e git+git@github.com:whatisjasongoldstein/django-pipeline-helpers.git@4da01667aa10c9fef83e1f98e7cf7c6dba989c69#egg=django-pipeline-helpers
 raven==5.8.1
