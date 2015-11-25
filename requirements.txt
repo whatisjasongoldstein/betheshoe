@@ -7,7 +7,7 @@ Pillow==2.8.1
 Unipath==1.0
 django-pipeline==1.5.0
 django-debug-toolbar==1.3.0
--e git+git@github.com:whatisjasongoldstein/django-genericadmin.git@a41439e20d069439b5964d4434f31f0fee24ee64#egg=django_genericadmin-dev
+-e git+git@github.com:whatisjasongoldstein/django-genericadmin.git@ae4a2b8ef07e942978dcae31af033ddccf15baec#egg=django_genericadmin-dev
 django-markdown-deux==1.0.4
 django-nose==1.3
 docutils==0.11
