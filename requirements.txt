@@ -1,25 +1,25 @@
-Django==1.8
--e git+git@github.com:whatisjasongoldstein/django-responsive-bits.git@0867ac6706ceab652c631fb1f474e1bb7185afad#egg=django_responsive_bits
+Django==1.9
+-e git+git@github.com:whatisjasongoldstein/django-responsive-bits.git@b80d39c601bacd082a837b6ec2076cf1f2831154#egg=django_responsive_bits
 Markdown==2.3.1
 MySQL-python==1.2.5
-Pillow==2.8.1
+Pillow==3.0.0
 -e git+git@github.com:whatisjasongoldstein/scruffy-video.git@e3518ea38694313e8404ca64e9c7378b88ba6826#egg=scruffy_video
 Unipath==1.0
-django-pipeline==1.5.0
-django-debug-toolbar==1.3.0
--e git+git@github.com:whatisjasongoldstein/django-genericadmin.git@ae4a2b8ef07e942978dcae31af033ddccf15baec#egg=django_genericadmin-dev
+django-pipeline==1.5.4
+django-debug-toolbar==1.4.0
+-e git+git@github.com:whatisjasongoldstein/django-genericadmin.git@485dcbcdffb3ed1a475016b4d0dba002b2d5b70f#egg=django_genericadmin-dev
 django-markdown-deux==1.0.4
 django-nose==1.3
 docutils==0.11
-easy-thumbnails==1.3
--e git+git@github.com:whatisjasongoldstein/django-draftin.git@04ed3583ba7cf8d187d3f398a1394421e8953df6#egg=django-draftin
+easy-thumbnails==2.2.1
+-e git+git@github.com:whatisjasongoldstein/django-draftin.git@ffe4073a82de2e9c1a864af95e52e3536f4b61a5#egg=django-draftin
 mock==1.0.1
 nose==1.3.0
 python-memcached==1.53
 requests==2.5.1
 typogrify==2.0.0
--e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@6ba5c814e8e2d0d56c2bf9ca045a8244bec64c56#egg=scruffy-cropper
--e git+git@github.com:whatisjasongoldstein/django-featuring.git@23452996ff409be7c683ae343a3a277f6e612375#egg=django-featuring
+-e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@0570e76cf727825054163cc98364a4143e78ae01#egg=scruffy-cropper
+-e git+git@github.com:whatisjasongoldstein/django-featuring.git@0bdb6c07bf50d7a3b5789aa951234e8c2d8efe9e#egg=django-featuring
 lxml
 -e git+git@github.com:whatisjasongoldstein/django-pipeline-helpers.git@4da01667aa10c9fef83e1f98e7cf7c6dba989c69#egg=django-pipeline-helpers
 raven==5.8.1

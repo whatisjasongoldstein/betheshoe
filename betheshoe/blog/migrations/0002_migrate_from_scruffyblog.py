@@ -4,7 +4,6 @@ from __future__ import unicode_literals
 import logging
 import markdown
 from django.db import models, migrations
-from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
 
 def update_crops():
