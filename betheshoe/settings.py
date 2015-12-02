@@ -91,7 +91,7 @@ STATICFILES_FINDERS = (
     'pipeline.finders.PipelineFinder',
 )
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.environ['BETHESHOE_DB_SECRET_KEY']
