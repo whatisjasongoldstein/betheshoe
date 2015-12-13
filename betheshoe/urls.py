@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 
@@ -10,14 +10,15 @@ from django.contrib import admin
 admin.autodiscover()
 
 from .views import Index, Privacy
+from .music.views import music_list
+from .staff.views import staff_list
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Examples:
-    # url(r'^$', 'betheshoe.views.home', name='home'),
     url(r'^$', Index.as_view(), name='index'),
     url(r'^privacy/$', Privacy.as_view(), name='privacy'),
-    url(r'^music/$', 'betheshoe.music.views.music_list', name='music'),
-    url(r'^about/$', 'betheshoe.staff.views.staff_list', name='about'),
+    url(r'^music/$', music_list, name='music'),
+    url(r'^about/$', staff_list, name='about'),
 
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/crop/', include('cropper.urls')),
@@ -27,4 +28,4 @@ urlpatterns = patterns('',
     url(r'^movies/', include('betheshoe.movies.urls')),
     url(r'^draftin/webhooks/', include('draftin.urls')),
 
-) + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

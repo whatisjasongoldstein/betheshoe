@@ -1,6 +1,9 @@
-from django.conf.urls import patterns, url, include
+from __future__ import absolute_import
 
-urlpatterns = patterns('',
-    url(r'^$', 'betheshoe.blog.views.index', name="blog.index"),
-    url(r'^(?P<slug>[\w-]+)/$', 'betheshoe.blog.views.post', name="blog.post"),
-)
+from django.conf.urls import url, include
+from . import views
+
+urlpatterns = [
+    url(r'^$', views.index, name="blog.index"),
+    url(r'^(?P<slug>[\w-]+)/$', views.post, name="blog.post"),
+]
