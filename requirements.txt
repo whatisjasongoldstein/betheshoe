@@ -18,7 +18,7 @@ nose==1.3.0
 python-memcached==1.53
 requests==2.5.1
 typogrify==2.0.0
--e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@0570e76cf727825054163cc98364a4143e78ae01#egg=scruffy-cropper
+-e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@5e22e7f0263d77e0a1510d57ac0e32d4ef042d31#egg=scruffy-cropper
 -e git+git@github.com:whatisjasongoldstein/django-featuring.git@0bdb6c07bf50d7a3b5789aa951234e8c2d8efe9e#egg=django-featuring
 lxml
 -e git+git@github.com:whatisjasongoldstein/django-pipeline-helpers.git@4da01667aa10c9fef83e1f98e7cf7c6dba989c69#egg=django-pipeline-helpers
