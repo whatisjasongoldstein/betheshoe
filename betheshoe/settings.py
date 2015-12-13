@@ -9,7 +9,6 @@ if sys.argv[1] in ['runserver', 'migrate', 'shell']:
     DEBUG = True
     pass
 
-TEMPLATE_DEBUG = DEBUG
 
 PROJECT_DIR = Path(__file__).ancestor(2)
 
@@ -114,10 +113,14 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+                "django.core.context_processors.request",
                 'django.contrib.auth.context_processors.auth',
+                'django.core.context_processors.debug',
+                'django.core.context_processors.media',
+                'django.core.context_processors.static',
+                'django.core.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+                "betheshoe.context_processors.current_site_url",
             ],
         },
     },
@@ -138,18 +141,6 @@ ROOT_URLCONF = 'betheshoe.urls'
 WSGI_APPLICATION = 'betheshoe.wsgi.application'
 
 LOGIN_REDIRECT_URL = "/"
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.core.context_processors.request",
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.core.context_processors.tz',
-    'django.contrib.messages.context_processors.messages',
-    "betheshoe.context_processors.current_site_url",
- )
 
 INSTALLED_APPS = [
     'django.contrib.auth',
