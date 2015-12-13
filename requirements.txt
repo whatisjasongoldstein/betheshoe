@@ -7,12 +7,12 @@ Pillow==3.0.0
 Unipath==1.0
 django-pipeline==1.5.4
 django-debug-toolbar==1.4.0
--e git+git@github.com:whatisjasongoldstein/django-genericadmin.git@485dcbcdffb3ed1a475016b4d0dba002b2d5b70f#egg=django_genericadmin-dev
+-e git+git@github.com:whatisjasongoldstein/django-genericadmin.git@77b246890f3813fcc44f28ded7f4cb36aa261e65#egg=django_genericadmin-dev
 django-markdown-deux==1.0.4
 django-nose==1.3
 docutils==0.11
 easy-thumbnails==2.2.1
--e git+git@github.com:whatisjasongoldstein/django-draftin.git@ffe4073a82de2e9c1a864af95e52e3536f4b61a5#egg=django-draftin
+-e git+git@github.com:whatisjasongoldstein/django-draftin.git@f413b3e49684b0eb0100b695d01899ec17445367#egg=django-draftin
 mock==1.0.1
 nose==1.3.0
 python-memcached==1.53
