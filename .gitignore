@@ -1,5 +1,4 @@
-media/
-bower/
-static/
 src
 db.sqlite3
+/static/
+/media/

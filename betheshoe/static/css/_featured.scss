@@ -1,0 +1,100 @@
+@mixin panel-gradient($color) {
+    background: linear-gradient(
+        145deg,
+        transparentize($color, 0.8) 0%,
+        transparentize(adjust-hue($color, -90%), 0.8) 100%);
+}
+
+.feature-board {
+    text-align: center;
+    margin: 1em auto;
+    max-width: 1680px;
+
+    .featured-thing {
+        background-color: black;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 0.1em 0.2em rgba(0,0,0,0.5);
+
+        width: 30%;
+        padding-bottom: 20%;
+        margin: 0.5em 1%;
+        display: inline-block;
+        color: white;
+        position: relative;
+
+        @media (max-width: 900px){
+            width: 46%;
+            padding-bottom: 0.75 * 46%;
+        }
+        @media (max-width: 600px){
+            width: 90%;
+            padding-bottom: 0.5 * 90%;
+        }
+
+        a {
+            display: block;
+            color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+
+        }
+
+        &.orange a { @include panel-gradient(orange) ;}
+        &.red a { @include panel-gradient(red) ;}
+        &.blue a { @include panel-gradient(blue) ;}
+        &.yellow a { @include panel-gradient(yellow) ;}
+        &.gold a { @include panel-gradient(gold) ;}
+        &.green a { @include panel-gradient(green) ;}
+        &.purple a { @include panel-gradient(purple) ;}
+        &.violet a { @include panel-gradient(violet) ;}
+        &.lime a { @include panel-gradient(lime) ;}
+        &.coral a { @include panel-gradient(coral) ;}
+        &.cyan a { @include panel-gradient(cyan) ;}
+        &.lavender a { @include panel-gradient(lavender) ;}
+        &.salmon a { @include panel-gradient(salmon) ;}
+        &.plum a { @include panel-gradient(plum) ;}
+        &.sienna a { @include panel-gradient(sienna) ;}
+        &.wheat a { @include panel-gradient(wheat) ;}
+
+        .wrap-label {
+            position: absolute;
+            bottom: 0; left: 0;
+            display: block;
+            width: 100%;
+            display: block;
+        }
+
+        .label {
+            background: rgba(0,0,0,0.8);
+            padding: 0.5em 1em;
+            font-weight: inherit;
+            display: inline-block;
+            margin-bottom: 0.25em;
+            max-width: 80%;
+
+            @media (max-width: 600px){
+                margin-bottom: 0;
+                max-width: 100%;
+                display: block;
+            }
+
+            h1, .meta {
+                margin: 0;
+                line-height: 1.333em;
+            }
+            h1 {
+                font-size: 1.333em;
+                font-weight: normal;
+            }
+            .meta {
+                font-size: 0.9em;
+                font-weight: 300;
+            }
+        }
+
+    }
+}
