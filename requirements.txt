@@ -1,7 +1,6 @@
 Django==1.9
 -e git+git@github.com:whatisjasongoldstein/django-responsive-bits.git@b80d39c601bacd082a837b6ec2076cf1f2831154#egg=django_responsive_bits
 Markdown==2.3.1
-MySQL-python==1.2.5
 Pillow==3.0.0
 -e git+git@github.com:whatisjasongoldstein/scruffy-video.git@e3518ea38694313e8404ca64e9c7378b88ba6826#egg=scruffy_video
 Unipath==1.0

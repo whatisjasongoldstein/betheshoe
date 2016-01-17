@@ -4,7 +4,6 @@ import sys
 from unipath import Path
 
 DEBUG = False
-
 if sys.argv[1] in ['runserver', 'migrate', 'shell']:
     DEBUG = True
     pass
