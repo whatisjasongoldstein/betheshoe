@@ -1,7 +1,5 @@
 media/
-static/CACHE/
 bower/
-media
 static/
 src
 db.sqlite3
