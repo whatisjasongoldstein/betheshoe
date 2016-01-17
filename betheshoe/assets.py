@@ -1,15 +1,7 @@
 PIPELINE_CSS = {
     'styles': {
         'source_filenames': (
-            "css/project.less",
-            "css/splash.less",
-            "css/player.less",
-            "css/movies.less",
-            "css/featured.less",
-            "css/blog.less",
-            "css/about.less",
-            "css/tooltip.less",
-            "css/font-awesome.min.css",
+            "css/site.scss",
         ),
         'output_filename': 'css/app.css',
         'extra_context': {

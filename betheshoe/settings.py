@@ -212,15 +212,19 @@ MARKDOWN_DEUX_STYLES = {
     },
 }
 
-PIPELINE_DISABLE_WRAPPER = True
 
 import pipeline_helpers
-PIPELINE_CSS = pipeline_helpers.find_css()
-PIPELINE_JS = pipeline_helpers.find_js()
+PIPELINE = {
+    "STYLESHEETS": pipeline_helpers.find_css(),
+    "JAVASCRIPT": pipeline_helpers.find_js(),
+    "CSS_COMPRESSOR": None,
+    "JS_COMPRESSOR": None,
+    "COMPILERS": (
+        'pipeline.compilers.sass.SASSCompiler',
+    ),
+    "SASS_BINARY": "sassc",
+}
 
-PIPELINE_COMPILERS = (
-    'pipeline.compilers.less.LessCompiler',
-)
 
 import raven
 if "RAVEN_DSN_BETHESHOE" in os.environ and not DEBUG:

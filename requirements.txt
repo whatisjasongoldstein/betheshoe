@@ -2,9 +2,7 @@ Django==1.9
 -e git+git@github.com:whatisjasongoldstein/django-responsive-bits.git@b80d39c601bacd082a837b6ec2076cf1f2831154#egg=django_responsive_bits
 Markdown==2.3.1
 Pillow==3.0.0
--e git+git@github.com:whatisjasongoldstein/scruffy-video.git@e3518ea38694313e8404ca64e9c7378b88ba6826#egg=scruffy_video
 Unipath==1.0
-django-pipeline==1.5.4
 django-debug-toolbar==1.4.0
 -e git+git@github.com:whatisjasongoldstein/django-genericadmin.git@77b246890f3813fcc44f28ded7f4cb36aa261e65#egg=django_genericadmin-dev
 django-markdown-deux==1.0.4
@@ -20,5 +18,11 @@ typogrify==2.0.0
 -e git+git@github.com:whatisjasongoldstein/scruffy-cropper.git@5e22e7f0263d77e0a1510d57ac0e32d4ef042d31#egg=scruffy-cropper
 -e git+git@github.com:whatisjasongoldstein/django-featuring.git@0bdb6c07bf50d7a3b5789aa951234e8c2d8efe9e#egg=django-featuring
 lxml
--e git+git@github.com:whatisjasongoldstein/django-pipeline-helpers.git@4da01667aa10c9fef83e1f98e7cf7c6dba989c69#egg=django-pipeline-helpers
+
 raven==5.8.1
+libsass==0.10.0
+
+
+django-pipeline==1.6.3
+-e git+git@github.com:whatisjasongoldstein/django-pipeline-helpers.git@4da01667aa10c9fef83e1f98e7cf7c6dba989c69#egg=django-pipeline-helpers
+-e git+git@github.com:whatisjasongoldstein/scruffy-video.git@master#egg=scruffy-video
