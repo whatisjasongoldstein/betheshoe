@@ -96,7 +96,9 @@ SECRET_KEY = os.environ['BETHESHOE_DB_SECRET_KEY']
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
@@ -124,6 +126,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 DEBUG_TOOLBAR = True
 
