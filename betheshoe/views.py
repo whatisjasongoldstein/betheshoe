@@ -1,5 +1,5 @@
 from django.views.generic import TemplateView
-from movies.models import Movie
+from betheshoe.movies.models import Movie
 
 class Index(TemplateView):
     template_name = "index.html"

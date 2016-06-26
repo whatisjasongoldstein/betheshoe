@@ -1,15 +1,15 @@
 # Django settings for betheshoe project.
 import os
 import sys
-from unipath import Path
 
 DEBUG = False
 if sys.argv[1] in ['runserver', 'migrate', 'shell']:
     DEBUG = True
+    TEMPLATE_DEBUG = DEBUG
     pass
 
 
-PROJECT_DIR = Path(__file__).ancestor(2)
+PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 
 ADMINS = (
     ('Jason Goldstein', 'jason@betheshoe.com'),
@@ -57,7 +57,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-MEDIA_ROOT = PROJECT_DIR.child("media")
+MEDIA_ROOT = os.path.join(PROJECT_DIR, "/media/")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -68,7 +68,7 @@ MEDIA_URL = '/media/'
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = PROJECT_DIR.child("static")
+STATIC_ROOT = os.path.join(PROJECT_DIR, "static/")
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -128,7 +128,7 @@ TEMPLATES = [
 ]
 
 
-DEBUG_TOOLBAR = True
+DEBUG_TOOLBAR = False
 
 if DEBUG and DEBUG_TOOLBAR:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)

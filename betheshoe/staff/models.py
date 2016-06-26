@@ -54,7 +54,7 @@ class SocialProfile(models.Model):
         "Flickr": dict(icon="fa-flickr", name="Flickr"),
     }
 
-    ICONS = [(key, ICON_MAPPINGS[key]['name']) for key in ICON_MAPPINGS]
+    ICONS = [(key, value['name']) for key, value in ICON_MAPPINGS.items()]
 
     staffer = models.ForeignKey(Staffer)
     url = models.URLField()

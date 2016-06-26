@@ -3,7 +3,7 @@ PIPELINE_CSS = {
         'source_filenames': (
             "css/site.scss",
         ),
-        'output_filename': 'css/app.css',
+        'output_filename': 'css/site.min.css',
         'extra_context': {
             'media': 'screen,projection',
         },
@@ -21,6 +21,6 @@ PIPELINE_JS = {
             "js/project.js",
             "js/deferred-images.js",
         ),
-        'output_filename': 'js/app.js',
+        'output_filename': 'js/app.min.js',
     }
 }
