@@ -35,50 +35,51 @@ class Movie(models.Model):
     poster = models.ImageField(upload_to="poster/", blank=True, default="")
     trailer_url = models.URLField(blank=True, default="")
     full_url = models.URLField(blank=True, default="")
+    facebook_url = models.URLField(blank=True, default="")
     publish = models.BooleanField(default=True)
     imdb = models.URLField(blank=True, default="")
     genre = models.CharField(blank=True, default="", choices=GENRES, max_length=255)
+    credits = models.TextField(blank=True, default="")
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse("movie", args=[self.slug,])
 
-    def get_bragging_rights(self):
+    @property
+    def bragging_rights(self):
+        events = self.show_set.prefetch_related("awards").order_by("date")
         rights = []
-        festivals = self.show_set.filter(event_type="festival").prefetch_related("awards")
-        for festival in festivals:
-            if festival.awards.count():
+        for event in events:
+            if event.event_type == "festival":
+                if event.awards.count():
 
-                wins = festival.awards.filter(status=1).values_list("title", flat=True)
-                if wins:
-                    right = "Won {} at the {}".format(", ".join(wins), festival.title)
+                    wins = event.awards.filter(status=1).values_list("title", flat=True)
+                    if wins:
+                        right = "Won **{}** at the {}".format(", ".join(wins), event.title)
+                        rights.append(right)
+
+                    nominations = event.awards.filter(status=0).values_list("title", flat=True)
+                    if nominations:
+                        right = "Nominated for **{}** at the {}".format(", ".join(nominations), event.title)
+                        rights.append(right)
+
+                else:
+                    right = "Official selection {}".format(event.title)
                     rights.append(right)
-
-                nominations = festival.awards.filter(status=0).values_list("title", flat=True)
-                if nominations:
-                    right = "Nominated for {} at the {}".format(", ".join(nominations), festival.title)
-                    rights.append(right)
-
             else:
-                right = "Official selection {}".format(festival.title)
-                rights.append(right)
+                txt = "%(type)s at %(venue)s in %(city)s" % {
+                    "type": event.get_event_type_display(),
+                    "venue": event.venue,
+                    "city": event.city,
+                }
+                rights.append(txt)
         return rights
 
-
-    def get_nonfestival_events(self):
-        shows = self.show_set.exclude(event_type="festival").order_by('-date')
-        notes = []
-        for show in shows:
-            txt = "{type} at {venue} in {city}, {state}".format(**{
-                    "type": show.get_event_type_display(),
-                    "venue": show.venue,
-                    "city": show.city,
-                    "state": show.state,
-                })
-            notes.append(txt)
-        return notes
+    @property
+    def credits_list(self):
+        return filter(lambda x: len(x) > 0, self.credits.split("\r\n"))
 
 
     @property
@@ -102,25 +103,19 @@ class Movie(models.Model):
 class Show(models.Model):
 
     TYPES = (
-        ('premiere', 'Premiere'),
+        ('premiere', 'Premiered'),
         ('festival', 'Film Festival'),
-        ('show', 'Screening'),
+        ('show', 'Screened'),
     )
 
     title = models.CharField(max_length=255, default="")
     date = models.DateField(blank=True, null=True)
-    time = models.TimeField(blank=True, null=True)
-    slug = models.SlugField()
-    summary = models.TextField(verbose_name="Description", blank=True, null=True)
     event_type = models.CharField(max_length=255, verbose_name="Type", choices=TYPES)
     city = models.CharField(max_length=255, default="")
-    venue = models.CharField(blank=False, max_length=255, default="")
-    venue_link = models.URLField(blank=True, default="")
-    facebook_event = models.URLField(blank=True, default="")
-
+    venue = models.CharField(max_length=255, default="")
     movie = models.ForeignKey(Movie)
 
-    def __unicode__(self):
+    def __str__(self):
         return "{} ({})".format(self.title, self.movie.title)
 
 
@@ -128,18 +123,13 @@ class Award(models.Model):
     LEVELS = (
         (0, "Nominated"),
         (1, "Winner"),
+        (2, "Official Selection"),
     )
     title = models.CharField(max_length=255)
     status = models.IntegerField(choices=LEVELS)
     movie = models.ForeignKey(Movie)
     event = models.ForeignKey(Show, blank=True, null=True, related_name='awards')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
-
-    def get_bragging_rights(self):
-        txt = "{} {}".format(self.get_status_display(), self.title)
-        if self.event:
-            txt += " at {}".format(self.event.title)
-        return txt
 

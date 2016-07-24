@@ -1,0 +1,64 @@
+.movie__art-grid {
+    padding: 0;
+    list-style-type: none;
+    @include display(flex);
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    margin-top: 1em;
+}
+
+.movie__art-grid__item {
+    img {
+        box-shadow: 0 0.5vw 1vw transparentize(black,0.8);
+    }
+    &.image {
+        width: 66%;
+    }
+    &.cover {
+        width: 33%;
+    }
+}
+
+.movie__title {
+    margin-bottom: 0;
+}
+
+.movie__metadata {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85em;
+    color: $meta;
+    li {
+        display: inline-block;
+        &:before {
+            content: "•";
+            margin: 0 0.5em; 
+        }
+        &:first-child:before {
+            display: none;
+        }
+    }
+}
+
+.movie__credits {
+    @include display(flex);
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    @include justify-content(flex-start);
+    font-size: 0.85em;
+
+    h3 {
+        width: 100%;
+        clear: both;
+    }
+
+    p {
+        margin: 0.5em 0;
+        width: 100%;
+        @media (min-width: 640px) {
+            margin-right: 3%;
+            width: 30%;
+        }
+    }
+}

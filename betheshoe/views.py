@@ -28,9 +28,10 @@ def index(request):
 def movie(request, slug):
     movie = get_object_or_404(Movie, slug=slug)
     page = Page(
-        title=movie.title, 
-        description=movie.description,
+        title=movie.title,
+        description=movie.synopsis,
         image=movie.image.url)
     return render(request, "movie.html", {
-
+        "page": page,
+        "movie": movie,
     })

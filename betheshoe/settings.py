@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'compressor',
     'easy_thumbnails',
+    'markdown_deux',
     'betheshoe',
     'betheshoe.movies',
 ]

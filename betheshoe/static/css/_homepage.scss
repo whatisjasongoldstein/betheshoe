@@ -55,7 +55,7 @@
 }
 
 .hp__lead-art .top-movie-tile-wrapper {
-    @media (min-width: 1200px), (min-height: 900px) {
+    @media (min-width: 800px) and (min-height: 720px) {
         position: absolute;
         bottom: 0;
         width: 100%;

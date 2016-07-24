@@ -9,6 +9,7 @@
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
+    "bourbon": "^4.2.7",
     "font-awesome": "^4.6.3",
     "lazysizes": "^2.0.0",
     "normalize.css": "^4.1.1",

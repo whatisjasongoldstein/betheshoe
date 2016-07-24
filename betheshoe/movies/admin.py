@@ -23,8 +23,6 @@ class AwardAdmin(admin.ModelAdmin):
 
 class ShowAdmin(admin.ModelAdmin):
     model = Show
-    prepopulated_fields = {"slug": ("title",)}
-
 
 
 admin.site.register(Award, AwardAdmin)

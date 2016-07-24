@@ -9,5 +9,12 @@
         font-weight: 9000;
         text-transform: uppercase;
         letter-spacing: 0.25em;
+        a {
+            color: black;
+            text-decoration: none;
+            &:hover {
+                border-bottom: 4px solid transparentize(green, 0.5);
+            }
+        }
     }
 }
