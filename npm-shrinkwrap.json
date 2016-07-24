@@ -1,0 +1,46 @@
+{
+  "name": "betheshoe",
+  "version": "1.0.0",
+  "dependencies": {
+    "element-closest": {
+      "version": "1.0.2",
+      "from": "element-closest@1.0.2",
+      "resolved": "https://registry.npmjs.org/element-closest/-/element-closest-1.0.2.tgz"
+    },
+    "font-awesome": {
+      "version": "4.6.3",
+      "from": "font-awesome@>=4.6.3 <5.0.0",
+      "resolved": "https://registry.npmjs.org/font-awesome/-/font-awesome-4.6.3.tgz"
+    },
+    "lazysizes": {
+      "version": "2.0.0",
+      "from": "lazysizes@latest",
+      "resolved": "https://registry.npmjs.org/lazysizes/-/lazysizes-2.0.0.tgz"
+    },
+    "normalize.css": {
+      "version": "4.1.1",
+      "from": "normalize.css@latest",
+      "resolved": "https://registry.npmjs.org/normalize.css/-/normalize.css-4.1.1.tgz"
+    },
+    "object-fit": {
+      "version": "0.4.3",
+      "from": "object-fit@latest",
+      "resolved": "https://registry.npmjs.org/object-fit/-/object-fit-0.4.3.tgz"
+    },
+    "picturefill": {
+      "version": "3.0.2",
+      "from": "picturefill@latest",
+      "resolved": "https://registry.npmjs.org/picturefill/-/picturefill-3.0.2.tgz"
+    },
+    "raf.js": {
+      "version": "0.0.4",
+      "from": "raf.js@0.0.4",
+      "resolved": "https://registry.npmjs.org/raf.js/-/raf.js-0.0.4.tgz"
+    },
+    "underscore": {
+      "version": "1.8.3",
+      "from": "underscore@>=1.8.3 <2.0.0",
+      "resolved": "https://registry.npmjs.org/underscore/-/underscore-1.8.3.tgz"
+    }
+  }
+}

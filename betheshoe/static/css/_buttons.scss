@@ -1,0 +1,30 @@
+a.button,
+.button {
+    text-decoration: none;
+    border: 1px solid black;
+    color: black;
+    padding: 0.5em 1em;
+    display: inline-block;
+    margin: 0 0.2em 0.2em 0;
+
+    em {
+        font-style: normal;
+        border-bottom: 1px solid rgba(255,255,255,.25);
+    }
+
+    &:hover {
+        background: rgba(0,0,0,.1);
+    }
+
+    &.reverse {
+        border-color: white;
+        color: white;
+        &:hover {
+            background: rgba(255,255,255,.1);
+        }
+    }
+
+    @media (max-width: 600px) {
+        font-size: 0.8em;
+    }
+}

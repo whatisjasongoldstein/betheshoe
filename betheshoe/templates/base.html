@@ -1,0 +1,49 @@
+{% load compress %}
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" user-scaleable="no">
+    <meta name="description" content="{{ page.description }}">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:type" content="{{ page.type|default:"website" }}">
+    {% if page.image %}
+        <meta property="og:image" content="{{ page.image }}">
+    {% endif %}
+
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'rfq6ifs',
+          scriptTimeout: 2500,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+
+    {% compress css %}
+    <link rel="stylesheet" type="text/css"  href="{% static "normalize.css/normalize.css" %}">
+    <link rel="stylesheet" type="text/css"  href="{% static "font-awesome/css/font-awesome.css" %}">
+    <link rel="stylesheet" type="text/sass" href="{% static "css/app.scss" %}">
+    {% endcompress %}
+
+    {% block head %}{% endblock head %}
+</head>
+<body>
+{% include "includes/header.html" %}
+{% block content %}
+    
+{% endblock content %}
+
+{% include "includes/footer.html" %}
+
+{% compress js %}
+    <script src="{% static 'picturefill/dist/picturefill.min.js' %}"></script>
+    <script src="{% static 'lazysizes/lazysizes.min.js' %}"></script>
+    <script src="{% static 'js/share.js' %}"></script>
+{% endcompress %}
+</body>
+</html>

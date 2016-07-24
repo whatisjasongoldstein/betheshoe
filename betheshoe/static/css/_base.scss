@@ -1,0 +1,26 @@
+body {
+    background: 0;
+    font-family: $sans;
+    font-size: 18px;
+    background: white;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+figure {
+    margin: 0;
+}
+
+a, a:visited {
+    color: darkgreen;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 2em 0;
+    height: 0;
+}

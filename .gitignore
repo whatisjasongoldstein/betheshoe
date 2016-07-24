@@ -1,0 +1,6 @@
+/static/
+/media/
+/dist/*
+db.sqlite3
+src
+/node_modules/

@@ -1,0 +1,20 @@
+@mixin slate-text() {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    max-width: 800px;  
+}
+
+@mixin slate-art() {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+@mixin slate-bleed() {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.slate-text { @include slate-text(); }
+.slate-art { @include slate-art(); }
+.slate-bleed { @include slate-bleed(); }
