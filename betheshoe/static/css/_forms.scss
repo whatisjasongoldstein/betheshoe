@@ -3,9 +3,12 @@ a.button,
     text-decoration: none;
     border: 1px solid black;
     color: black;
+    background: transparent;
     padding: 0.5em 1em;
     display: inline-block;
     margin: 0 0.2em 0.2em 0;
+    cursor: pointer;
+    @include transition(0.25s linear background);
 
     em {
         font-style: normal;
@@ -27,4 +30,15 @@ a.button,
     @media (max-width: 600px) {
         font-size: 0.8em;
     }
+}
+
+input[type=text],
+input[type=email],
+textarea {
+    background: transparent;
+    padding: 0.5em 1em;
+    display: inline-block;
+    margin: 0 0.2em 0.2em 0;
+    border: 1px solid #ccc;
+    box-shadow: inset 1px 1px 3px transparentize(black, 0.8);
 }
