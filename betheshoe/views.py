@@ -16,7 +16,7 @@ class Page(object):
 
 
 def index(request):
-    movies = Movie.objects.filter(publish=True)
+    movies = Movie.objects.filter(publish=True, full_url__gt="")
     page = Page(image=movies[0].image.url)
 
     return render(request, "index.html", {

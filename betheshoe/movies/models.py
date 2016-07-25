@@ -1,6 +1,8 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
+from ..helpers import vimeo_embed_url
+
 GENRES = (
     ("action", "Action"),
     ("adventure", "Adventure"),
@@ -81,14 +83,13 @@ class Movie(models.Model):
     def credits_list(self):
         return filter(lambda x: len(x) > 0, self.credits.split("\r\n"))
 
+    @property
+    def trailer_embed_url(self):
+        return vimeo_embed_url(self.trailer_url)
 
     @property
-    def trailer_embed(self):
-        return get_embed_src(self.trailer_url)
-
-    @property
-    def movie_embed(self):
-        return get_embed_src(self.full_url)
+    def movie_embed_url(self):
+        return vimeo_embed_url(self.full_url)
 
     @property
     def trailer_share_text(self):

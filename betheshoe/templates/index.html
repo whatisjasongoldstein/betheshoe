@@ -22,13 +22,16 @@
             {% spaceless %}
             <a class="button" href="{{ movie.trailer_url }}"><i class="fa fa-vimeo-square"></i> Trailer</a>
             <a class="button" href="{{ movie.full_url }}"><i class="fa fa-vimeo-square"></i> Full Movie</a>
-            <a class="button" href="{{ movie.imdb }}"><i class="fa fa-film"></i> IMDb</a>
-            <a class="button" data-share href="#"><i class="fa fa-facebook-official"></i> Share with Friends</a>
+            {% if movie.imdb %}
+                <a class="button" href="{{ movie.imdb }}"><i class="fa fa-film"></i> IMDb</a>
+            {% endif %}
+            <a class="button" data-share href="movie.get_absolute_url"><i class="fa fa-facebook-official"></i> Share with Friends</a>
             {% endspaceless %}
             <p>{{ movie.year }} &bull; {{ movie.length }} minutes &bull; {{ movie.genre|title }}</p>
         </div>
     </figcaption>
 </figure>
+{% endwith %}
 
 <hr>
 
@@ -47,7 +50,22 @@
     </p>
 </section>
 
-{% endwith %}
+{% for movie in movies|slice:"1:" %}
+    <ul class="movies-list">
+        <li class="movie-tile slate-text">      
+            <h1 class="movie-tile__hed"><a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a></h1>
+            {% spaceless %}
+            <a class="button" href="{{ movie.trailer_url }}"><i class="fa fa-vimeo-square"></i> Trailer</a>
+            <a class="button" href="{{ movie.full_url }}"><i class="fa fa-vimeo-square"></i> Full Movie</a>
+            {% if movie.imdb %}
+                <a class="button" href="{{ movie.imdb }}"><i class="fa fa-film"></i> IMDb</a>
+            {% endif %}
+            <a class="button" data-share href="{{ movie.get_absolute_url }}"><i class="fa fa-facebook-official"></i> Share with Friends</a>
+            {% endspaceless %}
+            <p>{{ movie.year }} &bull; {{ movie.length }} minutes &bull; {{ movie.genre|title }}</p>
+        </li>
+    </ul>
+{% endfor %}
 
 
 {% endblock content %}

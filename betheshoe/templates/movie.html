@@ -42,20 +42,49 @@
     </section>
     <hr>
 
-    <section class="movie__credits slate-text">
-        {% for brag in movie.bragging_rights %}
-            {{ brag|markdown }}
-        {% endfor %}
+    <section class="slate-text video-embeds">
+        {% if movie.full_url and movie.trailer_url %}
+            <ul class="video_embeds__tab-links">
+                <li class="is-active"><a href="#trailer">Trailer</a></li>
+                <li><a href="#movie">Movie</a></li>
+            </ul>
+            <ul class="video_embed__tab-contents is-active">
+                <li id="trailer">
+                    {% include "includes/vimeo-embed.html" with title="Trailer" url=movie.trailer_embed_url %}
+                </li>
+                <li id="movie">
+                    {% include "includes/vimeo-embed.html" with title="Full Movie" url=movie.movie_embed_url %}
+                </li>
+            </ul>
+        {% elif movie.full_url %}
+            {% include "includes/vimeo-embed.html" with title="Trailer" url=movie.trailer_embed_url %}
+        {% elif movie.trailer_url %}
+            {% include "includes/vimeo-embed.html" with title="Full Movie" url=movie.movie_embed_url %}
+        {% endif %}        
     </section>
 
     <hr>
 
+    {% with movie.bragging_rights as bragging_rights %}
+    {% if bragging_rights %}
+    <section class="movie__credits slate-text">
+        {% for brag in bragging_rights %}
+            {{ brag|markdown }}
+        {% endfor %}
+    </section>
+    {% endif %}
+    {% endwith %}
+
+    <hr>
+
+    {% if movie.credits %}
     <section class="movie__credits slate-text">
         <h3>Credits</h3>
         {% for credit in movie.credits_list %}
             {{ credit|markdown }}
         {% endfor %}            
     </section>
+    {% endif %}
 
 </article>
 
