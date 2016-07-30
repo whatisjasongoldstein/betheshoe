@@ -42,6 +42,7 @@ class Movie(models.Model):
     imdb = models.URLField(blank=True, default="")
     genre = models.CharField(blank=True, default="", choices=GENRES, max_length=255)
     credits = models.TextField(blank=True, default="")
+    story = models.TextField(blank=True, default="")
 
     def __str__(self):
         return self.title

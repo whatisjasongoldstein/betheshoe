@@ -16,7 +16,7 @@ a.button,
     }
 
     &:hover {
-        background: rgba(0,0,0,.1);
+        background: transparentize(green, 0.9);
     }
 
     &.button--reverse {

@@ -24,3 +24,13 @@ hr {
     margin: 2em 0;
     height: 0;
 }
+
+img[data-src],
+iframe[data-src] {
+    opacity: 0.15;
+    transition: 0.66s ease-in-out opacity;
+    &.lazyloaded {
+        opacity: 1;
+    }
+}
+

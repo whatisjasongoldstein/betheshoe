@@ -60,4 +60,14 @@
     </form>
     <!--End mc_embed_signup-->
 </section>
+
+<hr>
+
+<section class="slate-text">
+<h2>Also Streaming</h2>
+{% for movie in movies|slice:"1:" %}
+    <p><a href="{{ movie.get_absolute_url }}">{{ movie }}</a></p>
+{% endfor %}
+</section>
+
 {% endblock content %}

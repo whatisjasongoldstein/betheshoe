@@ -39,43 +39,48 @@
         </ul>
         {% endspaceless %}
         {{ movie.synopsis|markdown }}
-    </section>
-    <hr>
 
-    <section class="slate-text video-embeds">
-        {% if movie.full_url and movie.trailer_url %}
-            <ul class="video_embeds__tab-links">
-                <li class="is-active"><a href="#trailer">Trailer</a></li>
-                <li><a href="#movie">Movie</a></li>
-            </ul>
-            <ul class="video_embed__tab-contents is-active">
-                <li id="trailer">
-                    {% include "includes/vimeo-embed.html" with title="Trailer" url=movie.trailer_embed_url %}
-                </li>
-                <li id="movie">
-                    {% include "includes/vimeo-embed.html" with title="Full Movie" url=movie.movie_embed_url %}
-                </li>
-            </ul>
-        {% elif movie.full_url %}
-            {% include "includes/vimeo-embed.html" with title="Trailer" url=movie.trailer_embed_url %}
-        {% elif movie.trailer_url %}
-            {% include "includes/vimeo-embed.html" with title="Full Movie" url=movie.movie_embed_url %}
-        {% endif %}        
+        <p>
+            <a class="button" data-share="{{ movie.get_absolute_url }}"><i class="fa fa-facebook-official"></i> Share</a>
+        </p>
     </section>
 
     <hr>
+
+    {% if movie.full_url or movie.trailer_url %}
+    <section class="slate-text slate-container video-embeds">
+        <ul class="video_embed__players">
+            <li id="trailer">
+                {% include "includes/vimeo-embed.html" with title="Trailer" url=movie.trailer_embed_url %}
+            </li>
+            <li id="movie">
+                {% include "includes/vimeo-embed.html" with title="Full Movie" url=movie.movie_embed_url %}
+            </li>
+        </ul>
+    </section>
+    <hr>
+    {% endif %}
+
+
+    {% if movie.story %}
+    <section class="slate-text">
+        <h3>History</h3>
+        {{ movie.story|markdown }}
+    </section>
+    <hr>
+    {% endif %}
 
     {% with movie.bragging_rights as bragging_rights %}
-    {% if bragging_rights %}
+    {% if bragging_rights|length > 1 %}
     <section class="movie__credits slate-text">
         {% for brag in bragging_rights %}
             {{ brag|markdown }}
         {% endfor %}
     </section>
+    <hr>
     {% endif %}
     {% endwith %}
 
-    <hr>
 
     {% if movie.credits %}
     <section class="movie__credits slate-text">

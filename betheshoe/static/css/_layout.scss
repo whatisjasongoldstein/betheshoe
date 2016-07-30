@@ -15,6 +15,18 @@
     margin: 0 auto;
 }
 
-.slate-text { @include slate-text(); }
-.slate-art { @include slate-art(); }
-.slate-bleed { @include slate-bleed(); }
+.slate-text {
+    @include slate-text();
+}
+
+.slate-art {
+    @include slate-art();
+}
+
+.slate-bleed {
+    @include slate-bleed();
+}
+
+.slate-container {
+    position: relative;
+}
