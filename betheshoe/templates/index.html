@@ -15,7 +15,7 @@
       <source media="(min-width: 640px)" srcset="{% thumbnail movie.image 1000x700 quality="85" crop=",1" %} 1x">
       <img src="{% thumbnail movie.image 640x450 quality="90" crop=",1" %}" alt="{{ movie.title }}">
     </picture>
-    <figcaption class="top-movie-tile-wrapper">
+    <figcaption class="movie-tile-wrapper">
         <div class="movie-tile slate-text">      
             <h2 class="movie-tile__kicker">Now Streaming</h2>
             <h1 class="movie-tile__hed"><a href="{{ movie.get_absolute_url }}">{{ movie.title }}</a></h1>
@@ -64,10 +64,26 @@
 <hr>
 
 <section class="slate-text">
-<h2>Also Streaming</h2>
-{% for movie in movies|slice:"1:" %}
-    <p><a href="{{ movie.get_absolute_url }}">{{ movie }}</a></p>
-{% endfor %}
+    <h2>Also Streaming</h2>
+    <ul class="media-item-list">
+    {% for movie in movies|slice:"1:" %}
+        <li class="media-item">
+            <a href="{{ movie.get_absolute_url }}">
+                {% thumbnail movie.image 300x250 quality="90" crop=",1" as img %}
+                <img data-src="{{ img.url }}" class="lazyload media-item__image">
+                <h1 class="media-item__hed">{{ movie.title }}</h1>
+            </a>
+            <p class="media-item__description">{{ movie.synopsis|truncatewords:"25" }}</p>
+            <p class="media-item__meta">
+                {{ movie.year }} &bull; {{ movie.length }} minutes &bull; {{ movie.genre|title }}    
+            </p>
+        </li>
+    {% endfor %}
+    </ul>
+    <p>
+        <a href="{% url "movie-list" %}" class="button button--small">All Movies</a>
+    </p>
+
 </section>
 
 {% endblock content %}

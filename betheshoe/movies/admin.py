@@ -13,7 +13,7 @@ class MovieAdmin(admin.ModelAdmin):
     model = Movie
     prepopulated_fields = {"slug": ("title",)}
     inlines = [ShowInline, AwardInline]
-    list_display = ["title", "year", "publish", "genre"]
+    list_display = ["title", "year", "publish", "genre", "full_url", "trailer_url"]
     list_editable = ["year", "publish", "genre"]
     ordering = ("-year",)
 

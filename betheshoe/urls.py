@@ -8,5 +8,6 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index, name="home"),
     url(r'^movies/(?P<slug>[-\w\d]+)/$', views.movie, name="movie"),
+    url(r'^movies/$', views.movie_list, name="movie-list"),
     url(r'^admin/', admin.site.urls),
 ] + staticfiles_urlpatterns() + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

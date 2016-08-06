@@ -6,18 +6,21 @@
 <article class="movie">
 
     <ul class="slate-art movie__art-grid">
-        <li class="movie__art-grid__item image">
+        <li class="movie__art-grid__item image
+        {% if not movie.poster %}
+            only
+        {% endif %}">
             <picture>
-              <source media="(min-width: 600px)" srcset="{% thumbnail movie.image 1000x750 quality="85" crop=",1" %} 1x">
-              <img src="{% thumbnail movie.image 360x270 quality="90" crop=",1" %}" alt="{{ movie.title }}">
+              <source media="(min-width: 600px)" srcset="{% thumbnail movie.image 1000x750 quality="85" crop=",1" upscale %} 1x">
+              <img src="{% thumbnail movie.image 360x270 upscale quality="90" crop=",1" upscale %}" alt="{{ movie.title }}">
             </picture>
         </li>
         {% if movie.poster %}
         <li class="movie__art-grid__item cover">
             <picture>
-              <source media="(min-width: 1000px)" srcset="{% thumbnail movie.poster 600x900 quality="85" crop=",1" %} 1x">
-              <source media="(min-width: 600px)" srcset="{% thumbnail movie.poster 400x600 quality="85" crop=",1" %} 1x">
-              <img src="{% thumbnail movie.poster 200x300 quality="90" crop=",1" %}" alt="{{ movie.title }}">
+              <source media="(min-width: 1000px)" srcset="{% thumbnail movie.poster 600x900 quality="85" crop=",1" upscale %} 1x">
+              <source media="(min-width: 600px)" srcset="{% thumbnail movie.poster 400x600 quality="85" crop=",1" upscale %} 1x">
+              <img src="{% thumbnail movie.poster 200x300 quality="90" crop=",1" upscale %}" alt="{{ movie.title }}">
             </picture>
         </li>
         {% endif %}
@@ -40,9 +43,11 @@
         {% endspaceless %}
         {{ movie.synopsis|markdown }}
 
+        {% if movie.trailer_url or movie.full_url %}
         <p>
             <a class="button" data-share="{{ movie.get_absolute_url }}"><i class="fa fa-facebook-official"></i> Share</a>
         </p>
+        {% endif %}
     </section>
 
     <hr>
@@ -50,12 +55,16 @@
     {% if movie.full_url or movie.trailer_url %}
     <section class="slate-text slate-container video-embeds">
         <ul class="video_embed__players">
+            {% if movie.trailer_url %}
             <li id="trailer">
                 {% include "includes/vimeo-embed.html" with title="Trailer" url=movie.trailer_embed_url %}
             </li>
+            {% endif %}
+            {% if movie.full_url %}
             <li id="movie">
                 {% include "includes/vimeo-embed.html" with title="Full Movie" url=movie.movie_embed_url %}
             </li>
+            {% endif %}
         </ul>
     </section>
     <hr>

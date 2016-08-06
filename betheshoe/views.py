@@ -35,3 +35,17 @@ def movie(request, slug):
         "page": page,
         "movie": movie,
     })
+
+
+def movie_list(request):
+    movies = Movie.objects.filter(publish=True)
+    page = Page(
+        title="Movies Archive",
+        description="All the films we've made over the years.",
+        image=movies[0].image.url,
+    )
+
+    return render(request, "movie-list.html", {
+        "page": page,
+        "movies": movies,
+    })

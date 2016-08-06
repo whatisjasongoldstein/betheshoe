@@ -2,7 +2,6 @@
     position: relative;
 }
 
-.movie-tile {}
 
 .movie-tile__kicker {
     font-size: 1em;
@@ -27,20 +26,7 @@
     a {
         color: black;
         text-decoration: none;
-        display: inline-block;
-        &:after {
-            display: block;
-            background: rgba(0,150,0,0.2);
-            height: 8px;
-            width: auto;
-            content:"";
-            position: relative;
-            top: -.2em;
-            transition: 0.5s linear background;
-        }
-        &:hover:after {
-            background: rgba(0,150,0,0.5);
-        }
+        @include fancyLinks();
     }
 
     @media (min-width: 460px) {
@@ -54,7 +40,7 @@
     }
 }
 
-.hp__lead-art .top-movie-tile-wrapper {
+.hp__lead-art .movie-tile-wrapper {
     @media (min-width: 800px) and (min-height: 720px) {
         position: absolute;
         bottom: 0;

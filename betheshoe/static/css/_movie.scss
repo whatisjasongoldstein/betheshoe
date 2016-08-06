@@ -17,6 +17,10 @@
     &.cover {
         width: 33%;
     }
+    &.only {
+        width: auto;
+        margin: 0 auto;
+    }
 }
 
 .movie__title {
