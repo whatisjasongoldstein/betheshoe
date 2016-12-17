@@ -5,6 +5,11 @@ body {
     background: white;
 }
 
+
+.wf-loading * {
+    color: transparent !important;
+}
+
 img {
     width: 100%;
     display: block;

@@ -1,5 +1,51 @@
-.c-hp-lead-art {
+.c-hp-hero {
     position: relative;
+
+    .art {
+        position: relative;
+        display: block;
+    }
+
+    .title-block {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: white;
+        text-align: center;
+        transform: translate(-50%, -75%);
+        line-height: 1;
+        text-shadow: 0 0.1em 0.5em black;
+        width: calc(100% - 40px);
+
+        h1, h2 {
+            margin: 0;
+            line-height: 1;
+        }
+
+        h2 {
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            font-weight: 100;
+            font-size: 1em;
+            @media (min-width: 800px) {
+                font-size: 1.5em;
+            }
+        }
+        
+        h1 {
+            font-size: 3em;
+            @media (min-width: 600px) {
+                font-size: 4em;
+            }
+            @media (min-width: 800px) {
+                font-size: 5em;
+            }
+            @media (min-width: 1000px) {
+                font-size: 6em;
+            }
+        }
+
+    }
 
     .kicker {
         font-size: 1em;
@@ -35,18 +81,6 @@
         }
         @media (min-width: 800px) {
             font-size: 6em;
-        }
-    }
-
-    .wrapper {
-        @media (min-width: 800px) and (min-height: 720px) {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            background: rgba(255,255,255,.9);
-            background: linear-gradient(0deg,
-                    transparentize(white, 0) 0%,
-                    transparentize(white, 0.5) 100%);
         }
     }
 }
