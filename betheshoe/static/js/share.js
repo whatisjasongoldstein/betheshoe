@@ -3,7 +3,7 @@
      * Facebook sharing
      */
     document.body.addEventListener("click", function(e){
-        var share = e.target.getAttribute("data-share");
+        var share = e.target.getAttribute("js-share");
         if (share === null) {
             return;
         } else if (share === "") {

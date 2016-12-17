@@ -15,18 +15,18 @@
     margin: 0 auto;
 }
 
-.slate-text {
+.m-slate-text {
     @include slate-text();
 }
 
-.slate-art {
+.m-slate-art {
     @include slate-art();
 }
 
-.slate-bleed {
+.m-slate-bleed {
     @include slate-bleed();
 }
 
-.slate-container {
+.m-slate-container {
     position: relative;
 }

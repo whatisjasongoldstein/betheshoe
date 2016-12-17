@@ -1,5 +1,5 @@
-a.button,
-.button {
+a.c-button,
+.c-button {
     text-decoration: none;
     border: 1px solid black;
     color: black;
@@ -19,7 +19,7 @@ a.button,
         background: transparentize(green, 0.9);
     }
 
-    &.button--reverse {
+    &.is-reverse {
         border-color: white;
         color: white;
         &:hover {
@@ -27,7 +27,7 @@ a.button,
         }
     }
 
-    &.button--small {
+    &.is-small {
         font-size: 0.8em;
     }
 

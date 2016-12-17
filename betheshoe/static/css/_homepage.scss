@@ -1,53 +1,52 @@
-.hp__lead-art {
+.c-hp-lead-art {
     position: relative;
-}
 
-
-.movie-tile__kicker {
-    font-size: 1em;
-    font-weight: 600;
-    color: white;
-    background: black;
-    display: inline-block;
-    padding: 0.25em 0.5em;
-    margin-left: 0.5em;
-    line-height: 1;
-    text-transform: uppercase;
-    margin: 0;
-    line-height: 1.2;
-}
-
-.movie-tile__hed {
-    font-weight: 100;
-    margin: 0;
-    line-height: 1.2;
-    font-size: 2em;
-
-    a {
-        color: black;
-        text-decoration: none;
-        @include fancyLinks();
+    .kicker {
+        font-size: 1em;
+        font-weight: 600;
+        color: white;
+        background: black;
+        display: inline-block;
+        padding: 0.25em 0.5em;
+        margin-left: 0.5em;
+        line-height: 1;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1.2;
     }
 
-    @media (min-width: 460px) {
-        font-size: 3em;        
-    }
-    @media (min-width: 650px) {
-        font-size: 4em;        
-    }
-    @media (min-width: 800px) {
-        font-size: 6em;
-    }
-}
+    .hed {
+        font-weight: 100;
+        margin: 0;
+        line-height: 1.2;
+        font-size: 2em;
 
-.hp__lead-art .movie-tile-wrapper {
-    @media (min-width: 800px) and (min-height: 720px) {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background: rgba(255,255,255,.9);
-        background: linear-gradient(0deg,
-                transparentize(white, 0) 0%,
-                transparentize(white, 0.5) 100%);
+        a {
+            color: black;
+            text-decoration: none;
+            @include fancyLinks();
+        }
+
+        @media (min-width: 460px) {
+            font-size: 3em;        
+        }
+        @media (min-width: 650px) {
+            font-size: 4em;        
+        }
+        @media (min-width: 800px) {
+            font-size: 6em;
+        }
+    }
+
+    .wrapper {
+        @media (min-width: 800px) and (min-height: 720px) {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background: rgba(255,255,255,.9);
+            background: linear-gradient(0deg,
+                    transparentize(white, 0) 0%,
+                    transparentize(white, 0.5) 100%);
+        }
     }
 }

@@ -2,18 +2,18 @@
 {% load thumbnail %}
 
 {% block content %}
-<section class="slate-text">
+<section class="m-slate-text">
     <h1>All Movies</h1>
-    <ul class="media-item-list">
+    <ul class="c-media-item-list">
     {% for movie in movies %}
-        <li class="media-item">
+        <li class="c-media-item">
             <a href="{{ movie.get_absolute_url }}">
                 {% thumbnail movie.image 300x250 quality="90" crop=",1" as img %}
-                <img data-src="{{ img.url }}" class="lazyload media-item__image">
-                <h1 class="media-item__hed">{{ movie.title }}</h1>
+                <img data-src="{{ img.url }}" class="lazyload image">
+                <h1 class="hed">{{ movie.title }}</h1>
             </a>
-            <p class="media-item__description">{{ movie.synopsis|truncatewords:"50" }}</p>
-            <p class="media-item__meta">
+            <p class="description">{{ movie.synopsis|truncatewords:"50" }}</p>
+            <p class="meta">
                 {{ movie.year }} &bull; {{ movie.length }} minutes &bull; {{ movie.genre|title }}
                 {% if movie.imdb %}
                     &bull; <a href="{{ movie.imdb }}">IMDb</a>

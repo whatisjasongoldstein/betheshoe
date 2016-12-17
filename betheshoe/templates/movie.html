@@ -3,10 +3,10 @@
 
 {% block content %}
     
-<article class="movie">
+<article>
 
-    <ul class="slate-art movie__art-grid">
-        <li class="movie__art-grid__item image
+    <ul class="m-slate-art c-art-grid">
+        <li class="image
         {% if not movie.poster %}
             only
         {% endif %}">
@@ -26,10 +26,10 @@
         {% endif %}
     </ul>
 
-    <section class="slate-text">
-        <h1 class="movie__title">{{ movie.title }}</h1>
+    <section class="c-movie-info m-slate-text">
+        <h1>{{ movie.title }}</h1>
         {% spaceless %}
-        <ul class="movie__metadata">
+        <ul class="metadata">
             <li>{{ movie.year }}</li>
             <li>{{ movie.genre|title }}</li>
             <li>{{ movie.length }} minutes</li>
@@ -53,8 +53,8 @@
     <hr>
 
     {% if movie.full_url or movie.trailer_url %}
-    <section class="slate-text slate-container video-embeds">
-        <ul class="video_embed__players">
+    <section class="m-slate-text m-slate-container">
+        <ul class="c-video-players-list">
             {% if movie.trailer_url %}
             <li id="trailer">
                 {% include "includes/vimeo-embed.html" with title="Trailer" url=movie.trailer_embed_url %}
@@ -72,7 +72,7 @@
 
 
     {% if movie.story %}
-    <section class="slate-text">
+    <section class="m-slate-text">
         <h3>History</h3>
         {{ movie.story|markdown }}
     </section>
@@ -81,7 +81,7 @@
 
     {% with movie.bragging_rights as bragging_rights %}
     {% if bragging_rights|length > 1 %}
-    <section class="movie__credits slate-text">
+    <section class="c-credits m-slate-text">
         {% for brag in bragging_rights %}
             {{ brag|markdown }}
         {% endfor %}
@@ -92,7 +92,7 @@
 
 
     {% if movie.credits %}
-    <section class="movie__credits slate-text">
+    <section class="c-credits m-slate-text">
         <h3>Credits</h3>
         {% for credit in movie.credits_list %}
             {{ credit|markdown }}

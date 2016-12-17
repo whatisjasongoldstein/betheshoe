@@ -29,7 +29,7 @@ img[data-src],
 iframe[data-src] {
     opacity: 0.15;
     transition: 0.66s ease-in-out opacity;
-    &.lazyloaded {
+    &.lazyloaded, &.lazyloading {
         opacity: 1;
     }
 }
