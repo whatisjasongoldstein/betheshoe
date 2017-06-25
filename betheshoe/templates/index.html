@@ -19,7 +19,7 @@
 
         <figcaption class="title-block">
             <h2>Now Streaming</h2>
-            <h1><i>{{ movie.title }}</i></h1>
+            <h1>{{ movie.title }}</h1>
         </figcaption>
     </a>
 
@@ -86,7 +86,7 @@
     {% endfor %}
     </ul>
     <p>
-        <a href="{% url "movie-list" %}" class="button is-small">All Movies</a>
+        <a href="{% url "movie-list" %}" class="c-button is-small">All Movies</a>
     </p>
 
 </section>
