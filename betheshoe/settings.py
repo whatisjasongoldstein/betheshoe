@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'markdown_deux',
     'betheshoe',
     'betheshoe.movies',
+    'raven.contrib.django.raven_compat',
 ]
 
 # For easythumbs
@@ -106,6 +107,7 @@ COMPRESS_CSS_FILTERS = (
     'django_compressor_autoprefixer.AutoprefixerFilter',
 )
 
+COMPRESS_AUTOPREFIXER_BINARY = os.path.join(BASE_DIR, "node_modules/.bin/postcss")
 
 
 # Database
@@ -157,3 +159,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
+
+import raven
+if "RAVEN_DSN_BETHESHOE" in os.environ and not DEBUG:
+    RAVEN_CONFIG = {
+        'dsn': os.environ['RAVEN_DSN_BETHESHOE'],
+        'release': raven.fetch_git_sha(os.path.join(os.path.dirname(__file__), "../")),
+    }
