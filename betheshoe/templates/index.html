@@ -30,7 +30,7 @@
         <a class="c-button" href="{{ movie.trailer_url }}"><i class="fa fa-vimeo-square"></i> Trailer</a>
         <a class="c-button" href="{{ movie.full_url }}"><i class="fa fa-vimeo-square"></i> Full Movie</a>
         {% if movie.imdb %}
-            <a class="c-button" href="{{ movie.imdb }}"><i class="fa fa-film"></i> IMDb</a>
+            <a class="c-button" href="{{ movie.imdb }}"><i class="fa fa-imdb"></i> IMDb</a>
         {% endif %}
         <a class="c-button" data-share href="{{ movie.get_absolute_url }}"><i class="fa fa-facebook-official"></i> Share with Friends</a>
         {% endspaceless %}

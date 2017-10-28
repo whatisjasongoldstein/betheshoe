@@ -100,7 +100,6 @@ STATICFILES_DIRS = [
 COMPRESS_ENABLED = not DEBUG
 COMPRESS_PRECOMPILERS = (
     ('text/sass', 'sassc {infile} {outfile} --include-path=%s' % STATIC_ROOT),
-    ('text/browserify', 'browserify -e {infile} -o {outfile}'),
 )
 
 
