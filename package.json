@@ -9,10 +9,8 @@
   "author": "",
   "license": "UNLICENSED",
   "dependencies": {
-    "bourbon": "^4.2.7",
     "font-awesome": "^4.7.0",
     "lazysizes": "^2.0.0",
-    "normalize.css": "^4.1.1",
     "picturefill": "^3.0.2",
     "underscore": "^1.8.3"
   }

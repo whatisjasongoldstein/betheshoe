@@ -102,6 +102,10 @@ COMPRESS_PRECOMPILERS = (
     ('text/sass', 'sassc {infile} {outfile} --include-path=%s' % STATIC_ROOT),
 )
 
+COMPRESS_CSS_FILTERS = (
+    'django_compressor_autoprefixer.AutoprefixerFilter',
+)
+
 
 
 # Database

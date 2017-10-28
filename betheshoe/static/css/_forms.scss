@@ -8,7 +8,7 @@ a.c-button,
     display: inline-block;
     margin: 0 0.2em 0.2em 0;
     cursor: pointer;
-    @include transition(0.25s linear background);
+    transition: 0.25s linear background;
 
     em {
         font-style: normal;
