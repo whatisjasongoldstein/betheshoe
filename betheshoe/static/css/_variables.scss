@@ -8,23 +8,5 @@ $sans:  "-apple-system",
         "Arial",
         sans-serif;
 
-
-@mixin fancyLinks() {
-    display: inline-block;
-    &:after {
-        display: block;
-        background: rgba(0,150,0,0.2);
-        height: 8px;
-        width: auto;
-        content:"";
-        position: relative;
-        top: 0;
-        transition: 0.5s linear background;
-    }
-    &:hover:after {
-        background: rgba(0,150,0,0.5);
-    }
-}
-
 // Colors
 $meta: #777;

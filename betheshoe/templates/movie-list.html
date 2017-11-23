@@ -12,7 +12,6 @@
                 <img data-src="{{ img.url }}" class="lazyload image">
                 <h1 class="hed">{{ movie.title }}</h1>
             </a>
-            <p class="description">{{ movie.synopsis|truncatewords:"50" }}</p>
             <p class="meta">
                 {{ movie.year }} &bull; {{ movie.length }} minutes &bull; {{ movie.genre|title }}
                 {% if movie.imdb %}
@@ -25,6 +24,7 @@
                     &bull; <a href="{{ movie.full_url }}"><i class="fa fa-vimeo"></i> Watch on Vimeo</a>
                 {% endif %}
             </p>
+            <p class="description">{{ movie.synopsis|truncatewords:"50" }}</p>
         </li>
     {% endfor %}
     </ul>

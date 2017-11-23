@@ -11,11 +11,6 @@
     padding-left: calc(25% + 1em);
     margin: 2em 0;
 
-    & > a {
-        color: black;
-        text-decoration: none;
-    }
-
     .image {
         width: 25%;
         outline: 1px solid #eee;
@@ -26,9 +21,8 @@
 
     .hed {
         margin: 0;
-        font-weight: 400;
+        font-weight: bold;
         line-height: 1;
-        @include fancyLinks();
     }
 
     .meta {
@@ -39,6 +33,7 @@
 
     .description {
         display: none;
+        margin-top: 0.5em;
         @media (min-width: 600px) {
             display: block;
         }

@@ -5,6 +5,7 @@ body {
     background: white;
     line-height: 1.5;
     margin: 0;
+    text-decoration-skip: ink;
 }
 
 
@@ -22,7 +23,8 @@ figure {
 }
 
 a, a:visited {
-    color: darkgreen;
+    color: black;
+    text-decoration-color: green;
 }
 
 hr {
