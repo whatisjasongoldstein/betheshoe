@@ -1,24 +1,19 @@
 .c-art-grid {
     padding: 0;
     list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
     margin-top: 1em;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1em;
+
+    &.c-art-grid--no-poster {
+        grid-template-columns: 1fr;
+        max-width: 1000px;
+    }
 
     li {
         img {
             box-shadow: 0 0.5vw 1vw transparentize(black,0.8);
-        }
-        &.image {
-            width: 66%;
-        }
-        &.cover {
-            width: 33%;
-        }
-        &.only {
-            width: auto;
-            margin: 0 auto;
         }
     }
 }
@@ -49,25 +44,24 @@
 
 }
 
-.c-credits {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    font-size: 0.85em;
 
-    h3 {
-        width: 100%;
-        clear: both;
+.c-credits {
+    font-size: 0.85em;
+    display: grid;
+    grid-gap: 1em;
+
+    @media (min-width: 500px) {
+        grid-template-columns: repeat(2, 1fr);
+        h3 { grid-column: span 2; }
+    }
+
+    @media (min-width: 750px) {
+        grid-template-columns: repeat(3, 1fr);
+        h3 { grid-column: span 3; }
     }
 
     p {
-        margin: 0.5em 0;
-        width: 100%;
-        @media (min-width: 640px) {
-            margin-right: 3%;
-            width: 30%;
-        }
+        margin: 0 0 0.5em 0;
     }
 }
 

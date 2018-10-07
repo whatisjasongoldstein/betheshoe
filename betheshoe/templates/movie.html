@@ -5,11 +5,9 @@
     
 <article>
 
-    <ul class="m-slate-art c-art-grid">
-        <li class="image
-        {% if not movie.poster %}
-            only
+    <ul class="m-slate-art c-art-grid {% if not movie.poster %}c-art-grid--no-poster
         {% endif %}">
+        <li class="image">
             <picture>
               <source media="(min-width: 600px)" srcset="{% thumbnail movie.image 1000x750 quality="85" crop=",1" upscale %} 1x">
               <img src="{% thumbnail movie.image 360x270 upscale quality="90" crop=",1" upscale %}" alt="{{ movie.title }}">

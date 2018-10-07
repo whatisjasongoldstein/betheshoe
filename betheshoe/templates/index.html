@@ -65,12 +65,18 @@
             <a href="{{ movie.get_absolute_url }}">
                 {% thumbnail movie.image 300x250 quality="90" crop=",1" as img %}
                 <img data-src="{{ img.url }}" class="lazyload image">
-                <h1 class="hed">{{ movie.title }}</h1>
             </a>
-            <p class="description">{{ movie.synopsis|truncatewords:"25" }}</p>
-            <p class="meta">
-                {{ movie.year }} &bull; {{ movie.length }} minutes &bull; {{ movie.genre|title }}
-            </p>
+            <div class="c-media-item__content">
+                <h1 class="hed">
+                    <a href="{{ movie.get_absolute_url }}">
+                        {{ movie.title }}
+                    </a>
+                </h1>
+                <p class="description">{{ movie.synopsis|truncatewords:"25" }}</p>
+                <p class="meta">
+                    {{ movie.year }} &bull; {{ movie.length }} minutes &bull; {{ movie.genre|title }}
+                </p>
+            </div>
         </li>
     {% endfor %}
     </ul>
