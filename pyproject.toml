@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "betheshoe"
+version = "0.1.0"
+description = ""
+authors = ["Jason Goldstein <jason@betheshoe.com>"]
+
+[tool.poetry.dependencies]
+python = "3.6.6"
+Django = "=1.11.16"
+django-markdown-deux = "^1.0"
+Markdown = "^3.0"
+gunicorn = "^19.9"
+sqlparse = "^0.2.4"
+django-debug-toolbar = "^1.10"
+libsass = "^0.15.1"
+django-compressor-autoprefixer = "^0.1.0"
+django-compressor = "^2.2"
+raven = "^6.9"
+Pillow = "^5.3"
+easy-thumbnails = "^2.5"
+
+[tool.poetry.dev-dependencies]

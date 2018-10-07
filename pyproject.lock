@@ -1,0 +1,211 @@
+[[package]]
+category = "main"
+description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+name = "django"
+optional = false
+platform = "*"
+python-versions = "*"
+version = "1.11.16"
+
+[package.dependencies]
+pytz = "*"
+
+[[package]]
+category = "main"
+description = "A helper class for handling configuration defaults of packaged apps gracefully."
+name = "django-appconf"
+optional = false
+platform = "UNKNOWN"
+python-versions = "*"
+version = "1.0.2"
+
+[[package]]
+category = "main"
+description = "Compresses linked and inline JavaScript or CSS into single cached files."
+name = "django-compressor"
+optional = false
+platform = "*"
+python-versions = "*"
+version = "2.2"
+
+[package.dependencies]
+django-appconf = ">=1.0"
+rcssmin = "1.0.6"
+rjsmin = "1.0.12"
+
+[[package]]
+category = "main"
+description = "Django Compressor CSS filter for autoprefixer"
+name = "django-compressor-autoprefixer"
+optional = false
+platform = "UNKNOWN"
+python-versions = "*"
+version = "0.1.0"
+
+[package.dependencies]
+django_compressor = "*"
+
+[[package]]
+category = "main"
+description = "A configurable set of panels that display various debug information about the current request/response."
+name = "django-debug-toolbar"
+optional = false
+platform = "*"
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "1.10.1"
+
+[package.dependencies]
+Django = ">=1.11"
+sqlparse = ">=0.2.0"
+
+[[package]]
+category = "main"
+description = "a Django app that provides template tags for using Markdown (using the python-markdown2 processor)"
+name = "django-markdown-deux"
+optional = false
+platform = "UNKNOWN"
+python-versions = "*"
+version = "1.0.5"
+
+[package.dependencies]
+markdown2 = "*"
+
+[[package]]
+category = "main"
+description = "Easy thumbnails for Django"
+name = "easy-thumbnails"
+optional = false
+platform = "any"
+python-versions = "*"
+version = "2.5"
+
+[package.dependencies]
+django = ">=1.8"
+pillow = "*"
+
+[[package]]
+category = "main"
+description = "WSGI HTTP Server for UNIX"
+name = "gunicorn"
+optional = false
+platform = "*"
+python-versions = ">=2.6, !=3.0.*, !=3.1.*"
+version = "19.9.0"
+
+[[package]]
+category = "main"
+description = "Sass for Python: A straightforward binding of libsass for Python."
+name = "libsass"
+optional = false
+platform = "*"
+python-versions = "*"
+version = "0.15.1"
+
+[package.dependencies]
+six = "*"
+
+[[package]]
+category = "main"
+description = "Python implementation of Markdown."
+name = "markdown"
+optional = false
+platform = "*"
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
+version = "3.0.1"
+
+[[package]]
+category = "main"
+description = "A fast and complete Python implementation of Markdown"
+name = "markdown2"
+optional = false
+platform = "any"
+python-versions = "*"
+version = "2.3.6"
+
+[[package]]
+category = "main"
+description = "Python Imaging Library (Fork)"
+name = "pillow"
+optional = false
+platform = "*"
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "5.3.0"
+
+[[package]]
+category = "main"
+description = "World timezone definitions, modern and historical"
+name = "pytz"
+optional = false
+platform = "Independent"
+python-versions = "*"
+version = "2018.5"
+
+[[package]]
+category = "main"
+description = "Raven is a client for Sentry (https://getsentry.com)"
+name = "raven"
+optional = false
+platform = "*"
+python-versions = "*"
+version = "6.9.0"
+
+[[package]]
+category = "main"
+description = "CSS Minifier"
+name = "rcssmin"
+optional = false
+platform = "*"
+python-versions = "*"
+version = "1.0.6"
+
+[[package]]
+category = "main"
+description = "Javascript Minifier"
+name = "rjsmin"
+optional = false
+platform = "*"
+python-versions = "*"
+version = "1.0.12"
+
+[[package]]
+category = "main"
+description = "Python 2 and 3 compatibility utilities"
+name = "six"
+optional = false
+platform = "*"
+python-versions = "*"
+version = "1.11.0"
+
+[[package]]
+category = "main"
+description = "Non-validating SQL parser"
+name = "sqlparse"
+optional = false
+platform = "*"
+python-versions = "*"
+version = "0.2.4"
+
+[metadata]
+content-hash = "6e2ebf16cbf5854fbdc1e25831460fcca5c56b4b678393cd230570e8e230d0af"
+platform = "*"
+python-versions = "3.6.6"
+
+[metadata.hashes]
+django = ["29268cc47816a44f27308e60f71da635f549c47d8a1d003b28de55141df75791", "37f5876c1fbfd66085001f4c06fa0bf96ef05442c53daf8d4294b6f29e7fa6b8"]
+django-appconf = ["6a4d9aea683b4c224d97ab8ee11ad2d29a37072c0c6c509896dd9857466fb261", "ddab987d14b26731352c01ee69c090a4ebfc9141ed223bef039d79587f22acd9"]
+django-compressor = ["7732676cfb9d58498dfb522b036f75f3f253f72ea1345ac036434fdc418c2e57", "9616570e5b08e92fa9eadc7a1b1b49639cce07ef392fc27c74230ab08075b30f"]
+django-compressor-autoprefixer = ["7208f403877cdf40fc3a66f5fd3431d1c06badfa8182c58820c661b587f765fa"]
+django-debug-toolbar = ["08e0e43f6c1fd9820af4cbdcd54b5fb80bf83a2e08b2cc952547a671174999b8", "1dcae28d430522debafde2602b3450eb784410b78e16c29a00448032df2a4c90"]
+django-markdown-deux = ["5b4a3cd9454af5b4cec0e19151b41d98d09400ddae0688afb81dbf62a4edafff"]
+easy-thumbnails = ["e244d1f26027fc32c6ca60ffb0169a39099446f614b0433e907a2588ae7d9b95"]
+gunicorn = ["aa8e0b40b4157b36a5df5e599f45c9c76d6af43845ba3b3b0efe2c70473c2471", "fa2662097c66f920f53f70621c6c58ca4a3c4d3434205e608e121b5b3b71f4f3"]
+libsass = ["2313f0e82de034eea59443c8f69420c60c55f7c07fd3b59ea7e7a108b36e9d86", "81d63f915d12bbff9931beac3eb6e20c17c40a0da06c3f0173bbacd6568c302c", "8731fb9b4d3151b82d46a4495c8e2b322705cacbcb963c4bfe51d8a5a0c016e7", "938518d827905c83d774a190cc6257b8183edea577485c20de7d49af5ccbeea6", "95109c996ea5cf598344971e7c50847930f1d5dc110b4fc989c047d3b63c0c92", "99d952ac9315af4494eedb1c38e13a16c7c49a6ca056262353e9433f086a1fe3", "9c87df48b541276cc8b03316ab558b4019f16e158786923950926a6ce756124a", "9f740659ec137cafbfd2298e77f21ceb1e40d30c578bd047e55e09da9220048e", "a1315327c134d5ec8f90b4185e1ff2369be0108733f1be0c2ae8ba629c514ef1", "bcbbb4fdd3117e00dc43594fe7e3b10fe17ada8932734287b2680fca18e118c9", "daa7ea2b3b24585cff907320d071992ffea3ba36c4523f90798f27d1c4a9ef66", "e0046d841469df8f578d7bbeb6859502cd4b09b9d559451a35392256423559ea", "e39800d946b9b11d956f02e158eeb85b86ae5b801e63c335f83609d2811b643a"]
+markdown = ["c00429bd503a47ec88d5e30a751e147dcb4c6889663cd3e2ba0afe858e009baa", "d02e0f9b04c500cde6637c11ad7c72671f359b87b9fe924b2383649d8841db7c"]
+markdown2 = ["08a124043aa0ad36ba2136239547d5011a2b770278abb11a5609611e0040ea05"]
+pillow = ["00203f406818c3f45d47bb8fe7e67d3feddb8dcbbd45a289a1de7dd789226360", "0616f800f348664e694dddb0b0c88d26761dd5e9f34e1ed7b7a7d2da14b40cb7", "091136f2a37e9ed6bd8ce96fbf5269199ba6edee490d64de7ac934316f31ecca", "0d67ae9a5937b1348fa1d97c7dcb6b56aaef828ca6655298e96f2f3114ad829d", "0e1aaddd00ee9014fe7a61b9da61427233fcd7c7f193b5efd6689e0ec36bc42f", "1f7908aab90c92ad85af9d2fec5fc79456a89b3adcc26314d2cde0e238bd789e", "2ea3517cd5779843de8a759c2349a3cd8d3893e03ab47053b66d5ec6f8bc4f93", "39b662f65a067709a62943003c1e807d140e7fcf631fcfc66ebe905f8149b9f4", "3ddc19447cf42ef3ec564ab7ebbd4f67838ba9816d739befe29dd70149c775bd", "48a9f0538c91fc136b3a576bee0e7cd174773dc9920b310c21dcb5519722e82c", "5280ebc42641a1283b7b1f2c20e5b936692198b9dd9995527c18b794850be1a8", "576a8a7a57065dab968d9d18befa2594a7673dcdab78c9b1f34248410cc6118f", "5e334a23c8f7cb6079987a2ed9978821a42b4323a3a3bdbc132945348737f9a9", "5e34e4b5764af65551647f5cc67cf5198c1d05621781d5173b342e5e55bf023b", "63b120421ab85cad909792583f83b6ca3584610c2fe70751e23f606a3c2e87f0", "696b5e0109fe368d0057f484e2e91717b49a03f1e310f857f133a4acec9f91dd", "6cb528de694f503ea164541c151da6c18267727a7558e0c9716cc0383d89658a", "7306d851d5a0cfac9ea07f1177783836f4b37292e5f224a534a52111cb6a6451", "7e3e32346d991f1788026917d0a9c182d6d32dc757163eee7ca990f1f831499e", "870ed021a42b1b02b5fe4a739ea735f671a84128c0a666c705db2cb9abd528eb", "916da1c19e4012d06a372127d7140dae894806fad67ef44330e5600d77833581", "9303a289fa0811e1c6abd9ddebfc770556d7c3311cb2b32eff72164ddc49bc64", "9577888ecc0ad7d06c3746afaba339c94d62b59da16f7a5d1cff9e491f23dace", "987e1c94a33c93d9b209315bfda9faa54b8edfce6438a1e93ae866ba20de5956", "99a3bbdbb844f4fb5d6dd59fac836a40749781c1fa63c563bc216c27aef63f60", "99db8dc3097ceafbcff9cb2bff384b974795edeb11d167d391a02c7bfeeb6e16", "a379526415f54f9462bc65a4da76fb0acc05e3b2a21717dde79621cf4377e0e6", "a5a96cf49eb580756a44ecf12949e52f211e20bffbf5a95760ac14b1e499cd37", "a844b5d8120f99fb7cd276ff544ac5bd562b0c053760d59694e6bf747c6ca7f5", "a9284368e81a67a7f47d5ef1ef7e4f11a4f688485879f44cf5f9090bba1f9d94", "aa6ca3eb56704cdc0d876fc6047ffd5ee960caad52452fbee0f99908a141a0ae", "aade5e66795c94e4a2b2624affeea8979648d1b0ae3fcee17e74e2c647fc4a8a", "b78905860336c1d292409e3df6ad39cc1f1c7f0964e66844bbc2ebfca434d073", "b92f521cdc4e4a3041cc343625b699f20b0b5f976793fb45681aac1efda565f8", "bb2baf44e97811687893873eab8cf9f18b40321cc15d15ff9f91dc031e30631f", "bfde84bbd6ae5f782206d454b67b7ee8f7f818c29b99fd02bf022fd33bab14cb", "c2b62d3df80e694c0e4a0ed47754c9480521e25642251b3ab1dff050a4e60409", "c55d348c1c65896c1bd804527de4880d251ae832acf90d74ad525bb79e77d55c", "c5e2be6c263b64f6f7656e23e18a4a9980cffc671442795682e8c4e4f815dd9f", "c99aa3c63104e0818ec566f8ff3942fb7c7a8f35f9912cb63fd8e12318b214b2", "dae06620d3978da346375ebf88b9e2dd7d151335ba668c995aea9ed07af7add4", "db5499d0710823fa4fb88206050d46544e8f0e0136a9a5f5570b026584c8fd74", "dcd3cd17d291e01e47636101c4a6638ffb44c842d009973e3b5c1b67ff718c58", "f12df6b45abc18f27f6e21ce26f7cbf7aa19820911462e46536e22085658ca1e", "f36baafd82119c4a114b9518202f2a983819101dcc14b26e43fc12cbefdce00e", "f52b79c8796d81391ab295b04e520bda6feed54d54931708872e8f9ae9db0ea1", "fa2a50f762d06d84125db0b95d0121e9c640afa7edc23fc0848896760a390f8e", "fa49bb60792b542b95ca93a39041e7113843093ce3cfd216870118eb3798fcc9", "ff8cff01582fa1a7e533cb97f628531c4014af4b5f38e33cdcfe5eec29b6d888", "ffbccfe1c077b5f41738bd719518213c217be7a7a12a7e74113d05a0d6617390"]
+pytz = ["a061aa0a9e06881eb8b3b2b43f05b9439d6583c206d0a6c340ff72a7b6669053", "ffb9ef1de172603304d9d2819af6f5ece76f2e85ec10692a524dd876e72bf277"]
+raven = ["3fd787d19ebb49919268f06f19310e8112d619ef364f7989246fc8753d469888", "95f44f3ea2c1b176d5450df4becdb96c15bf2632888f9ab193e9dd22300ce46a"]
+rcssmin = ["ca87b695d3d7864157773a61263e5abb96006e9ff0e021eff90cbe0e1ba18270"]
+rjsmin = ["dd9591aa73500b08b7db24367f8d32c6470021f39d5ab4e50c7c02e4401386f1"]
+six = ["70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9", "832dc0e10feb1aa2c68dcc57dbb658f1c7e65b9b61af69048abc87a2db00a0eb"]
+sqlparse = ["ce028444cfab83be538752a2ffdb56bc417b7784ff35bb9a3062413717807dec", "d9cf190f51cbb26da0412247dfe4fb5f4098edb73db84e02f9fc21fdca31fed4"]
