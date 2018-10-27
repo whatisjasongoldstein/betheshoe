@@ -100,7 +100,7 @@ STATICFILES_DIRS = [
 
 COMPRESS_ENABLED = not DEBUG
 COMPRESS_PRECOMPILERS = (
-    ('text/sass', 'sassc {infile} {outfile} --include-path=%s' % STATIC_ROOT),
+    ('text/sass', 'pysassc {infile} {outfile}'),
 )
 
 COMPRESS_CSS_FILTERS = (
