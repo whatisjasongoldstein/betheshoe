@@ -16,7 +16,7 @@ libsass = "^0.15.1"
 django-compressor-autoprefixer = "^0.1.0"
 django-compressor = "^2.2"
 raven = "^6.9"
-Pillow = "^5.3"
+Pillow = "^6.2"
 easy-thumbnails = "^2.5"
 
 [tool.poetry.dev-dependencies]
