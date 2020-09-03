@@ -11,7 +11,7 @@
   "dependencies": {
     "autoprefixer": "^7.1.6",
     "font-awesome": "^4.7.0",
-    "lazysizes": "^2.0.0",
+    "lazysizes": "^5.2.1",
     "picturefill": "^3.0.2",
     "postcss-cli": "^4.1.1",
     "underscore": "^1.8.3"
